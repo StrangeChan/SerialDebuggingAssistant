@@ -14,33 +14,37 @@
    <string>串口调试助手</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="layoutWidget">
+   <widget class="QPlainTextEdit" name="plainTextEdit">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>370</x>
       <y>20</y>
-      <width>271</width>
-      <height>144</height>
+      <width>104</width>
+      <height>64</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout" rowstretch="0,0,0,0" columnstretch="0,0,0">
-     <property name="sizeConstraint">
-      <enum>QLayout::SetDefaultConstraint</enum>
-     </property>
-     <property name="verticalSpacing">
-      <number>15</number>
-     </property>
-     <item row="0" column="0" colspan="3">
-      <widget class="QLabel" name="label_25">
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>20</y>
+      <width>291</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>串口选择</string>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_27">
        <property name="text">
-        <string>串口通讯</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <string>波特率</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
+     <item row="0" column="0">
       <widget class="QLabel" name="label_26">
        <property name="maximumSize">
         <size>
@@ -54,16 +58,6 @@
       </widget>
      </item>
      <item row="1" column="1" colspan="2">
-      <widget class="QComboBox" name="comboBox_com"/>
-     </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_27">
-       <property name="text">
-        <string>波特率</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1" colspan="2">
       <widget class="QComboBox" name="comboBox_baud">
        <item>
         <property name="text">
@@ -82,7 +76,7 @@
        </item>
       </widget>
      </item>
-     <item row="3" column="0">
+     <item row="2" column="0">
       <widget class="QLabel" name="label_28">
        <property name="styleSheet">
         <string notr="true">background:rgb(85, 170, 255)</string>
@@ -92,10 +86,26 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
+     <item row="0" column="1" colspan="2">
+      <widget class="QComboBox" name="comboBox_com"/>
+     </item>
+     <item row="2" column="2">
+      <widget class="QPushButton" name="pushButton_uart_sw">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>打开串口</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
       <widget class="QPushButton" name="pushButton_uart_rfresh">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
@@ -126,16 +136,164 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="2">
-      <widget class="QPushButton" name="pushButton_uart_sw">
+    </layout>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>160</y>
+      <width>291</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>接收选项</string>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QRadioButton" name="radioButton_show_ascii">
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>35</height>
+         <height>33</height>
         </size>
        </property>
        <property name="text">
-        <string>打开串口</string>
+        <string>文本显示</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <property name="autoExclusive">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QRadioButton" name="radioButton_show_hex">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>33</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>十六进制显示</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pushButton_save">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>33</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>保存</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="pushButton_clean">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>33</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>清除接收</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>270</y>
+      <width>291</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>发送选项</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0">
+      <widget class="QRadioButton" name="radioButton_tx_ascii">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>33</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>文本显示</string>
+       </property>
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+       <property name="autoExclusive">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QRadioButton" name="radioButton_tx_hex">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>33</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>十六进制显示</string>
+       </property>
+       <property name="checked">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pushButton_tx">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>33</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>发送</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="pushButton_clean_tx">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>33</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>清除发送</string>
        </property>
       </widget>
      </item>
