@@ -32,6 +32,9 @@ class MainWindow(QMainWindow):
         self.ui.radioButton_show_hex.toggled.connect(self.display_hex)
         self.ui.pushButton_clean.clicked.connect(self.clean_display)
         self.ui.pushButton_save.clicked.connect(self.save_receive_data)
+        self.ui.radioButton_tx_hex.toggled.connect(self.change_tx_mode)
+        #self.ui.radioButton_tx_ascii.toggled.connect(self.change_tx_mode)
+        self.ui.pushButton_tx.clicked.connect(self.transmit_data)
 
 
 
@@ -107,11 +110,9 @@ class MainWindow(QMainWindow):
     def display_ascii(self,checked):
         if checked:
             hexText = self.ui.plainTextEdit_rx.toPlainText().replace(" ","")#encode('gbk')
-
             # print(hexText)
             text =bytes.fromhex(hexText)
             # print(text)
-
             self.ui.plainTextEdit_rx.setPlainText(str(text, encoding='gbk'))
 
     def display_hex(self,checked):
@@ -123,7 +124,6 @@ class MainWindow(QMainWindow):
             #print(len(hexText))
             for i in range(0,len(hexText),2):
                 self.ui.plainTextEdit_rx.insertPlainText(' ' + hexText[i:i+2])
-
 
     def clean_display(self):
         self.ui.plainTextEdit_rx.clear()
@@ -138,4 +138,27 @@ class MainWindow(QMainWindow):
                 os = QtCore.QTextStream(file)
                 os << self.ui.plainTextEdit_rx.toPlainText()
 
+    def change_tx_mode(self,checked):
+        data = self.ui.plainTextEdit_tx.toPlainText()
+        if checked:
+            if len(data) > 0:
+                hexText = bytes(data, encoding='gbk').hex().upper()
+                self.ui.plainTextEdit_tx.setPlainText("")
+                for i in range(0, len(hexText), 2):
+                    self.ui.plainTextEdit_tx.insertPlainText(' ' + hexText[i:i + 2])
+        else:
+            if len(data) > 0:
+                hexText = self.ui.plainTextEdit_tx.toPlainText().replace(" ", "")
+                text = bytes.fromhex(hexText)
+                self.ui.plainTextEdit_tx.setPlainText(str(text, encoding='gbk'))
+
+    def transmit_data(self):
+        data = self.ui.plainTextEdit_tx.toPlainText()
+        if self.ui.radioButton_tx_hex.isChecked():
+            data = bytes.fromhex(data.replace(" ", ""))
+            print(data)
+            #data = str(text, encoding='gbk')
+        else:
+            data =  bytes(data, encoding='gbk')
+        self.__serialPort.write(data)
 

@@ -18,21 +18,14 @@
       <file leaf-file-name="MainWindow.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MainWindow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="132" column="8" lean-forward="true" selection-start-line="132" selection-start-column="8" selection-end-line="132" selection-end-column="8" />
+            <state relative-caret-position="423">
+              <caret line="164" column="0" lean-forward="true" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
               <folding>
                 <element signature="e#25#80#0" expanded="true" />
+                <element signature="e#4873#5255#0" expanded="false" />
+                <element signature="e#5294#5326#0" expanded="false" />
+                <element signature="e#5369#5729#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QPlainTextEdit.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtWidgets/QPlainTextEdit.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="508" column="8" lean-forward="false" selection-start-line="508" selection-start-column="8" selection-end-line="508" selection-end-column="8" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -349,6 +342,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#25#80#0" expanded="true" />
+            <element signature="e#4873#5255#0" expanded="false" />
+            <element signature="e#5294#5326#0" expanded="false" />
+            <element signature="e#5369#5729#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -378,9 +374,9 @@
         <state relative-caret-position="330">
           <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
           <folding>
-            <marker date="1540733722265" expanded="true" signature="273:10239" ph="..." />
-            <marker date="1540733722265" expanded="true" signature="308:382" ph="..." />
-            <marker date="1540733722265" expanded="true" signature="10236:10239" ph="..." />
+            <marker date="1540796136352" expanded="true" signature="273:10239" ph="..." />
+            <marker date="1540796136352" expanded="true" signature="308:382" ph="..." />
+            <marker date="1540796136352" expanded="true" signature="10236:10239" ph="..." />
           </folding>
         </state>
       </provider>
@@ -391,6 +387,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#25#80#0" expanded="true" />
+            <element signature="e#4873#5255#0" expanded="false" />
+            <element signature="e#5294#5326#0" expanded="false" />
+            <element signature="e#5369#5729#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -420,9 +419,9 @@
         <state relative-caret-position="132">
           <caret line="4" column="35" lean-forward="false" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
           <folding>
-            <marker date="1540733722265" expanded="true" signature="273:10239" ph="..." />
-            <marker date="1540733722265" expanded="true" signature="308:382" ph="..." />
-            <marker date="1540733722265" expanded="true" signature="10236:10239" ph="..." />
+            <marker date="1540796136352" expanded="true" signature="273:10239" ph="..." />
+            <marker date="1540796136352" expanded="true" signature="308:382" ph="..." />
+            <marker date="1540796136352" expanded="true" signature="10236:10239" ph="..." />
           </folding>
         </state>
       </provider>
@@ -433,6 +432,9 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#25#80#0" expanded="true" />
+            <element signature="e#4873#5255#0" expanded="false" />
+            <element signature="e#5294#5326#0" expanded="false" />
+            <element signature="e#5369#5729#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -462,9 +464,9 @@
         <state relative-caret-position="132">
           <caret line="4" column="35" lean-forward="false" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
           <folding>
-            <marker date="1540733722265" expanded="true" signature="273:10239" ph="..." />
-            <marker date="1540733722265" expanded="true" signature="308:382" ph="..." />
-            <marker date="1540733722265" expanded="true" signature="10236:10239" ph="..." />
+            <marker date="1540796136352" expanded="true" signature="273:10239" ph="..." />
+            <marker date="1540796136352" expanded="true" signature="308:382" ph="..." />
+            <marker date="1540796136352" expanded="true" signature="10236:10239" ph="..." />
           </folding>
         </state>
       </provider>
@@ -482,6 +484,9 @@
           <caret line="36" column="78" lean-forward="false" selection-start-line="36" selection-start-column="78" selection-end-line="36" selection-end-column="78" />
           <folding>
             <element signature="e#25#80#0" expanded="true" />
+            <element signature="e#4873#5255#0" expanded="false" />
+            <element signature="e#5294#5326#0" expanded="false" />
+            <element signature="e#5369#5729#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -511,9 +516,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1540733722265" expanded="true" signature="273:10239" ph="..." />
-            <marker date="1540733722265" expanded="true" signature="308:382" ph="..." />
-            <marker date="1540733722265" expanded="true" signature="10236:10239" ph="..." />
+            <marker date="1540796136352" expanded="true" signature="273:10239" ph="..." />
+            <marker date="1540796136352" expanded="true" signature="308:382" ph="..." />
+            <marker date="1540796136352" expanded="true" signature="10236:10239" ph="..." />
           </folding>
         </state>
       </provider>
@@ -540,9 +545,9 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1540733722265" expanded="true" signature="273:10239" ph="..." />
-            <marker date="1540733722265" expanded="true" signature="308:382" ph="..." />
-            <marker date="1540733722265" expanded="true" signature="10236:10239" ph="..." />
+            <marker date="1540796136352" expanded="true" signature="273:10239" ph="..." />
+            <marker date="1540796136352" expanded="true" signature="308:382" ph="..." />
+            <marker date="1540796136352" expanded="true" signature="10236:10239" ph="..." />
           </folding>
         </state>
       </provider>
@@ -563,6 +568,9 @@
           <caret line="25" column="47" lean-forward="false" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
           <folding>
             <element signature="e#25#80#0" expanded="true" />
+            <element signature="e#4873#5255#0" expanded="false" />
+            <element signature="e#5294#5326#0" expanded="false" />
+            <element signature="e#5369#5729#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -614,9 +622,9 @@
         <state relative-caret-position="-15">
           <caret line="10" column="11" lean-forward="false" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
           <folding>
-            <marker date="1540733722265" expanded="true" signature="273:10239" ph="..." />
-            <marker date="1540733722265" expanded="true" signature="308:382" ph="..." />
-            <marker date="1540733722265" expanded="true" signature="10236:10239" ph="..." />
+            <marker date="1540796136352" expanded="true" signature="273:10239" ph="..." />
+            <marker date="1540796136352" expanded="true" signature="308:382" ph="..." />
+            <marker date="1540796136352" expanded="true" signature="10236:10239" ph="..." />
           </folding>
         </state>
       </provider>
@@ -655,14 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtCore/QIODevice.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="138" column="25" lean-forward="true" selection-start-line="138" selection-start-column="15" selection-end-line="138" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtSerialPort.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
@@ -697,14 +697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtWidgets/QPlainTextEdit.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="508" column="8" lean-forward="false" selection-start-line="508" selection-start-column="8" selection-end-line="508" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/builtins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -729,12 +721,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtWidgets/QMainWindow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="240" column="12" lean-forward="true" selection-start-line="240" selection-start-column="12" selection-end-line="240" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtCore/QIODevice.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="233" column="31" lean-forward="true" selection-start-line="233" selection-start-column="31" selection-end-line="233" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtWidgets/QPlainTextEdit.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="508" column="8" lean-forward="false" selection-start-line="508" selection-start-column="8" selection-end-line="508" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MainWindow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="132" column="8" lean-forward="true" selection-start-line="132" selection-start-column="8" selection-end-line="132" selection-end-column="8" />
+        <state relative-caret-position="423">
+          <caret line="164" column="0" lean-forward="true" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
           <folding>
             <element signature="e#25#80#0" expanded="true" />
+            <element signature="e#4873#5255#0" expanded="false" />
+            <element signature="e#5294#5326#0" expanded="false" />
+            <element signature="e#5369#5729#0" expanded="false" />
           </folding>
         </state>
       </provider>
