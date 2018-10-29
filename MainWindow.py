@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from PyQt5 import QtCore, QtGui, QtWidgets,QtSerialPort
-from PyQt5.QtWidgets import QMessageBox,QMainWindow,QToolTip
-from PyQt5.QtCore import QThread,QTimer
+from PyQt5.QtWidgets import QMessageBox,QMainWindow,QToolTip,QFileDialog
+from PyQt5.QtCore import QThread,QTimer,QFile
 from PyQt5.QtGui import QCursor
 from ui_mainwidow import Ui_MainWindow
 from Receive import Receive
@@ -30,6 +30,8 @@ class MainWindow(QMainWindow):
         self.ui.comboBox_com.currentTextChanged.connect(self.change_combox_tooltip)
         self.ui.radioButton_show_ascii.toggled.connect(self.display_ascii)
         self.ui.radioButton_show_hex.toggled.connect(self.display_hex)
+        self.ui.pushButton_clean.clicked.connect(self.clean_display)
+        self.ui.pushButton_save.clicked.connect(self.save_receive_data)
 
 
 
@@ -87,6 +89,8 @@ class MainWindow(QMainWindow):
     def receive_uart_data(self):
         if self.__serialPort.isReadable():
             data = self.__serialPort.readAll()
+            # print(data)
+            # print(data.length())
             if data.isEmpty():
                 return
             self.ui.plainTextEdit_rx.moveCursor(QtGui.QTextCursor.End)
@@ -95,25 +99,43 @@ class MainWindow(QMainWindow):
                 self.ui.plainTextEdit_rx.insertPlainText(str(data, encoding='gbk'))
             else:
                 hexText = data.toHex().toUpper()
+                # print(hexText)
+                # print(hexText.length())
                 for i in range(0,hexText.length(),2):
                     self.ui.plainTextEdit_rx.insertPlainText(' '+str(hexText.mid(i,2),encoding='gbk'))
 
     def display_ascii(self,checked):
         if checked:
-            hexText = self.ui.plainTextEdit_rx.toPlainText().replace(" ","").encode('gbk')
-            print(hexText)
-            strText = ""
-            for i in range(0,len(hexText),2):
-                strText += chr(int(hexText[i:i+2],16))
-           # print(strText)
-            self.ui.plainTextEdit_rx.setPlainText(strText)
+            hexText = self.ui.plainTextEdit_rx.toPlainText().replace(" ","")#encode('gbk')
+
+            # print(hexText)
+            text =bytes.fromhex(hexText)
+            # print(text)
+
+            self.ui.plainTextEdit_rx.setPlainText(str(text, encoding='gbk'))
 
     def display_hex(self,checked):
-        pass
+        if checked:
+            asciiText = self.ui.plainTextEdit_rx.toPlainText()
+            hexText = bytes(asciiText,encoding='gbk').hex().upper()
+            #print(hexText)
+            self.ui.plainTextEdit_rx.setPlainText("")
+            #print(len(hexText))
+            for i in range(0,len(hexText),2):
+                self.ui.plainTextEdit_rx.insertPlainText(' ' + hexText[i:i+2])
+
 
     def clean_display(self):
-        pass
+        self.ui.plainTextEdit_rx.clear()
 
     def save_receive_data(self):
-        pass
+        filename = QFileDialog.getSaveFileName(self,"Save as","/", "*.txt;;*.log")
+        print(filename)
+        print(type(filename))
+        if len(filename[0]) > 0:
+            file = QFile(filename[0])
+            if file.open(QFile.WriteOnly|QFile.Text):
+                os = QtCore.QTextStream(file)
+                os << self.ui.plainTextEdit_rx.toPlainText()
+
 
