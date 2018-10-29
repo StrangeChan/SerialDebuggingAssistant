@@ -19,11 +19,26 @@ class MainWindow(QMainWindow):
 
         self.__uartState = OFF
         self.__serialPort = QtSerialPort.QSerialPort()
+        self.__uart2Start = OFF
+        self.__serialPort2 = QtSerialPort.QSerialPort()
+
         self.__receiveThread = QThread(self)
-        self.__uartReceive = Receive(self.__serialPort)
+        self.__uartReceive = Receive(self.__serialPort2)
         self.__uartReceive.moveToThread(self.__receiveThread)
-        # self.__receiveTimer = QTimer()
+
         self.uart_init()
+        self.uart2_init()
+
+        self.__maxP = 10.0
+        self.__maxI = 0.1
+        self.__maxD = 1.0
+        self.ui.doubleSpinBox_max_P.setValue(self.__maxP)
+        self.ui.doubleSpinBox_max_I.setValue(self.__maxI)
+        self.ui.doubleSpinBox_max_D.setValue(self.__maxD)
+        self.ui.doubleSpinBox_P.setDecimals(1)
+        self.ui.doubleSpinBox_I.setDecimals(3)
+        self.ui.doubleSpinBox_D.setDecimals(2)
+
 
         self.ui.pushButton_uart_sw.clicked.connect(self.change_uart_state)
         self.ui.pushButton_uart_rfresh.clicked.connect(self.refresh_uart_info)
@@ -36,25 +51,44 @@ class MainWindow(QMainWindow):
         #self.ui.radioButton_tx_ascii.toggled.connect(self.change_tx_mode)
         self.ui.pushButton_tx.clicked.connect(self.transmit_data)
 
+        self.ui.pushButton_uart_sw_2.clicked.connect(self.change_uart2_state)
+        self.ui.pushButton_uart_rfresh_2.clicked.connect(self.refresh_uart2_info)
+        self.ui.comboBox_com_2.currentTextChanged.connect(self.change_combox_tooltip)
+
+        self.ui.doubleSpinBox_max_P.valueChanged.connect(self.set_p_max_value)
+        self.ui.doubleSpinBox_max_I.valueChanged.connect(self.set_i_max_value)
+        self.ui.doubleSpinBox_max_D.valueChanged.connect(self.set_d_max_value)
+        self.ui.verticalSlider_P.valueChanged.connect(self.change_p_para_display)
+        self.ui.verticalSlider_I.valueChanged.connect(self.change_i_para_display)
+        self.ui.verticalSlider_D.valueChanged.connect(self.change_d_para_display)
+        self.ui.doubleSpinBox_P.valueChanged.connect(self.change_p_slider_value)
+        self.ui.doubleSpinBox_I.valueChanged.connect(self.change_i_slider_value)
+        self.ui.doubleSpinBox_D.valueChanged.connect(self.change_d_slider_value)
 
 
     def uart_init(self):
         self.__uartState = OFF
         self.ui.comboBox_com.clear()
-
         for info in QtSerialPort.QSerialPortInfo.availablePorts():
             self.ui.comboBox_com.addItem(info.portName() + ":" + info.description())
-
         self.ui.comboBox_com.setCurrentIndex(0)
         self.ui.comboBox_com.setToolTip(self.ui.comboBox_com.currentText())
+
+    def uart2_init(self):
+        self.__uart2State = OFF
+        self.ui.comboBox_com_2.clear()
+        for info in QtSerialPort.QSerialPortInfo.availablePorts():
+            self.ui.comboBox_com_2.addItem(info.portName() + ":" + info.description())
+        self.ui.comboBox_com_2.setCurrentIndex(0)
+        self.ui.comboBox_com_2.setToolTip(self.ui.comboBox_com.currentText())
 
     def change_uart_state(self):
         if self.__uartState:
             self.__serialPort.close()
-            #self.__receiveTimer.stop()
             self.__uartState = OFF
             self.ui.pushButton_uart_sw.setText("打开串口")
             self.ui.comboBox_com.setEnabled(True)
+            self.ui.comboBox_baud.setEnabled(True)
         else:
             self.__serialPort.setPortName(self.ui.comboBox_com.currentText().split(':')[0])
             self.__serialPort.setBaudRate(int(self.ui.comboBox_baud.currentText()))
@@ -64,12 +98,8 @@ class MainWindow(QMainWindow):
             self.__serialPort.setParity(QtSerialPort.QSerialPort.NoParity)
             self.__serialPort.setReadBufferSize(10)
 
-            # print(self.__serialPort.open(QtSerialPort.QSerialPort.ReadWrite))
-
             if self.__serialPort.open(QtSerialPort.QSerialPort.ReadWrite):
                 self.__uartState = ON
-                # self.__receiveTimer.start()
-                # self.__receiveThread.start()
                 # 常规模式
                 self.__serialPort.readyRead.connect(self.receive_uart_data)
 
@@ -80,14 +110,50 @@ class MainWindow(QMainWindow):
                 QMessageBox.critical(self,"Error","Fail to turn on this device!")
                 print(self.__serialPort.error())
 
+    def change_uart2_state(self):
+        if self.__uart2State:
+            self.__serialPort2.close()
+            self.__uart2State = OFF
+            self.ui.pushButton_uart_sw_2.setText("打开串口")
+            self.ui.comboBox_com_2.setEnabled(True)
+            self.ui.comboBox_baud_2.setEnabled(True)
+        else:
+            self.__serialPort2.setPortName(self.ui.comboBox_com_2.currentText().split(':')[0])
+            self.__serialPort2.setBaudRate(int(self.ui.comboBox_baud_2.currentText()))
+            self.__serialPort2.setFlowControl(QtSerialPort.QSerialPort.NoFlowControl)
+            self.__serialPort2.setDataBits(QtSerialPort.QSerialPort.Data8)
+            self.__serialPort2.setStopBits(QtSerialPort.QSerialPort.OneStop)
+            self.__serialPort2.setParity(QtSerialPort.QSerialPort.NoParity)
+            self.__serialPort2.setReadBufferSize(10)
+
+            if self.__serialPort2.open(QtSerialPort.QSerialPort.ReadWrite):
+                self.__uart2State = ON
+                self.__receiveThread.start()
+                # PID调参模式
+                self.__serialPort2.readyRead.connect(self.receive_uart_data)
+
+                self.ui.pushButton_uart_sw_2.setText("关闭串口")
+                self.ui.comboBox_baud_2.setEnabled(False)
+                self.ui.comboBox_com_2.setEnabled(False)
+            else:
+                QMessageBox.critical(self,"Error","Fail to turn on this device!")
+                print(self.__serialPort2.error())
+
     def refresh_uart_info(self):
         if self.__uartState == ON:
             QToolTip.showText(QCursor.pos(),"Please turn off the current device first.")
         else:
             self.uart_init()
 
+    def refresh_uart2_info(self):
+        if self.__uart2State == ON:
+            QToolTip.showText(QCursor.pos(),"Please turn off the current device first.")
+        else:
+            self.uart2_init()
+
     def change_combox_tooltip(self):
         self.ui.comboBox_com.setToolTip(self.ui.comboBox_com.currentText())
+        self.ui.comboBox_com_2.setToolTip(self.ui.comboBox_com_2.currentText())
 
     def receive_uart_data(self):
         if self.__serialPort.isReadable():
@@ -156,9 +222,90 @@ class MainWindow(QMainWindow):
         data = self.ui.plainTextEdit_tx.toPlainText()
         if self.ui.radioButton_tx_hex.isChecked():
             data = bytes.fromhex(data.replace(" ", ""))
-            print(data)
-            #data = str(text, encoding='gbk')
+            # print(data)
+            # data = str(text, encoding='gbk')
         else:
             data =  bytes(data, encoding='gbk')
         self.__serialPort.write(data)
 
+    def closeEvent(self, e):
+        print('k88888')
+
+    # 滑动条部分操作
+    def set_p_max_value(self,max):
+        self.__maxP = max
+        if self.__maxP >= 100:
+            self.ui.doubleSpinBox_P.setDecimals(0)
+            self.ui.doubleSpinBox_P.setSingleStep(1)
+        elif self.__maxP >= 10:
+            self.ui.doubleSpinBox_P.setDecimals(1)
+            self.ui.doubleSpinBox_P.setSingleStep(0.1)
+        elif self.__maxP >= 1:
+            self.ui.doubleSpinBox_P.setDecimals(2)
+            self.ui.doubleSpinBox_P.setSingleStep(0.01)
+        else:
+            self.ui.doubleSpinBox_P.setDecimals(3)
+            self.ui.doubleSpinBox_P.setSingleStep(0.001)
+
+    def set_i_max_value(self,max):
+        self.__maxI = max
+        if self.__maxI >= 100:
+            self.ui.doubleSpinBox_I.setDecimals(0)
+            self.ui.doubleSpinBox_I.setSingleStep(1)
+        elif self.__maxI >=10:
+            self.ui.doubleSpinBox_I.setDecimals(1)
+            self.ui.doubleSpinBox_I.setSingleStep(0.1)
+        elif self.__maxI >= 1:
+            self.ui.doubleSpinBox_I.setDecimals(2)
+            self.ui.doubleSpinBox_I.setSingleStep(0.01)
+        else:
+            self.ui.doubleSpinBox_I.setDecimals(3)
+            self.ui.doubleSpinBox_I.setSingleStep(0.001)
+
+    def set_d_max_value(self,max):
+        self.__maxD = max
+        if self.__maxD >= 100:
+            self.ui.doubleSpinBox_D.setDecimals(0)
+            self.ui.doubleSpinBox_D.setSingleStep(1)
+        elif self.__maxD >= 10:
+            self.ui.doubleSpinBox_D.setDecimals(1)
+            self.ui.doubleSpinBox_D.setSingleStep(0.1)
+        elif self.__maxD >= 1:
+            self.ui.doubleSpinBox_D.setDecimals(2)
+            self.ui.doubleSpinBox_D.setSingleStep(0.01)
+        else:
+            self.ui.doubleSpinBox_D.setDecimals(3)
+            self.ui.doubleSpinBox_D.setSingleStep(0.001)
+
+    def change_p_para_display(self,para):
+        self.ui.doubleSpinBox_P.setValue(para*self.__maxP/100)
+
+    def change_i_para_display(self,para):
+        self.ui.doubleSpinBox_I.setValue(para * self.__maxI / 100)
+
+    def change_d_para_display(self,para):
+        self.ui.doubleSpinBox_D.setValue(para * self.__maxD / 100)
+
+    def change_p_slider_value(self,value):
+        if value > self.__maxP:
+            value = self.__maxP
+            self.ui.doubleSpinBox_P.setValue(value)
+
+        value = value * 100 / self.__maxP
+        self.ui.verticalSlider_P.setValue(value)
+
+    def change_i_slider_value(self,value):
+        if value > self.__maxI:
+            value = self.__maxI
+            self.ui.doubleSpinBox_I.setValue(value)
+
+        value = value * 100 / self.__maxI
+        self.ui.verticalSlider_I.setValue(value)
+
+    def change_d_slider_value(self,value):
+        if value > self.__maxD:
+            value = self.__maxD
+            self.ui.doubleSpinBox_D.setValue(value)
+
+        value = value * 100 / self.__maxD
+        self.ui.verticalSlider_D.setValue(value)
