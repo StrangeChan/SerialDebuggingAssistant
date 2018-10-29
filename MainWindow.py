@@ -3,7 +3,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets,QtSerialPort
 from PyQt5.QtWidgets import QMessageBox,QMainWindow,QToolTip,QFileDialog
 from PyQt5.QtCore import QThread,QTimer,QFile
-from PyQt5.QtGui import QCursor
+from PyQt5.QtGui import QCursor,QIcon
 from ui_mainwidow import Ui_MainWindow
 from Receive import Receive
 
@@ -16,6 +16,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.setWindowIcon(QIcon('1.ico'))
 
         self.__uartState = OFF
         self.__serialPort = QtSerialPort.QSerialPort()
@@ -279,12 +280,15 @@ class MainWindow(QMainWindow):
 
     def change_p_para_display(self,para):
         self.ui.doubleSpinBox_P.setValue(para*self.__maxP/100)
+        self.send_pid_para('p',para*self.__maxP/100)
 
     def change_i_para_display(self,para):
         self.ui.doubleSpinBox_I.setValue(para * self.__maxI / 100)
+        self.send_pid_para('i', para * self.__maxI/ 100)
 
     def change_d_para_display(self,para):
         self.ui.doubleSpinBox_D.setValue(para * self.__maxD / 100)
+        self.send_pid_para('d', para * self.__maxD / 100)
 
     def change_p_slider_value(self,value):
         if value > self.__maxP:
@@ -309,3 +313,6 @@ class MainWindow(QMainWindow):
 
         value = value * 100 / self.__maxD
         self.ui.verticalSlider_D.setValue(value)
+
+    def send_pid_para(self,cmd,para):
+        pass
