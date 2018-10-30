@@ -56,8 +56,8 @@
       <file leaf-file-name="DynamicCurve.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DynamicCurve.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="59" column="28" lean-forward="false" selection-start-line="59" selection-start-column="28" selection-end-line="59" selection-end-column="28" />
+            <state relative-caret-position="264">
+              <caret line="119" column="38" lean-forward="false" selection-start-line="119" selection-start-column="38" selection-end-line="119" selection-end-column="38" />
               <folding>
                 <element signature="e#25#58#0" expanded="true" />
               </folding>
@@ -65,12 +65,36 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="_base.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/axes/_base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7441">
+              <caret line="3389" column="8" lean-forward="false" selection-start-line="3389" selection-start-column="8" selection-end-line="3389" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_axes.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/axes/_axes.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4915">
+              <caret line="1371" column="22" lean-forward="true" selection-start-line="1371" selection-start-column="22" selection-end-line="1371" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="backend_qt5.py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/backends/backend_qt5.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="981">
-              <caret line="827" column="14" lean-forward="false" selection-start-line="827" selection-start-column="14" selection-end-line="827" selection-end-column="14" />
-              <folding />
+            <state relative-caret-position="-7455">
+              <caret line="693" column="8" lean-forward="false" selection-start-line="693" selection-start-column="8" selection-end-line="693" selection-end-column="8" />
+              <folding>
+                <element signature="e#26123#28095#0" expanded="false" />
+                <element signature="e#28124#28455#0" expanded="false" />
+                <element signature="e#28496#29451#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,11 +114,21 @@
       <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+            <state relative-caret-position="272">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="codecs.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/codecs.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="310" column="0" lean-forward="false" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -338,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1540905241270</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add curve class">
+      <created>1540906411137</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1540906411137</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -384,65 +425,38 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DynamicCurve.py</url>
+          <line>121</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DynamicCurve.py</url>
+          <line>120</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DynamicCurve.py</url>
+          <line>119</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="25" />
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="34" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MainWindow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#25#80#0" expanded="true" />
-            <element signature="e#3055#3390#0" expanded="false" />
-            <element signature="e#3426#3770#0" expanded="false" />
-            <element signature="e#3813#5147#0" expanded="false" />
-            <element signature="e#5191#6603#0" expanded="false" />
-            <element signature="e#6488#6603#0" expanded="false" />
-            <element signature="e#6646#6804#0" expanded="false" />
-            <element signature="e#6848#7008#0" expanded="false" />
-            <element signature="e#7055#7202#0" expanded="false" />
-            <element signature="e#7245#7955#0" expanded="false" />
-            <element signature="e#8002#8277#0" expanded="false" />
-            <element signature="e#8322#8704#0" expanded="false" />
-            <element signature="e#8743#8775#0" expanded="false" />
-            <element signature="e#8818#9178#0" expanded="false" />
-            <element signature="e#9226#9837#0" expanded="false" />
-            <element signature="e#9876#10201#0" expanded="false" />
-            <element signature="e#10314#10864#0" expanded="false" />
-            <element signature="e#10909#11458#0" expanded="false" />
-            <element signature="e#11503#12053#0" expanded="false" />
-            <element signature="e#12600#12799#0" expanded="false" />
-            <element signature="e#12852#13051#0" expanded="false" />
-            <element signature="e#13104#13303#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Receive.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ui_mainwidow.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
@@ -765,14 +779,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtCore/QObject.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5041">
-          <caret line="36" column="8" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/backends/backend_qt5agg.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -781,42 +787,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/figure.py">
+    <entry file="file://$PROJECT_DIR$/../qt/mplCanvasWrapper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="1682" column="22" lean-forward="false" selection-start-line="1682" selection-start-column="16" selection-end-line="1682" selection-end-column="22" />
+        <state relative-caret-position="374">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/axes/_base.py">
+    <entry file="file://$PROJECT_DIR$/../qt/testqt.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6">
-          <caret line="3389" column="8" lean-forward="false" selection-start-line="3389" selection-start-column="8" selection-end-line="3389" selection-end-column="8" />
+        <state relative-caret-position="252">
+          <caret line="47" column="18" lean-forward="false" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/axis.py">
+    <entry file="file://$PROJECT_DIR$/ui_mainwidow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="1572" column="45" lean-forward="false" selection-start-line="1572" selection-start-column="8" selection-end-line="1572" selection-end-column="45" />
+        <state relative-caret-position="298">
+          <caret line="421" column="17" lean-forward="false" selection-start-line="421" selection-start-column="17" selection-end-line="421" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/axes/_axes.py">
+    <entry file="file://$PROJECT_DIR$/Receive.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="1611" column="22" lean-forward="true" selection-start-line="1611" selection-start-column="22" selection-end-line="1611" selection-end-column="22" />
-          <folding />
+        <state relative-caret-position="272">
+          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/dates.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/backends/backend_qt5.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="396" column="14" lean-forward="true" selection-start-line="396" selection-start-column="14" selection-end-line="396" selection-end-column="14" />
+        <state relative-caret-position="-7455">
+          <caret line="693" column="8" lean-forward="false" selection-start-line="693" selection-start-column="8" selection-end-line="693" selection-end-column="8" />
+          <folding>
+            <element signature="e#26123#28095#0" expanded="false" />
+            <element signature="e#28124#28455#0" expanded="false" />
+            <element signature="e#28496#29451#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="722" column="0" lean-forward="false" selection-start-line="722" selection-start-column="0" selection-end-line="722" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -852,62 +872,84 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../qt/mplCanvasWrapper.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/dates.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="29" />
+        <state relative-caret-position="287">
+          <caret line="392" column="4" lean-forward="false" selection-start-line="392" selection-start-column="4" selection-end-line="392" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../qt/testqt.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/axis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="47" column="18" lean-forward="false" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
+        <state relative-caret-position="-821">
+          <caret line="1251" column="8" lean-forward="false" selection-start-line="1251" selection-start-column="8" selection-end-line="1251" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/axes/_axes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4915">
+          <caret line="1371" column="22" lean-forward="true" selection-start-line="1371" selection-start-column="22" selection-end-line="1371" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/axes/_base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7441">
+          <caret line="3389" column="8" lean-forward="false" selection-start-line="3389" selection-start-column="8" selection-end-line="3389" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/figure.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-209">
+          <caret line="910" column="16" lean-forward="false" selection-start-line="910" selection-start-column="8" selection-end-line="910" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtCore/QObject.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="107" column="21" lean-forward="true" selection-start-line="107" selection-start-column="21" selection-end-line="107" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="310" column="0" lean-forward="false" selection-start-line="310" selection-start-column="0" selection-end-line="310" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="4" column="26" lean-forward="true" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+        <state relative-caret-position="272">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui_mainwidow.py">
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtWidgets/QWidget.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="421" column="17" lean-forward="false" selection-start-line="421" selection-start-column="17" selection-end-line="421" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Receive.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/backends/backend_qt5.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="981">
-          <caret line="827" column="14" lean-forward="false" selection-start-line="827" selection-start-column="14" selection-end-line="827" selection-end-column="14" />
+        <state relative-caret-position="199">
+          <caret line="994" column="8" lean-forward="false" selection-start-line="994" selection-start-column="8" selection-end-line="994" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DynamicCurve.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="59" column="28" lean-forward="false" selection-start-line="59" selection-start-column="28" selection-end-line="59" selection-end-column="28" />
+        <state relative-caret-position="264">
+          <caret line="119" column="38" lean-forward="false" selection-start-line="119" selection-start-column="38" selection-end-line="119" selection-end-column="38" />
           <folding>
             <element signature="e#25#58#0" expanded="true" />
           </folding>

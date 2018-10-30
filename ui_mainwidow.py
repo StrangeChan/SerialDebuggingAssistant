@@ -356,6 +356,7 @@ class Ui_MainWindow(object):
         self.gridLayout_6.addWidget(self.label_11, 5, 4, 1, 1)
         self.gridLayout_8.addWidget(self.groupBox_5, 1, 0, 1, 1)
         self.widget = CurveWidget(self.tab_2)
+        self.widget.setMinimumSize(QtCore.QSize(300, 0))
         self.widget.setObjectName("widget")
         self.gridLayout_8.addWidget(self.widget, 1, 1, 1, 2)
         self.gridLayout_8.setColumnStretch(0, 1)
