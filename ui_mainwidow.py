@@ -355,7 +355,7 @@ class Ui_MainWindow(object):
         self.label_11.setObjectName("label_11")
         self.gridLayout_6.addWidget(self.label_11, 5, 4, 1, 1)
         self.gridLayout_8.addWidget(self.groupBox_5, 1, 0, 1, 1)
-        self.widget = QtWidgets.QWidget(self.tab_2)
+        self.widget = CurveWidget(self.tab_2)
         self.widget.setObjectName("widget")
         self.gridLayout_8.addWidget(self.widget, 1, 1, 1, 2)
         self.gridLayout_8.setColumnStretch(0, 1)
@@ -419,3 +419,4 @@ class Ui_MainWindow(object):
         self.label_11.setText(_translate("MainWindow", "0"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "PID调参"))
 
+from DynamicCurve import CurveWidget

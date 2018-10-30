@@ -32,7 +32,7 @@ class CurveFigure(FigureCanvas):
         FigureCanvas.updateGeometry(self)
         self.ax.set_xlabel("time of data generator")
         self.ax.set_ylabel('random data value')
-        self.ax.legend()
+       # self.ax.legend()
         self.ax.set_ylim(Y_MIN, Y_MAX)
         # 设置间隔
         self.ax.xaxis.set_major_locator(MinuteLocator())  # every minute is a major locator
@@ -61,10 +61,11 @@ class CurveWidget(QWidget):
         # 一个布局
         self.__vbLayout = QtWidgets.QVBoxLayout()
         # 工具栏
-        self.__nToolBar = NavigationToolbar(self.curve, parent)
-        self.vbLayout.addWidget(self.nToolBar)
-        self.vbLayout.addWidget(self.curve)
-        self.setLayout(self.vbLayout)
+        self.__nToolBar = NavigationToolbar(self.__curve, parent)
+        #self.__nToolBar.configure_subplots()
+        self.__vbLayout.addWidget(self.__nToolBar)
+        self.__vbLayout.addWidget(self.__curve)
+        self.setLayout(self.__vbLayout)
         self.dataX = []
         self.dataY = []
 
