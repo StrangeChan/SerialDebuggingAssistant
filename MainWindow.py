@@ -316,3 +316,5 @@ class MainWindow(QMainWindow):
 
     def send_pid_para(self,cmd,para):
         pass
+
+    
