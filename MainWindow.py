@@ -6,6 +6,7 @@ from PyQt5.QtCore import QThread,QTimer,QFile
 from PyQt5.QtGui import QCursor,QIcon
 from ui_mainwidow import Ui_MainWindow
 from Receive import Receive
+from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 
 OFF = False
 ON = True
@@ -17,6 +18,9 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowIcon(QIcon('1.ico'))
+
+        self.__nToolBar = NavigationToolbar(self.ui.widget.curve, self.ui.groupBox_6)
+        self.ui.gridLayout_15.addWidget(self.__nToolBar,1,0,1,1)
 
         self.__uartState = OFF
         self.__serialPort = QtSerialPort.QSerialPort()

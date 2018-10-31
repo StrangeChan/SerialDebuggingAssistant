@@ -75,13 +75,13 @@ class CurveFigure(FigureCanvas):
 class CurveWidget(QWidget):
     def __init__(self,parent = None):
         super().__init__()
-        self.__curve = CurveFigure()
+        self.curve = CurveFigure()
         # 一个布局
         self.__vbLayout = QtWidgets.QVBoxLayout()
         # 工具栏
-        self.__nToolBar = NavigationToolbar(self.__curve, parent)
-        self.__vbLayout.addWidget(self.__nToolBar)
-        self.__vbLayout.addWidget(self.__curve)
+       # self.__nToolBar = NavigationToolbar(self.curve, parent)
+       # self.__vbLayout.addWidget(self.__nToolBar)
+        self.__vbLayout.addWidget(self.curve)
         self.setLayout(self.__vbLayout)
 
         self.count_x = 0
@@ -118,7 +118,7 @@ class CurveWidget(QWidget):
 
     def timerEvent(self,e):
         if self.__timerID == e.timerId():
-            if self.count_x >= self.__curve.fig.get_size_inches()[1]*200:
+            if self.count_x >= self.curve.fig.get_size_inches()[1]*200:
                 self.__is_x_max = True
                 if len(self.dataX)>0:
                     for i in range(len(self.dataX)):
@@ -160,7 +160,7 @@ class CurveWidget(QWidget):
                     self.dataX.append(self.count_x)
                     self.dataY.append(newData)
 
-                self.__curve.plot(self.dataX, self.dataY)
+                self.curve.plot(self.dataX, self.dataY)
 
             time.sleep(INTERVAL)
 
