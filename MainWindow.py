@@ -18,13 +18,13 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowIcon(QIcon('1.ico'))
-
+        #添加图像工具栏
         self.__nToolBar = NavigationToolbar(self.ui.widget.curve, self.ui.groupBox_6)
         self.ui.gridLayout_15.addWidget(self.__nToolBar,1,0,1,1)
 
-        self.__uartState = OFF
+        self.__uartState = OFF # 常规串口
         self.__serialPort = QtSerialPort.QSerialPort()
-        self.__uart2Start = OFF
+        self.__uart2Start = OFF # PID调参串口
         self.__serialPort2 = QtSerialPort.QSerialPort()
 
         self.__receiveThread = QThread(self)
@@ -43,7 +43,6 @@ class MainWindow(QMainWindow):
         self.ui.doubleSpinBox_P.setDecimals(1)
         self.ui.doubleSpinBox_I.setDecimals(3)
         self.ui.doubleSpinBox_D.setDecimals(2)
-
 
         self.ui.pushButton_uart_sw.clicked.connect(self.change_uart_state)
         self.ui.pushButton_uart_rfresh.clicked.connect(self.refresh_uart_info)

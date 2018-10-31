@@ -1,10 +1,8 @@
 # -*- coding: utf-8 -*-
 
-from PyQt5 import QtGui,QtWidgets
-from PyQt5.QtWidgets import QWidget,QMainWindow
-import matplotlib
+from PyQt5 import QtWidgets
+from PyQt5.QtWidgets import QWidget
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 from matplotlib.figure import Figure
 import numpy as np
 from array import array
@@ -15,10 +13,10 @@ import random
 from datetime import datetime
 
 '''
-添加一个滑动条控制x轴坐标最大值，即分辨率
-
+x轴坐标最大值由窗口大小控制
 开一个定时器5ms一次 count_x ++  is_x_max = 0
-count最大后，设一标志位is_x_max = 1，count = 0 ,self.dataY.pop（0）
+添加一个滑动条控制x轴坐标最大值与窗口的倍数达到控制采样率的效果
+count_x最大后，设一标志位is_x_max = 1，count = 0 ,self.dataY.pop（0）
 
 串口接收完成后self.dataY.append(newData) self.dataX.append(count_x) 
 is_x_max = 1   self.dataX 不变
@@ -33,44 +31,44 @@ MAX_COUNTER = 100#int(X_MINUTES * 60 / INTERVAL)
 class CurveFigure(FigureCanvas):
     def __init__(self):
         self.fig = Figure()
-        self.fig.get_size_inches()
         self.ax = self.fig.add_subplot(111)
         FigureCanvas.__init__(self, self.fig)
         FigureCanvas.setSizePolicy(self,QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         FigureCanvas.updateGeometry(self)
+
         self.fig.set_tight_layout(True)
-       # self.ax.set_xlabel("time of data generator")
-       # self.ax.set_ylabel('random data value')
+
+        self.__xlimFigSizeRadio = 200
        # self.ax.legend()
         self.ax.set_ylim(Y_MIN, Y_MAX)
         self.ax.set_xlim(0, MAX_COUNTER)
-        # 设置间隔
-        #self.ax.xaxis.set_major_locator(MinuteLocator())  # every minute is a major locator
-        #self.ax.xaxis.set_minor_locator(SecondLocator([10, 20, 30, 40, 50]))  # every 10 second is a minor locator
-        #self.ax.xaxis.set_major_formatter(DateFormatter('%H:%M:%S'))  # tick label formatter
 
         self.curveObj = None  # draw object
 
-    def change_xlim(self,max):
-        self.ax.set_xlim(0, max)
+    def change_ylim(self,min,max):
+        self.ax.set_ylim(min, max)
+
+    def get_xlim_max(self):
+        return self.fig.get_size_inches()[0] * self.__xlimFigSizeRadio
+
+    def change_xlim_max(self,max):
+        self.ax.set_xlim(0,max)
+
+    def change_the_radio(self,int):
+        pass
 
     def plot(self, datax, datay):
         if self.curveObj is None:
             # create draw object once
-            #self.curveObj, = self.ax.plot_date(np.array(datax), np.array(datay), 'bo-')
             self.curveObj, = self.ax.plot(np.array(datax), np.array(datay), 'b-')
         else:
-            # update data of draw object
             self.curveObj.set_data(np.array(datax), np.array(datay))
-            #print(type(self.curveObj))
             # update limit of X axis,to make sure it can move
-            #self.ax.set_xlim(datax[0], datax[-1])
-            self.ax.set_xlim(0, self.fig.get_size_inches()[1]*200)
-        ticklabels = self.ax.xaxis.get_ticklabels()
-        #for tick in ticklabels:
-        #    tick.set_rotation(25)
+            # self.ax.set_xlim(datax[0], datax[-1])
+            self.change_xlim_max(self.get_xlim_max())
         self.draw()
-        #print(self.fig.get_size_inches())
+
+
 
 class CurveWidget(QWidget):
     def __init__(self,parent = None):
@@ -78,16 +76,11 @@ class CurveWidget(QWidget):
         self.curve = CurveFigure()
         # 一个布局
         self.__vbLayout = QtWidgets.QVBoxLayout()
-        # 工具栏
-       # self.__nToolBar = NavigationToolbar(self.curve, parent)
-       # self.__vbLayout.addWidget(self.__nToolBar)
         self.__vbLayout.addWidget(self.curve)
         self.setLayout(self.__vbLayout)
 
         self.count_x = 0
         self.__is_x_max = False
-
-
 
         self.dataX = []
         self.dataY = []
@@ -118,14 +111,17 @@ class CurveWidget(QWidget):
 
     def timerEvent(self,e):
         if self.__timerID == e.timerId():
-            if self.count_x >= self.curve.fig.get_size_inches()[1]*200:
+            if self.count_x >= self.curve.get_xlim_max():
+                # 图像超出边界
                 self.__is_x_max = True
                 if len(self.dataX)>0:
+                   # 从头部将超出边界的去掉，实现曲线滚动
                     for i in range(len(self.dataX)):
-                        self.dataX[i] -= 1
-                    if self.dataX[0] < 0:
+                        self.dataX[i] = self.dataX[i] + self.curve.get_xlim_max() - self.count_x - 1
+                    while self.dataX[0] < 0:
                         self.dataX.pop(0)
                         self.dataY.pop(0)
+                    self.count_x = self.curve.get_xlim_max()
             else:
                 self.count_x += 1
 
@@ -136,22 +132,7 @@ class CurveWidget(QWidget):
                 break
             if self.__generating:
                 newData = random.randint(Y_MIN, Y_MAX)
-               # newTime = date2num(datetime.now())
 
-                #self.dataX.append(newTime)
-
-                '''
-                self.__curve.plot(self.dataX, self.dataY)
-
-                if counter >= self.__curve.fig.get_size_inches()[1]*200:
-                    #self.dataX.pop(0)
-                    self.dataY.append(newData)
-                    self.dataY.pop(0)
-                else:
-                    self.dataX.append(counter)
-                    self.dataY.append(newData)
-                    counter += 1
-                '''
                 if self.__is_x_max:
                     self.dataY.append(newData)
                     #self.dataY.pop(0)
