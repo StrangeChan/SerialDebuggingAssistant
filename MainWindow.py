@@ -33,7 +33,7 @@ class MainWindow(QMainWindow):
 
         self.uart_init()
         self.uart2_init()
-
+        # PID滑动条初始化
         self.__maxP = 10.0
         self.__maxI = 0.1
         self.__maxD = 1.0
@@ -43,7 +43,7 @@ class MainWindow(QMainWindow):
         self.ui.doubleSpinBox_P.setDecimals(1)
         self.ui.doubleSpinBox_I.setDecimals(3)
         self.ui.doubleSpinBox_D.setDecimals(2)
-
+        # signal and slot
         self.ui.pushButton_uart_sw.clicked.connect(self.change_uart_state)
         self.ui.pushButton_uart_rfresh.clicked.connect(self.refresh_uart_info)
         self.ui.comboBox_com.currentTextChanged.connect(self.change_combox_tooltip)
@@ -52,7 +52,7 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_clean.clicked.connect(self.clean_display)
         self.ui.pushButton_save.clicked.connect(self.save_receive_data)
         self.ui.radioButton_tx_hex.toggled.connect(self.change_tx_mode)
-        #self.ui.radioButton_tx_ascii.toggled.connect(self.change_tx_mode)
+        # self.ui.radioButton_tx_ascii.toggled.connect(self.change_tx_mode)
         self.ui.pushButton_tx.clicked.connect(self.transmit_data)
 
         self.ui.pushButton_uart_sw_2.clicked.connect(self.change_uart2_state)
@@ -68,6 +68,9 @@ class MainWindow(QMainWindow):
         self.ui.doubleSpinBox_P.valueChanged.connect(self.change_p_slider_value)
         self.ui.doubleSpinBox_I.valueChanged.connect(self.change_i_slider_value)
         self.ui.doubleSpinBox_D.valueChanged.connect(self.change_d_slider_value)
+        # 滑动条改变曲线图X大小
+        self.ui.horizontalSlider.valueChanged.connect(self.ui.widget.curve.change_the_radio)
+
 
 
     def uart_init(self):

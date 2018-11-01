@@ -25,7 +25,7 @@ X_MINUTES = 1
 Y_MAX = 100
 Y_MIN = -100
 INTERVAL = 0.1
-MAX_COUNTER = 100#int(X_MINUTES * 60 / INTERVAL)
+MAX_COUNTER = 100 #int(X_MINUTES * 60 / INTERVAL)
 
 
 class CurveFigure(FigureCanvas):
@@ -48,24 +48,29 @@ class CurveFigure(FigureCanvas):
     def change_ylim(self,min,max):
         self.ax.set_ylim(min, max)
 
+    # 获取当前窗口大小对应X坐标最大值
     def get_xlim_max(self):
         return self.fig.get_size_inches()[0] * self.__xlimFigSizeRadio
 
     def change_xlim_max(self,max):
         self.ax.set_xlim(0,max)
 
+    # slot 与滑动条连接  滑动条（-50~50）
     def change_the_radio(self,int):
-        pass
+        if int > 0:
+            self.__xlimFigSizeRadio = 200 * int
+        elif int < 0:
+            int = -int
+            self.__xlimFigSizeRadio = 200/int
+        self.change_xlim_max(self.get_xlim_max())
 
-    def plot(self, datax, datay):
+    def plot(self, dataX, dataY):
         if self.curveObj is None:
             # create draw object once
-            self.curveObj, = self.ax.plot(np.array(datax), np.array(datay), 'b-')
+            self.curveObj, = self.ax.plot(np.array(dataX), np.array(dataY), 'b-')
         else:
-            self.curveObj.set_data(np.array(datax), np.array(datay))
-            # update limit of X axis,to make sure it can move
-            # self.ax.set_xlim(datax[0], datax[-1])
-            self.change_xlim_max(self.get_xlim_max())
+            self.curveObj.set_data(np.array(dataX), np.array(dataY))
+
         self.draw()
 
 
@@ -107,8 +112,17 @@ class CurveWidget(QWidget):
         self.tData.join()
 
     def add_data(self,data):
-        pass
+        if self.__is_x_max:
+            self.dataY.append(data)
+            # self.dataY.pop(0)
+            self.dataX.append(self.count_x)
+        else:
+            self.dataX.append(self.count_x)
+            self.dataY.append(data)
 
+        self.curve.plot(self.dataX, self.dataY)
+
+    # 移动曲线图像实现动态
     def timerEvent(self,e):
         if self.__timerID == e.timerId():
             if self.count_x >= self.curve.get_xlim_max():
@@ -124,6 +138,10 @@ class CurveWidget(QWidget):
                     self.count_x = self.curve.get_xlim_max()
             else:
                 self.count_x += 1
+
+    # 重置图像大小
+    def resizeEvent(self, e):
+        self.curve.change_xlim_max(self.curve.get_xlim_max())
 
     def generate_data(self):
         counter = 0

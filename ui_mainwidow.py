@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(856, 506)
+        MainWindow.resize(861, 628)
         MainWindow.setBaseSize(QtCore.QSize(0, 0))
         MainWindow.setIconSize(QtCore.QSize(18, 18))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
