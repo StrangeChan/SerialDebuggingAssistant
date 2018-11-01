@@ -19,8 +19,8 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.setWindowIcon(QIcon('1.ico'))
         #添加图像工具栏
-        self.__nToolBar = NavigationToolbar(self.ui.widget.curve, self.ui.groupBox_6)
-        self.ui.gridLayout_15.addWidget(self.__nToolBar,1,0,1,1)
+        # self.__nToolBar = NavigationToolbar(self.ui.widget.curve, self.ui.groupBox_6)
+        # self.ui.gridLayout_15.addWidget(self.__nToolBar,1,0,1,1)
 
         self.__uartState = OFF # 常规串口
         self.__serialPort = QtSerialPort.QSerialPort()

@@ -35,18 +35,51 @@ class CurveFigure(FigureCanvas):
         FigureCanvas.__init__(self, self.fig)
         FigureCanvas.setSizePolicy(self,QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         FigureCanvas.updateGeometry(self)
-
         self.fig.set_tight_layout(True)
+
+        self.__yMax = 100
+        self.__yMin = -100
+        self.__ylimAdjust = 1.1         # 滚轮调整Y轴限制变化率
+        self.__isMousePress = False     # 鼠标是否按下
+        self.__data_y = 0    # 按下鼠标时Y坐标
+        self.fig.canvas.mpl_connect('scroll_event', self.scroll_change_ylim)
+        self.fig.canvas.mpl_connect('button_press_event', self.mouse_pressed)
+        self.fig.canvas.mpl_connect('button_release_event', self.mouse_move_fig)
 
         self.__xlimFigSizeRadio = 200
        # self.ax.legend()
-        self.ax.set_ylim(Y_MIN, Y_MAX)
+        self.ax.set_ylim(self.__yMin, self.__yMax)
         self.ax.set_xlim(0, MAX_COUNTER)
 
         self.curveObj = None  # draw object
 
     def change_ylim(self,min,max):
         self.ax.set_ylim(min, max)
+
+    def mouse_pressed(self,e):
+        self.__isMousePress = True
+        self.__data_y = e.ydata
+
+    def mouse_released(self,e):
+        pass
+        # self.__isMouseRelease = True
+        #self.__isMousePress = False
+
+    def mouse_move_fig(self, e):
+        if self.__isMousePress and e.ydata != None and self.__data_y != None:
+            ylim = self.ax.get_ylim()
+            print(ylim[0],ylim[1],e.ydata,self.__data_y)
+            self.ax.set_ylim(ylim[0]-e.ydata+self.__data_y,ylim[1]-e.ydata+self.__data_y)
+
+    # 滚轮改变Y轴坐标
+    def scroll_change_ylim(self,e):
+        #print([e.step,e.xdata,e.ydata])
+        if e.step > 0:
+            self.__yMax = self.__yMax / self.__ylimAdjust
+            self.__yMin = self.__yMin / self.__ylimAdjust
+        else:
+            self.__yMax,self.__yMin = self.__yMax * self.__ylimAdjust,self.__yMin * self.__ylimAdjust
+        self.ax.set_ylim(e.ydata+self.__yMin, e.ydata+self.__yMax)
 
     # 获取当前窗口大小对应X坐标最大值
     def get_xlim_max(self):
@@ -72,6 +105,9 @@ class CurveFigure(FigureCanvas):
             self.curveObj.set_data(np.array(dataX), np.array(dataY))
 
         self.draw()
+
+        #self.scroll_event()
+
 
 
 
@@ -144,7 +180,6 @@ class CurveWidget(QWidget):
         self.curve.change_xlim_max(self.curve.get_xlim_max())
 
     def generate_data(self):
-        counter = 0
         while (True):
             if self.__exit:
                 break
@@ -160,6 +195,4 @@ class CurveWidget(QWidget):
                     self.dataY.append(newData)
 
                 self.curve.plot(self.dataX, self.dataY)
-
-            time.sleep(INTERVAL)
-
+                time.sleep(INTERVAL)
