@@ -5,8 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DynamicCurve.py" afterPath="$PROJECT_DIR$/DynamicCurve.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MainWindow.py" afterPath="$PROJECT_DIR$/MainWindow.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui_mainwidow.py" afterPath="$PROJECT_DIR$/ui_mainwidow.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui_mainwidow.ui" afterPath="$PROJECT_DIR$/ui_mainwidow.ui" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="MainWindow.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainWindow.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MainWindow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1211">
-              <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+            <state relative-caret-position="389">
+              <caret line="71" column="75" lean-forward="false" selection-start-line="71" selection-start-column="75" selection-end-line="71" selection-end-column="75" />
               <folding>
                 <element signature="e#25#80#0" expanded="true" />
                 <element signature="e#3493#3828#0" expanded="false" />
@@ -43,30 +41,39 @@
                 <element signature="e#9256#9616#0" expanded="false" />
                 <element signature="e#9664#10275#0" expanded="false" />
                 <element signature="e#10314#10639#0" expanded="false" />
-                <element signature="e#10752#11302#0" expanded="false" />
-                <element signature="e#11347#11896#0" expanded="false" />
-                <element signature="e#11941#12491#0" expanded="false" />
-                <element signature="e#13038#13237#0" expanded="false" />
-                <element signature="e#13290#13489#0" expanded="false" />
-                <element signature="e#13542#13741#0" expanded="false" />
+                <element signature="e#10790#11340#0" expanded="false" />
+                <element signature="e#11385#11934#0" expanded="false" />
+                <element signature="e#11979#12529#0" expanded="false" />
+                <element signature="e#13076#13275#0" expanded="false" />
+                <element signature="e#13328#13527#0" expanded="false" />
+                <element signature="e#13580#13779#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DynamicCurve.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DynamicCurve.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DynamicCurve.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="73" column="14" lean-forward="true" selection-start-line="73" selection-start-column="14" selection-end-line="73" selection-end-column="14" />
+            <state relative-caret-position="285">
+              <caret line="230" column="9" lean-forward="false" selection-start-line="230" selection-start-column="9" selection-end-line="230" selection-end-column="9" />
               <folding>
-                <element signature="e#25#52#0" expanded="true" />
-                <element signature="e#4211#4379#0" expanded="false" />
-                <element signature="e#4417#4461#0" expanded="false" />
-                <element signature="e#4500#4774#0" expanded="false" />
-                <element signature="e#4829#5464#0" expanded="false" />
-                <element signature="e#5511#5564#0" expanded="false" />
+                <element signature="e#24#36#0" expanded="true" />
+                <element signature="e#7685#7787#0" expanded="false" />
+                <element signature="e#7891#8225#0" expanded="false" />
+                <element signature="e#8286#8740#0" expanded="false" />
+                <element signature="e#9339#9587#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QWidget.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtWidgets/QWidget.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="267">
+              <caret line="689" column="12" lean-forward="true" selection-start-line="689" selection-start-column="12" selection-end-line="689" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -84,7 +91,7 @@
       <file leaf-file-name="Receive.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Receive.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
+            <state relative-caret-position="272">
               <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
@@ -382,7 +389,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541072917867</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="delete tool bar and add some function of mouse">
+      <created>1541083999148</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1541083999148</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -396,11 +410,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16954644" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2437276" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2437276" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20191158" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497309" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -425,7 +440,8 @@
     <MESSAGE value="add curve class" />
     <MESSAGE value="adjust the position of toobar" />
     <MESSAGE value="add the slider to control the figure size" />
-    <option name="LAST_COMMIT_MESSAGE" value="add the slider to control the figure size" />
+    <MESSAGE value="delete tool bar and add some function of mouse" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete tool bar and add some function of mouse" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -439,7 +455,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="36" />
+      <option name="time" value="37" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -479,12 +495,12 @@
             <element signature="e#9256#9616#0" expanded="false" />
             <element signature="e#9664#10275#0" expanded="false" />
             <element signature="e#10314#10639#0" expanded="false" />
-            <element signature="e#10752#11302#0" expanded="false" />
-            <element signature="e#11347#11896#0" expanded="false" />
-            <element signature="e#11941#12491#0" expanded="false" />
-            <element signature="e#13038#13237#0" expanded="false" />
-            <element signature="e#13290#13489#0" expanded="false" />
-            <element signature="e#13542#13741#0" expanded="false" />
+            <element signature="e#10790#11340#0" expanded="false" />
+            <element signature="e#11385#11934#0" expanded="false" />
+            <element signature="e#11979#12529#0" expanded="false" />
+            <element signature="e#13076#13275#0" expanded="false" />
+            <element signature="e#13328#13527#0" expanded="false" />
+            <element signature="e#13580#13779#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -571,12 +587,12 @@
             <element signature="e#9256#9616#0" expanded="false" />
             <element signature="e#9664#10275#0" expanded="false" />
             <element signature="e#10314#10639#0" expanded="false" />
-            <element signature="e#10752#11302#0" expanded="false" />
-            <element signature="e#11347#11896#0" expanded="false" />
-            <element signature="e#11941#12491#0" expanded="false" />
-            <element signature="e#13038#13237#0" expanded="false" />
-            <element signature="e#13290#13489#0" expanded="false" />
-            <element signature="e#13542#13741#0" expanded="false" />
+            <element signature="e#10790#11340#0" expanded="false" />
+            <element signature="e#11385#11934#0" expanded="false" />
+            <element signature="e#11979#12529#0" expanded="false" />
+            <element signature="e#13076#13275#0" expanded="false" />
+            <element signature="e#13328#13527#0" expanded="false" />
+            <element signature="e#13580#13779#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -669,6 +685,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
           <caret line="240" column="12" lean-forward="true" selection-start-line="240" selection-start-column="12" selection-end-line="240" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -707,14 +724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/backends/backend_qt5agg.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../qt/mplCanvasWrapper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -726,16 +735,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="47" column="18" lean-forward="false" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Receive.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -784,30 +783,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtWidgets/QWidget.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="994" column="8" lean-forward="false" selection-start-line="994" selection-start-column="8" selection-end-line="994" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtWidgets/QLayout.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
           <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/backends/backend_qt5.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="693" column="8" lean-forward="false" selection-start-line="693" selection-start-column="8" selection-end-line="693" selection-end-column="8" />
-          <folding>
-            <element signature="e#26123#28095#0" expanded="false" />
-            <element signature="e#28124#28455#0" expanded="false" />
-            <element signature="e#28496#29451#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -868,10 +847,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtWidgets/QWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="689" column="12" lean-forward="true" selection-start-line="689" selection-start-column="12" selection-end-line="689" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/backends/backend_qt5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="213" column="6" lean-forward="false" selection-start-line="213" selection-start-column="6" selection-end-line="213" selection-end-column="6" />
+          <folding>
+            <element signature="e#26123#28095#0" expanded="false" />
+            <element signature="e#28124#28455#0" expanded="false" />
+            <element signature="e#28496#29451#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/backends/backend_qt5agg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="16" column="46" lean-forward="false" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Receive.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="8" column="30" lean-forward="false" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DynamicCurve.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="230" column="9" lean-forward="false" selection-start-line="230" selection-start-column="9" selection-end-line="230" selection-end-column="9" />
+          <folding>
+            <element signature="e#24#36#0" expanded="true" />
+            <element signature="e#7685#7787#0" expanded="false" />
+            <element signature="e#7891#8225#0" expanded="false" />
+            <element signature="e#8286#8740#0" expanded="false" />
+            <element signature="e#9339#9587#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MainWindow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1211">
-          <caret line="22" column="10" lean-forward="false" selection-start-line="22" selection-start-column="10" selection-end-line="22" selection-end-column="10" />
+        <state relative-caret-position="389">
+          <caret line="71" column="75" lean-forward="false" selection-start-line="71" selection-start-column="75" selection-end-line="71" selection-end-column="75" />
           <folding>
             <element signature="e#25#80#0" expanded="true" />
             <element signature="e#3493#3828#0" expanded="false" />
@@ -889,27 +920,12 @@
             <element signature="e#9256#9616#0" expanded="false" />
             <element signature="e#9664#10275#0" expanded="false" />
             <element signature="e#10314#10639#0" expanded="false" />
-            <element signature="e#10752#11302#0" expanded="false" />
-            <element signature="e#11347#11896#0" expanded="false" />
-            <element signature="e#11941#12491#0" expanded="false" />
-            <element signature="e#13038#13237#0" expanded="false" />
-            <element signature="e#13290#13489#0" expanded="false" />
-            <element signature="e#13542#13741#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DynamicCurve.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="73" column="14" lean-forward="true" selection-start-line="73" selection-start-column="14" selection-end-line="73" selection-end-column="14" />
-          <folding>
-            <element signature="e#25#52#0" expanded="true" />
-            <element signature="e#4211#4379#0" expanded="false" />
-            <element signature="e#4417#4461#0" expanded="false" />
-            <element signature="e#4500#4774#0" expanded="false" />
-            <element signature="e#4829#5464#0" expanded="false" />
-            <element signature="e#5511#5564#0" expanded="false" />
+            <element signature="e#10790#11340#0" expanded="false" />
+            <element signature="e#11385#11934#0" expanded="false" />
+            <element signature="e#11979#12529#0" expanded="false" />
+            <element signature="e#13076#13275#0" expanded="false" />
+            <element signature="e#13328#13527#0" expanded="false" />
+            <element signature="e#13580#13779#0" expanded="false" />
           </folding>
         </state>
       </provider>

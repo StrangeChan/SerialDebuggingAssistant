@@ -236,6 +236,7 @@ class MainWindow(QMainWindow):
         self.__serialPort.write(data)
 
     def closeEvent(self, e):
+        self.ui.widget.release_plot()
         print('k88888')
 
     # 滑动条部分操作
