@@ -6,6 +6,7 @@ from PyQt5.QtCore import QThread,QTimer,QFile
 from PyQt5.QtGui import QCursor,QIcon
 from ui_mainwidow import Ui_MainWindow
 from Receive import Receive
+from CurveWidget import CurveData
 from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
 
 OFF = False
@@ -43,6 +44,8 @@ class MainWindow(QMainWindow):
         self.ui.doubleSpinBox_P.setDecimals(1)
         self.ui.doubleSpinBox_I.setDecimals(3)
         self.ui.doubleSpinBox_D.setDecimals(2)
+
+        self.__curveData = CurveData(self.ui.widget_dynamic_curve)
         # signal and slot
         self.ui.pushButton_uart_sw.clicked.connect(self.change_uart_state)
         self.ui.pushButton_uart_rfresh.clicked.connect(self.refresh_uart_info)
@@ -69,7 +72,7 @@ class MainWindow(QMainWindow):
         self.ui.doubleSpinBox_I.valueChanged.connect(self.change_i_slider_value)
         self.ui.doubleSpinBox_D.valueChanged.connect(self.change_d_slider_value)
         # 滑动条改变曲线图X大小
-        self.ui.horizontalSlider.valueChanged.connect(self.ui.widget.curve.change_the_radio)
+        self.ui.horizontalSlider.valueChanged.connect(self.ui.widget_dynamic_curve.change_the_radio)
 
 
 
@@ -236,7 +239,7 @@ class MainWindow(QMainWindow):
         self.__serialPort.write(data)
 
     def closeEvent(self, e):
-        self.ui.widget.release_plot()
+        self.__curveData.release_plot()
         print('k88888')
 
     # 滑动条部分操作
@@ -324,3 +327,5 @@ class MainWindow(QMainWindow):
     def send_pid_para(self,cmd,para):
         pass
 
+    def resizeEvent(self, e):
+        self.ui.widget_dynamic_curve.change_xlim_max(self.ui.widget_dynamic_curve.get_xlim_max())

@@ -12,32 +12,22 @@ from matplotlib.dates import date2num, MinuteLocator, SecondLocator, DateFormatt
 import threading
 import time
 import random
-from datetime import datetime
 
-'''
-x轴坐标最大值由窗口大小控制
-开一个定时器5ms一次 count_x ++  is_x_max = 0
-添加一个滑动条控制x轴坐标最大值与窗口的倍数达到控制采样率的效果
-count_x最大后，设一标志位is_x_max = 1，count = 0 ,self.dataY.pop（0）
-
-串口接收完成后self.dataY.append(newData) self.dataX.append(count_x) 
-is_x_max = 1   self.dataX 不变
-'''
 X_MINUTES = 1
 Y_MAX = 100
 Y_MIN = -100
 INTERVAL = 0.1
 MAX_COUNTER = 100 #int(X_MINUTES * 60 / INTERVAL)
 
-
-class CurveFigure(FigureCanvas):
+class CurveWidget(FigureCanvas):
     def __init__(self,widget):
+        #super().__init__()
         self.fig = Figure()
         self.ax = self.fig.add_subplot(111)
         FigureCanvas.__init__(self, self.fig)
         FigureCanvas.setSizePolicy(self,QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         FigureCanvas.updateGeometry(self)
-        self.fig.set_tight_layout(True)
+       # self.fig.set_tight_layout(True)
 
         self.__widget = widget
         #self.__widget.setCursor(Qt.CrossCursor)
@@ -54,7 +44,8 @@ class CurveFigure(FigureCanvas):
         self.__xlimFigSizeRadio = 200
        # self.ax.legend()
         self.ax.set_ylim(self.__yMin, self.__yMax)
-        self.ax.set_xlim(0, MAX_COUNTER)
+        self.change_xlim_max(self.get_xlim_max())
+        print(self.get_xlim_max())
 
         self.curveObj = None  # draw object
 
@@ -107,6 +98,11 @@ class CurveFigure(FigureCanvas):
             int = -int
             self.__xlimFigSizeRadio = 200/int
         self.change_xlim_max(self.get_xlim_max())
+        self.draw()
+
+    #def resizeEvent(self, e):
+      #  self.change_xlim_max(self.get_xlim_max())
+     #   self.draw()
 
     def plot(self, dataX, dataY):
         if self.curveObj is None:
@@ -117,16 +113,10 @@ class CurveFigure(FigureCanvas):
 
         self.draw()
 
-
-class CurveWidget(QWidget):
-    def __init__(self,parent = None):
+class CurveData(QObject):
+    def __init__(self,curve):
         super().__init__()
-        self.curve = CurveFigure(self)
-        # 一个布局
-        self.__vbLayout = QtWidgets.QVBoxLayout()
-        self.__vbLayout.addWidget(self.curve)
-        self.setLayout(self.__vbLayout)
-
+        self.curve = curve
         self.count_x = 0
         self.__is_x_max = False
 
@@ -154,7 +144,7 @@ class CurveWidget(QWidget):
         self.__exit = True
         self.tData.join()
 
-    def add_data(self,data):
+    def add_data(self, data):
         if self.__is_x_max:
             self.dataY.append(data)
             # self.dataY.pop(0)
@@ -163,16 +153,18 @@ class CurveWidget(QWidget):
             self.dataX.append(self.count_x)
             self.dataY.append(data)
 
-        self.curve.plot(self.dataX, self.dataY)
+        self.plot(self.dataX, self.dataY)
 
-    # 移动曲线图像实现动态
-    def timerEvent(self,e):
+        # 移动曲线图像实现动态
+
+    def timerEvent(self, e):
         if self.__timerID == e.timerId():
             if self.count_x >= self.curve.get_xlim_max():
+                print(self.curve.get_xlim_max())
                 # 图像超出边界
                 self.__is_x_max = True
-                if len(self.dataX)>0:
-                   # 从头部将超出边界的去掉，实现曲线滚动
+                if len(self.dataX) > 0:
+                    # 从头部将超出边界的去掉，实现曲线滚动
                     for i in range(len(self.dataX)):
                         self.dataX[i] = self.dataX[i] + self.curve.get_xlim_max() - self.count_x - 1
                     while self.dataX[0] < 0:
@@ -181,10 +173,6 @@ class CurveWidget(QWidget):
                     self.count_x = self.curve.get_xlim_max()
             else:
                 self.count_x += 1
-
-    # 重置图像大小
-    def resizeEvent(self, e):
-        self.curve.change_xlim_max(self.curve.get_xlim_max())
 
     def generate_data(self):
         while (True):
@@ -195,7 +183,7 @@ class CurveWidget(QWidget):
 
                 if self.__is_x_max:
                     self.dataY.append(newData)
-                    #self.dataY.pop(0)
+                    # self.dataY.pop(0)
                     self.dataX.append(self.count_x)
                 else:
                     self.dataX.append(self.count_x)
