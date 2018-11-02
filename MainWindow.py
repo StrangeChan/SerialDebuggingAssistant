@@ -76,6 +76,7 @@ class MainWindow(QMainWindow):
         self.ui.horizontalSlider.valueChanged.connect(self.ui.widget_dynamic_curve.change_the_radio)
 
         self.__curveData.plot_data.connect(self.ui.widget_dynamic_curve.plot)
+        self.ui.checkBox_curve_show_random.toggled.connect(self.plot_random_data)
 
 
     def uart_init(self):
@@ -241,7 +242,8 @@ class MainWindow(QMainWindow):
         self.__serialPort.write(data)
 
     def closeEvent(self, e):
-        self.__curveData.release_plot()
+        if self.__curveData.isRun == True:
+            self.__curveData.release_plot()
         print('k88888')
 
     # 滑动条部分操作
@@ -329,3 +331,9 @@ class MainWindow(QMainWindow):
     def send_pid_para(self,cmd,para):
         pass
 
+    def plot_random_data(self,checked):
+        if checked:
+            self.__curveData.start_plot()
+        else:
+            # self.__curveData.pause_plot()
+            self.__curveData.release_plot()

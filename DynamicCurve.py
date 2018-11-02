@@ -138,7 +138,7 @@ class CurveWidget(QWidget):
 
     def start_plot(self):
         self.__generating = True
-        self.__timerID = self.startTimer(10)
+        # self.__timerID = self.startTimer(10)
 
     def pause_plot(self):
         self.__generating = False
@@ -146,7 +146,7 @@ class CurveWidget(QWidget):
     def init_data_generator(self):
         self.__generating = False
         self.__exit = False
-
+        self.__timerID = self.startTimer(10)
         self.tData = threading.Thread(name="dataGenerator", target=self.generate_data)
         self.tData.start()
 

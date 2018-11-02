@@ -1,14 +1,10 @@
 # -*- coding: utf-8 -*-
-import PyQt5
-from PyQt5 import QtWidgets,QtGui,QtCore
-from PyQt5.QtGui import *
+
 from PyQt5.QtCore import *
-from PyQt5.QtWidgets import QWidget
+
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 import numpy as np
-from array import array
-from matplotlib.dates import date2num, MinuteLocator, SecondLocator, DateFormatter
 import threading
 import time
 import random
@@ -17,19 +13,21 @@ X_MINUTES = 1
 Y_MAX = 100
 Y_MIN = -100
 INTERVAL = 0.1
-MAX_COUNTER = 100 #int(X_MINUTES * 60 / INTERVAL)
+MAX_COUNTER = 100  # int(X_MINUTES * 60 / INTERVAL)
+
 
 class CurveWidget(FigureCanvas):
-    def __init__(self,widget):
-        #super().__init__()
+
+    def __init__(self, widget):
+
         self.fig = Figure()
         self.ax = self.fig.add_subplot(111)
         FigureCanvas.__init__(self, self.fig)
         # FigureCanvas.setSizePolicy(self,QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         FigureCanvas.updateGeometry(self)
-        self.fig.set_tight_layout(True)
+        self.fig.set_tight_layout('true')
         self.__widget = widget
-        #self.__widget.setCursor(Qt.CrossCursor)
+        # self.__widget.setCursor(Qt.CrossCursor)
         self.__yMax = 100
         self.__yMin = -100
         self.__ylimAdjust = 1.1         # 滚轮调整Y轴限制变化率
@@ -40,7 +38,7 @@ class CurveWidget(FigureCanvas):
         self.fig.canvas.mpl_connect('button_release_event', self.mouse_move_fig)
 
         self.__xlimFigSizeRadio = 200
-       # self.ax.legend()
+        # self.ax.legend()
         self.ax.set_ylim(self.__yMin, self.__yMax)
         self.change_xlim_max(self.get_xlim_max())
         self.fig.canvas.mpl_connect('resize_event', self.resize_fig)
@@ -48,18 +46,18 @@ class CurveWidget(FigureCanvas):
 
         self.curveObj = None  # draw object
 
-    def change_ylim(self,min,max):
-        self.ax.set_ylim(min, max)
+    def change_ylim(self, _min, _max):
+        self.ax.set_ylim(_min, _max)
 
-    def mouse_pressed(self,e):
+    def mouse_pressed(self, e):
         self.__isMousePress = True
         self.__data_y = e.ydata
         self.setCursor(Qt.ClosedHandCursor)
 
-    def mouse_released(self,e):
+    def mouse_released(self, e):
         pass
         # self.__isMouseRelease = True
-        #self.__isMousePress = False
+        # self.__isMousePress = False
 
     # 通过鼠标移动图像
     def mouse_move_fig(self, e):
@@ -71,7 +69,7 @@ class CurveWidget(FigureCanvas):
         self.setCursor(Qt.ArrowCursor)
 
     # 滚轮改变Y轴坐标
-    def scroll_change_ylim(self,e):
+    def scroll_change_ylim(self, e):
         #print([e.step,e.xdata,e.ydata])
        # self.__widget.setCursor(Qt.SizeVerCursor)
         if e.step > 0:
@@ -105,46 +103,58 @@ class CurveWidget(FigureCanvas):
         # print(e.width)
         self.change_xlim_max(self.get_xlim_max())
 
-    def plot(self, dataX, dataY):
+    def plot(self, dataX, dataY,color):
         if self.curveObj is None:
             # create draw object once
-            self.curveObj, = self.ax.plot(np.array(dataX), np.array(dataY), 'b-')
+            self.curveObj, = self.ax.plot(np.array(dataX), np.array(dataY), color)
         else:
             self.curveObj.set_data(np.array(dataX), np.array(dataY))
         #self.change_xlim_max(self.get_xlim_max())
         self.draw()
 
 class CurveData(QObject):
-    plot_data = pyqtSignal(list,list)
+    plot_data = pyqtSignal(list,list,str)
     def __init__(self,curve):
         super().__init__()
         self.curve = curve
         self.count_x = 0
         self.__is_x_max = False
-
+        self.isRun = False
         self.dataX = []
         self.dataY = []
 
-        self.init_data_generator()
-        self.start_plot()
-
-    def start_plot(self):
-        self.__generating = True
-        self.__timerID = self.startTimer(10)
-
-    def pause_plot(self):
-        self.__generating = False
+        # self.init_data_generator()
+        # self.start_plot()
 
     def init_data_generator(self):
-        self.__generating = False
-        self.__exit = False
-
+        self.generating = False
+        self.exit = False
         self.tData = threading.Thread(name="dataGenerator", target=self.generate_data)
         self.tData.start()
+        self.isRun = True
+
+    def start_plot(self):
+        if self.isRun == False:
+            self.init_data_generator()
+        self.generating = True
+        self.__timerID = self.startTimer(10)
+        # self.tData.start()
+
+    def pause_plot(self):
+        self.generating = False
+        self.killTimer(self.__timerID)
+        self.dataX = []
+        self.dataY = []
+        self.count_x = 0
+        self.plot_data.emit(self.dataX, self.dataY, 'b--')
 
     def release_plot(self):
-        self.__exit = True
+        self.exit = True
+        if self.generating == True:
+            self.pause_plot()
         self.tData.join()
+        self.isRun = False
+        # print(self.tData.run())
 
     def add_data(self, data):
         if self.__is_x_max:
@@ -157,12 +167,12 @@ class CurveData(QObject):
 
         self.plot(self.dataX, self.dataY)
 
-        # 移动曲线图像实现动态
-
+    # 移动曲线图像实现动态
     def timerEvent(self, e):
         if self.__timerID == e.timerId():
+            # print(1)
             if self.count_x >= self.curve.get_xlim_max():
-                print(self.curve.get_xlim_max())
+
                 # 图像超出边界
                 self.__is_x_max = True
                 if len(self.dataX) > 0:
@@ -177,10 +187,10 @@ class CurveData(QObject):
                 self.count_x += 1
 
     def generate_data(self):
-        while (True):
-            if self.__exit:
+        while True:
+            if self.exit:
                 break
-            if self.__generating:
+            if self.generating:
                 newData = random.randint(Y_MIN, Y_MAX)
 
                 if self.__is_x_max:
@@ -190,6 +200,6 @@ class CurveData(QObject):
                 else:
                     self.dataX.append(self.count_x)
                     self.dataY.append(newData)
-                self.plot_data.emit(self.dataX, self.dataY)
+                self.plot_data.emit(self.dataX, self.dataY, 'b--')
                 # self.curve.plot(self.dataX, self.dataY)
                 time.sleep(INTERVAL)
