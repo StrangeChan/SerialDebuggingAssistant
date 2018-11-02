@@ -46,6 +46,7 @@ class MainWindow(QMainWindow):
         self.ui.doubleSpinBox_D.setDecimals(2)
 
         self.__curveData = CurveData(self.ui.widget_dynamic_curve)
+        #print(self.ui.widget_dynamic_curve.get_xlim_max())
         # signal and slot
         self.ui.pushButton_uart_sw.clicked.connect(self.change_uart_state)
         self.ui.pushButton_uart_rfresh.clicked.connect(self.refresh_uart_info)
@@ -74,6 +75,7 @@ class MainWindow(QMainWindow):
         # 滑动条改变曲线图X大小
         self.ui.horizontalSlider.valueChanged.connect(self.ui.widget_dynamic_curve.change_the_radio)
 
+        self.__curveData.plot_data.connect(self.ui.widget_dynamic_curve.plot)
 
 
     def uart_init(self):
@@ -327,5 +329,3 @@ class MainWindow(QMainWindow):
     def send_pid_para(self,cmd,para):
         pass
 
-    def resizeEvent(self, e):
-        self.ui.widget_dynamic_curve.change_xlim_max(self.ui.widget_dynamic_curve.get_xlim_max())

@@ -25,13 +25,11 @@ class CurveWidget(FigureCanvas):
         self.fig = Figure()
         self.ax = self.fig.add_subplot(111)
         FigureCanvas.__init__(self, self.fig)
-        FigureCanvas.setSizePolicy(self,QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        # FigureCanvas.setSizePolicy(self,QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         FigureCanvas.updateGeometry(self)
-       # self.fig.set_tight_layout(True)
-
+        self.fig.set_tight_layout(True)
         self.__widget = widget
         #self.__widget.setCursor(Qt.CrossCursor)
-
         self.__yMax = 100
         self.__yMin = -100
         self.__ylimAdjust = 1.1         # 滚轮调整Y轴限制变化率
@@ -45,7 +43,8 @@ class CurveWidget(FigureCanvas):
        # self.ax.legend()
         self.ax.set_ylim(self.__yMin, self.__yMax)
         self.change_xlim_max(self.get_xlim_max())
-        print(self.get_xlim_max())
+        self.fig.canvas.mpl_connect('resize_event', self.resize_fig)
+        self.ax.set_xticks([])
 
         self.curveObj = None  # draw object
 
@@ -80,7 +79,8 @@ class CurveWidget(FigureCanvas):
             self.__yMin = self.__yMin / self.__ylimAdjust
         else:
             self.__yMax,self.__yMin = self.__yMax * self.__ylimAdjust,self.__yMin * self.__ylimAdjust
-        self.ax.set_ylim(e.ydata+self.__yMin, e.ydata+self.__yMax)
+        if e.ydata != None:
+            self.ax.set_ylim(e.ydata+self.__yMin, e.ydata+self.__yMax)
         #self.__widget.setCursor(Qt.ArrowCursor)
 
     # 获取当前窗口大小对应X坐标最大值
@@ -100,9 +100,10 @@ class CurveWidget(FigureCanvas):
         self.change_xlim_max(self.get_xlim_max())
         self.draw()
 
-    #def resizeEvent(self, e):
-      #  self.change_xlim_max(self.get_xlim_max())
-     #   self.draw()
+    # x坐标范围随窗口变化而变化，使间距相等
+    def resize_fig(self,e):
+        # print(e.width)
+        self.change_xlim_max(self.get_xlim_max())
 
     def plot(self, dataX, dataY):
         if self.curveObj is None:
@@ -110,10 +111,11 @@ class CurveWidget(FigureCanvas):
             self.curveObj, = self.ax.plot(np.array(dataX), np.array(dataY), 'b-')
         else:
             self.curveObj.set_data(np.array(dataX), np.array(dataY))
-
+        #self.change_xlim_max(self.get_xlim_max())
         self.draw()
 
 class CurveData(QObject):
+    plot_data = pyqtSignal(list,list)
     def __init__(self,curve):
         super().__init__()
         self.curve = curve
@@ -188,6 +190,6 @@ class CurveData(QObject):
                 else:
                     self.dataX.append(self.count_x)
                     self.dataY.append(newData)
-
-                self.curve.plot(self.dataX, self.dataY)
+                self.plot_data.emit(self.dataX, self.dataY)
+                # self.curve.plot(self.dataX, self.dataY)
                 time.sleep(INTERVAL)
