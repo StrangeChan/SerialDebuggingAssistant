@@ -44,7 +44,8 @@ class CurveWidget(FigureCanvas):
         self.fig.canvas.mpl_connect('resize_event', self.resize_fig)
         self.ax.set_xticks([])
 
-        self.curveObj = None  # draw object
+        self.curveObj = [None] * 7  # draw object
+        # print(len(self.curveObj))
 
     def change_ylim(self, _min, _max):
         self.ax.set_ylim(_min, _max)
@@ -103,28 +104,44 @@ class CurveWidget(FigureCanvas):
         # print(e.width)
         self.change_xlim_max(self.get_xlim_max())
 
-    def plot(self, dataX, dataY,color):
-        if self.curveObj is None:
+    def plot(self, dataX, dataY, index = 0):
+        if index == 0:
+            color = 'b--'
+        elif index == 1:
+            color = 'r'
+        elif index == 2:
+            color = 'g'
+        elif index == 3:
+            color = 'b'
+        elif index == 4:
+            color = 'y'
+        elif index == 5:
+            color = 'm'
+        elif index == 6:
+            color = 'c'
+
+        if self.curveObj[index] is None:
             # create draw object once
-            self.curveObj, = self.ax.plot(np.array(dataX), np.array(dataY), color)
+            self.curveObj[index], = self.ax.plot(np.array(dataX), np.array(dataY), color)
         else:
-            self.curveObj.set_data(np.array(dataX), np.array(dataY))
+            self.curveObj[index].set_data(np.array(dataX), np.array(dataY))
         #self.change_xlim_max(self.get_xlim_max())
         self.draw()
 
 class CurveData(QObject):
-    plot_data = pyqtSignal(list,list,str)
+    plot_data = pyqtSignal(list,list,int)
     def __init__(self,curve):
         super().__init__()
+        self.Id = 0
         self.curve = curve
         self.count_x = 0
         self.__is_x_max = False
         self.isRun = False
         self.dataX = []
-        self.dataY = []
-
-        # self.init_data_generator()
-        # self.start_plot()
+        self.dataY = [] # [[],[],[],[],[],[]]
+        self.data = [[]]*7
+        # print(len(self.data))
+        # print(len(self.data))
 
     def init_data_generator(self):
         self.generating = False
@@ -145,8 +162,9 @@ class CurveData(QObject):
         self.killTimer(self.__timerID)
         self.dataX = []
         self.dataY = []
+        self.data[0] = []
         self.count_x = 0
-        self.plot_data.emit(self.dataX, self.dataY, 'b--')
+        self.plot_data.emit(self.dataX, self.dataY, self.Id)
 
     def release_plot(self):
         self.exit = True
@@ -156,23 +174,23 @@ class CurveData(QObject):
         self.isRun = False
         # print(self.tData.run())
 
-    def add_data(self, data):
-        if self.__is_x_max:
-            self.dataY.append(data)
-            # self.dataY.pop(0)
-            self.dataX.append(self.count_x)
+    def add_data(self, data, num = None):
+        self.dataY.append(data)
+        self.dataX.append(self.count_x)
+        # self.data[num].append([self.count_x, data])
+        # dataX,dataY = [], []
+        # for i in range(len(self.data[num])):
+        #     dataX.append(self.data[num][i][0])
+        #     dataY.append(self.data[num][i][1])
+        if num == None:
+            self.plot_data.emit(self.dataX, self.dataY, self.Id)
         else:
-            self.dataX.append(self.count_x)
-            self.dataY.append(data)
-
-        self.plot(self.dataX, self.dataY)
+            self.plot_data.emit(self.dataX, self.dataY, num)
 
     # 移动曲线图像实现动态
     def timerEvent(self, e):
         if self.__timerID == e.timerId():
-            # print(1)
             if self.count_x >= self.curve.get_xlim_max():
-
                 # 图像超出边界
                 self.__is_x_max = True
                 if len(self.dataX) > 0:
@@ -182,7 +200,14 @@ class CurveData(QObject):
                     while self.dataX[0] < 0:
                         self.dataX.pop(0)
                         self.dataY.pop(0)
-                    self.count_x = self.curve.get_xlim_max()
+                        self.count_x = self.curve.get_xlim_max()
+                # for i in range(len(self.data)):
+                    # print(i)
+                    # for j in range(len(self.data[i])):
+                    #     self.data[i][j][0] = self.data[i][j][0] + self.curve.get_xlim_max() - self.count_x - 1
+
+                    # while self.data[i][0][0]<0:
+                    #     self.data[i].pop(0)
             else:
                 self.count_x += 1
 
@@ -192,14 +217,23 @@ class CurveData(QObject):
                 break
             if self.generating:
                 newData = random.randint(Y_MIN, Y_MAX)
-
-                if self.__is_x_max:
-                    self.dataY.append(newData)
-                    # self.dataY.pop(0)
-                    self.dataX.append(self.count_x)
-                else:
-                    self.dataX.append(self.count_x)
-                    self.dataY.append(newData)
-                self.plot_data.emit(self.dataX, self.dataY, 'b--')
-                # self.curve.plot(self.dataX, self.dataY)
+                self.add_data(newData)
                 time.sleep(INTERVAL)
+                # if self.__is_x_max:
+                # self.dataY.append(newData)
+                # self.dataX.append(self.count_x)
+                # else:
+                #     self.dataX.append(self.count_x)
+                #     self.dataY.append(newData)
+                # self.data.append([self.count_x,newData])
+                # self.dataX, self.dataY = [],[]
+                # for i in range(len(self.data)) :
+                #     self.dataX.append(self.data[i][0])
+                #     self.dataY.append( self.data[i][1])
+                #
+                # self.plot_data.emit(self.dataX, self.dataY,1)
+
+                # self.add_data(newData+4,4)
+                # self.plot_data.emit(self.dataX, self.dataY, 'b--')
+                # self.curve.plot(self.dataX, self.dataY)
+

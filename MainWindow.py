@@ -44,8 +44,11 @@ class MainWindow(QMainWindow):
         self.ui.doubleSpinBox_P.setDecimals(1)
         self.ui.doubleSpinBox_I.setDecimals(3)
         self.ui.doubleSpinBox_D.setDecimals(2)
-
-        self.__curveData = CurveData(self.ui.widget_dynamic_curve)
+        # 七个通道，0 为模拟
+        self.__curveData = []
+        for i in range(7):
+            self.__curveData.append(CurveData(self.ui.widget_dynamic_curve))
+        self.__curveData2 = CurveData(self.ui.widget_dynamic_curve)
         #print(self.ui.widget_dynamic_curve.get_xlim_max())
         # signal and slot
         self.ui.pushButton_uart_sw.clicked.connect(self.change_uart_state)
@@ -74,8 +77,11 @@ class MainWindow(QMainWindow):
         self.ui.doubleSpinBox_D.valueChanged.connect(self.change_d_slider_value)
         # 滑动条改变曲线图X大小
         self.ui.horizontalSlider.valueChanged.connect(self.ui.widget_dynamic_curve.change_the_radio)
-
-        self.__curveData.plot_data.connect(self.ui.widget_dynamic_curve.plot)
+        # self.__curveData.plot_data.connect(self.ui.widget_dynamic_curve.plot)
+        self.__curveData2.plot_data.connect(self.ui.widget_dynamic_curve.plot)
+        for i in range(len(self.__curveData)):
+            self.__curveData[i].plot_data.connect(self.ui.widget_dynamic_curve.plot)
+            self.__curveData[i].Id = i
         self.ui.checkBox_curve_show_random.toggled.connect(self.plot_random_data)
 
 
@@ -242,8 +248,13 @@ class MainWindow(QMainWindow):
         self.__serialPort.write(data)
 
     def closeEvent(self, e):
-        if self.__curveData.isRun == True:
-            self.__curveData.release_plot()
+        for i in range(len(self.__curveData)):
+            if self.__curveData[i].isRun == True:
+                self.__curveData[i].release_plot()
+        # if self.__curveData.isRun == True:
+        #     self.__curveData.release_plot()
+        if self.__curveData2.isRun == True:
+            self.__curveData2.release_plot()
         print('k88888')
 
     # 滑动条部分操作
@@ -331,9 +342,29 @@ class MainWindow(QMainWindow):
     def send_pid_para(self,cmd,para):
         pass
 
+    def which_channel_show(self):
+        num = []
+        if self.ui.checkBox_1.isChecked():
+            num.append(1)
+        elif self.ui.checkBox_2.isChecked():
+            num.append(2)
+        elif self.ui.checkBox_3.isChecked():
+            num.append(3)
+        elif self.ui.checkBox_4.isChecked():
+            num.append(4)
+        elif self.ui.checkBox_5.isChecked():
+            num.append(5)
+        elif self.ui.checkBox_6.isChecked():
+            num.append(6)
+        return num
+
     def plot_random_data(self,checked):
         if checked:
-            self.__curveData.start_plot()
+            if len(self.which_channel_show()) > 0:
+                self.__curveData[self.which_channel_show()[0]].start_plot()
+            else:
+                self.__curveData[0].start_plot()
         else:
-            # self.__curveData.pause_plot()
-            self.__curveData.release_plot()
+            for i in range(len(self.__curveData)):
+                if self.__curveData[i].isRun == True:
+                    self.__curveData[i].release_plot()

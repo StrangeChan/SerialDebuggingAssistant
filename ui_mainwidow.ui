@@ -327,7 +327,20 @@
        <attribute name="title">
         <string>PID调参</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_8" rowstretch="1,3" columnstretch="1,3,1">
+       <layout class="QGridLayout" name="gridLayout_8" rowstretch="1,0" columnstretch="1,0,0">
+        <item row="0" column="2">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>172</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
         <item row="0" column="0">
          <widget class="QGroupBox" name="groupBox_4">
           <property name="title">
@@ -457,7 +470,7 @@
              <item>
               <layout class="QGridLayout" name="gridLayout_9">
                <item row="0" column="0">
-                <widget class="QCheckBox" name="checkBox">
+                <widget class="QCheckBox" name="checkBox_1">
                  <property name="maximumSize">
                   <size>
                    <width>20</width>
@@ -466,16 +479,6 @@
                  </property>
                  <property name="text">
                   <string/>
-                 </property>
-                </widget>
-               </item>
-               <item row="0" column="1">
-                <widget class="QLineEdit" name="lineEdit">
-                 <property name="minimumSize">
-                  <size>
-                   <width>0</width>
-                   <height>25</height>
-                  </size>
                  </property>
                 </widget>
                </item>
@@ -492,18 +495,22 @@
                  </property>
                 </spacer>
                </item>
-               <item row="1" column="1">
-                <widget class="QLabel" name="label_3">
+               <item row="0" column="1">
+                <widget class="QLineEdit" name="lineEdit">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
-                   <height>20</height>
+                   <height>25</height>
                   </size>
                  </property>
-                 <property name="maximumSize">
+                </widget>
+               </item>
+               <item row="1" column="1">
+                <widget class="QLineEdit" name="lineEdit_7">
+                 <property name="minimumSize">
                   <size>
-                   <width>16777215</width>
-                   <height>20</height>
+                   <width>0</width>
+                   <height>25</height>
                   </size>
                  </property>
                  <property name="styleSheet">
@@ -555,21 +562,15 @@
                 </spacer>
                </item>
                <item row="1" column="1">
-                <widget class="QLabel" name="label_4">
+                <widget class="QLineEdit" name="lineEdit_8">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>20</height>
+                   <height>25</height>
                   </size>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background:rgb(0,255, 0)</string>
+                  <string notr="true">background:rgb(0,255, 0);color:rgb(0,0,0)</string>
                  </property>
                  <property name="text">
                   <string>green</string>
@@ -617,21 +618,15 @@
                 </spacer>
                </item>
                <item row="1" column="1">
-                <widget class="QLabel" name="label_12">
+                <widget class="QLineEdit" name="lineEdit_9">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>20</height>
+                   <height>25</height>
                   </size>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background:rgb(0, 0,255);color:rgb(255, 255, 255)</string>
+                  <string notr="true">background:rgb(0, 0, 255);color:rgb(255, 255, 255)</string>
                  </property>
                  <property name="text">
                   <string>blue</string>
@@ -679,21 +674,15 @@
                 </spacer>
                </item>
                <item row="1" column="1">
-                <widget class="QLabel" name="label_13">
+                <widget class="QLineEdit" name="lineEdit_10">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>20</height>
+                   <height>25</height>
                   </size>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background:rgb(255,255, 0)</string>
+                  <string notr="true">background:rgb(255, 255, 0);color:rgb(0,0,0)</string>
                  </property>
                  <property name="text">
                   <string>yellow</string>
@@ -741,21 +730,15 @@
                 </spacer>
                </item>
                <item row="1" column="1">
-                <widget class="QLabel" name="label_14">
+                <widget class="QLineEdit" name="lineEdit_11">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>20</height>
+                   <height>25</height>
                   </size>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background:rgb(255, 0, 255)</string>
+                  <string notr="true">background:rgb(255, 0, 255);color:rgb(0,0,0)</string>
                  </property>
                  <property name="text">
                   <string>magenta</string>
@@ -803,21 +786,15 @@
                 </spacer>
                </item>
                <item row="1" column="1">
-                <widget class="QLabel" name="label_15">
+                <widget class="QLineEdit" name="lineEdit_12">
                  <property name="minimumSize">
                   <size>
                    <width>0</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                 <property name="maximumSize">
-                  <size>
-                   <width>16777215</width>
-                   <height>20</height>
+                   <height>25</height>
                   </size>
                  </property>
                  <property name="styleSheet">
-                  <string notr="true">background:rgb(0, 255, 255)</string>
+                  <string notr="true">background:rgb(0, 255, 255);color:rgb(0,0,0)</string>
                  </property>
                  <property name="text">
                   <string>cyan</string>
@@ -1316,19 +1293,6 @@
            </size>
           </property>
          </widget>
-        </item>
-        <item row="0" column="2">
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>172</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
         </item>
        </layout>
       </widget>

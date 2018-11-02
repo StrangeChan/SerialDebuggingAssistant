@@ -4,7 +4,6 @@
     <list default="true" id="fa8ae4c3-9bf7-4839-8635-cc2a8adae1ef" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CurveWidget.py" afterPath="$PROJECT_DIR$/CurveWidget.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DynamicCurve.py" afterPath="$PROJECT_DIR$/DynamicCurve.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MainWindow.py" afterPath="$PROJECT_DIR$/MainWindow.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui_mainwidow.py" afterPath="$PROJECT_DIR$/ui_mainwidow.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui_mainwidow.ui" afterPath="$PROJECT_DIR$/ui_mainwidow.ui" />
@@ -25,33 +24,33 @@
       <file leaf-file-name="MainWindow.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MainWindow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="333" column="39" lean-forward="true" selection-start-line="333" selection-start-column="39" selection-end-line="333" selection-end-column="39" />
+            <state relative-caret-position="269">
+              <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
               <folding>
                 <element signature="e#25#80#0" expanded="true" />
-                <element signature="e#3823#4158#0" expanded="false" />
-                <element signature="e#4194#4538#0" expanded="false" />
-                <element signature="e#4581#5915#0" expanded="false" />
-                <element signature="e#5959#7371#0" expanded="false" />
-                <element signature="e#7256#7371#0" expanded="false" />
-                <element signature="e#7414#7572#0" expanded="false" />
-                <element signature="e#7616#7776#0" expanded="false" />
-                <element signature="e#7823#7970#0" expanded="false" />
-                <element signature="e#8013#8723#0" expanded="false" />
-                <element signature="e#8770#9045#0" expanded="false" />
-                <element signature="e#9090#9472#0" expanded="false" />
-                <element signature="e#9511#9543#0" expanded="false" />
-                <element signature="e#9586#9946#0" expanded="false" />
-                <element signature="e#9994#10605#0" expanded="false" />
-                <element signature="e#10644#10969#0" expanded="false" />
-                <element signature="e#11169#11719#0" expanded="false" />
-                <element signature="e#11764#12313#0" expanded="false" />
-                <element signature="e#12358#12908#0" expanded="false" />
-                <element signature="e#12960#13067#0" expanded="false" />
-                <element signature="e#13119#13234#0" expanded="false" />
-                <element signature="e#13455#13654#0" expanded="false" />
-                <element signature="e#13707#13906#0" expanded="false" />
-                <element signature="e#13959#14158#0" expanded="false" />
+                <element signature="e#4229#4564#0" expanded="false" />
+                <element signature="e#4600#4944#0" expanded="false" />
+                <element signature="e#4987#6321#0" expanded="false" />
+                <element signature="e#6365#7777#0" expanded="false" />
+                <element signature="e#7662#7777#0" expanded="false" />
+                <element signature="e#7820#7978#0" expanded="false" />
+                <element signature="e#8022#8182#0" expanded="false" />
+                <element signature="e#8229#8376#0" expanded="false" />
+                <element signature="e#8419#9129#0" expanded="false" />
+                <element signature="e#9176#9451#0" expanded="false" />
+                <element signature="e#9496#9878#0" expanded="false" />
+                <element signature="e#9917#9949#0" expanded="false" />
+                <element signature="e#9992#10352#0" expanded="false" />
+                <element signature="e#10400#11011#0" expanded="false" />
+                <element signature="e#11050#11375#0" expanded="false" />
+                <element signature="e#11816#12366#0" expanded="false" />
+                <element signature="e#12411#12960#0" expanded="false" />
+                <element signature="e#13005#13555#0" expanded="false" />
+                <element signature="e#13607#13714#0" expanded="false" />
+                <element signature="e#13766#13881#0" expanded="false" />
+                <element signature="e#14102#14301#0" expanded="false" />
+                <element signature="e#14354#14553#0" expanded="false" />
+                <element signature="e#14606#14805#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -60,22 +59,31 @@
       <file leaf-file-name="CurveWidget.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CurveWidget.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="476">
-              <caret line="155" column="26" lean-forward="false" selection-start-line="155" selection-start-column="26" selection-end-line="155" selection-end-column="26" />
+            <state relative-caret-position="-262">
+              <caret line="166" column="59" lean-forward="false" selection-start-line="166" selection-start-column="59" selection-end-line="166" selection-end-column="59" />
               <folding>
                 <element signature="e#25#51#0" expanded="true" />
-                <element signature="e#2342#2828#0" expanded="false" />
-                <element signature="e#5061#5329#0" expanded="false" />
+                <element signature="e#2384#2870#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ui_mainwidow.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ui_mainwidow.py">
+      <file leaf-file-name="_axes.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/axes/_axes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16864">
-              <caret line="496" column="54" lean-forward="false" selection-start-line="496" selection-start-column="54" selection-end-line="496" selection-end-column="54" />
+            <state relative-caret-position="45016">
+              <caret line="1364" column="0" lean-forward="false" selection-start-line="1364" selection-start-column="0" selection-end-line="1364" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="threading.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/threading.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="29070">
+              <caret line="861" column="0" lean-forward="false" selection-start-line="861" selection-start-column="0" selection-end-line="861" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -97,7 +105,7 @@
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -125,8 +133,8 @@
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/ui_mainwidow.py" />
         <option value="$PROJECT_DIR$/DynamicCurve.py" />
-        <option value="$PROJECT_DIR$/CurveWidget.py" />
         <option value="$PROJECT_DIR$/MainWindow.py" />
+        <option value="$PROJECT_DIR$/CurveWidget.py" />
       </list>
     </option>
   </component>
@@ -171,8 +179,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -401,7 +409,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541137532527</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="adjust the way thread start">
+      <created>1541165849205</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1541165849205</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -417,10 +432,10 @@
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17494601" sideWeight="0.48984468" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18088552" sideWeight="0.48984468" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18040621" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18160096" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20191158" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297491" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2497309" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -448,14 +463,15 @@
     <MESSAGE value="delete tool bar and add some function of mouse" />
     <MESSAGE value="refactor the dynamic curve class" />
     <MESSAGE value="add plot signal" />
-    <option name="LAST_COMMIT_MESSAGE" value="add plot signal" />
+    <MESSAGE value="adjust the way thread start" />
+    <option name="LAST_COMMIT_MESSAGE" value="adjust the way thread start" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/CurveWidget.py</url>
-          <line>106</line>
+          <line>122</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
       </breakpoints>
@@ -469,7 +485,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="51" />
+      <option name="time" value="53" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -531,29 +547,29 @@
           <caret line="25" column="47" lean-forward="false" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
           <folding>
             <element signature="e#25#80#0" expanded="true" />
-            <element signature="e#3823#4158#0" expanded="false" />
-            <element signature="e#4194#4538#0" expanded="false" />
-            <element signature="e#4581#5915#0" expanded="false" />
-            <element signature="e#5959#7371#0" expanded="false" />
-            <element signature="e#7256#7371#0" expanded="false" />
-            <element signature="e#7414#7572#0" expanded="false" />
-            <element signature="e#7616#7776#0" expanded="false" />
-            <element signature="e#7823#7970#0" expanded="false" />
-            <element signature="e#8013#8723#0" expanded="false" />
-            <element signature="e#8770#9045#0" expanded="false" />
-            <element signature="e#9090#9472#0" expanded="false" />
-            <element signature="e#9511#9543#0" expanded="false" />
-            <element signature="e#9586#9946#0" expanded="false" />
-            <element signature="e#9994#10605#0" expanded="false" />
-            <element signature="e#10644#10969#0" expanded="false" />
-            <element signature="e#11169#11719#0" expanded="false" />
-            <element signature="e#11764#12313#0" expanded="false" />
-            <element signature="e#12358#12908#0" expanded="false" />
-            <element signature="e#12960#13067#0" expanded="false" />
-            <element signature="e#13119#13234#0" expanded="false" />
-            <element signature="e#13455#13654#0" expanded="false" />
-            <element signature="e#13707#13906#0" expanded="false" />
-            <element signature="e#13959#14158#0" expanded="false" />
+            <element signature="e#4229#4564#0" expanded="false" />
+            <element signature="e#4600#4944#0" expanded="false" />
+            <element signature="e#4987#6321#0" expanded="false" />
+            <element signature="e#6365#7777#0" expanded="false" />
+            <element signature="e#7662#7777#0" expanded="false" />
+            <element signature="e#7820#7978#0" expanded="false" />
+            <element signature="e#8022#8182#0" expanded="false" />
+            <element signature="e#8229#8376#0" expanded="false" />
+            <element signature="e#8419#9129#0" expanded="false" />
+            <element signature="e#9176#9451#0" expanded="false" />
+            <element signature="e#9496#9878#0" expanded="false" />
+            <element signature="e#9917#9949#0" expanded="false" />
+            <element signature="e#9992#10352#0" expanded="false" />
+            <element signature="e#10400#11011#0" expanded="false" />
+            <element signature="e#11050#11375#0" expanded="false" />
+            <element signature="e#11816#12366#0" expanded="false" />
+            <element signature="e#12411#12960#0" expanded="false" />
+            <element signature="e#13005#13555#0" expanded="false" />
+            <element signature="e#13607#13714#0" expanded="false" />
+            <element signature="e#13766#13881#0" expanded="false" />
+            <element signature="e#14102#14301#0" expanded="false" />
+            <element signature="e#14354#14553#0" expanded="false" />
+            <element signature="e#14606#14805#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -639,7 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="233">
           <caret line="240" column="12" lean-forward="true" selection-start-line="240" selection-start-column="12" selection-end-line="240" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -727,13 +742,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/axes/_axes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="1371" column="22" lean-forward="true" selection-start-line="1371" selection-start-column="22" selection-end-line="1371" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/backend_bases.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -765,7 +773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="267">
           <caret line="689" column="12" lean-forward="true" selection-start-line="689" selection-start-column="12" selection-end-line="689" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -844,18 +851,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ui_mainwidow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16728">
+          <caret line="492" column="54" lean-forward="false" selection-start-line="492" selection-start-column="54" selection-end-line="492" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/threading.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="860" column="18" lean-forward="false" selection-start-line="860" selection-start-column="18" selection-end-line="860" selection-end-column="18" />
+        <state relative-caret-position="29070">
+          <caret line="861" column="0" lean-forward="false" selection-start-line="861" selection-start-column="0" selection-end-line="861" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ui_mainwidow.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/axes/_axes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16864">
-          <caret line="496" column="54" lean-forward="false" selection-start-line="496" selection-start-column="54" selection-end-line="496" selection-end-column="54" />
+        <state relative-caret-position="45016">
+          <caret line="1364" column="0" lean-forward="false" selection-start-line="1364" selection-start-column="0" selection-end-line="1364" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -863,7 +877,7 @@
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <caret line="8" column="17" lean-forward="false" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
@@ -872,45 +886,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CurveWidget.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="155" column="26" lean-forward="false" selection-start-line="155" selection-start-column="26" selection-end-line="155" selection-end-column="26" />
+        <state relative-caret-position="-262">
+          <caret line="166" column="59" lean-forward="false" selection-start-line="166" selection-start-column="59" selection-end-line="166" selection-end-column="59" />
           <folding>
             <element signature="e#25#51#0" expanded="true" />
-            <element signature="e#2342#2828#0" expanded="false" />
-            <element signature="e#5061#5329#0" expanded="false" />
+            <element signature="e#2384#2870#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MainWindow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="333" column="39" lean-forward="true" selection-start-line="333" selection-start-column="39" selection-end-line="333" selection-end-column="39" />
+        <state relative-caret-position="269">
+          <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
           <folding>
             <element signature="e#25#80#0" expanded="true" />
-            <element signature="e#3823#4158#0" expanded="false" />
-            <element signature="e#4194#4538#0" expanded="false" />
-            <element signature="e#4581#5915#0" expanded="false" />
-            <element signature="e#5959#7371#0" expanded="false" />
-            <element signature="e#7256#7371#0" expanded="false" />
-            <element signature="e#7414#7572#0" expanded="false" />
-            <element signature="e#7616#7776#0" expanded="false" />
-            <element signature="e#7823#7970#0" expanded="false" />
-            <element signature="e#8013#8723#0" expanded="false" />
-            <element signature="e#8770#9045#0" expanded="false" />
-            <element signature="e#9090#9472#0" expanded="false" />
-            <element signature="e#9511#9543#0" expanded="false" />
-            <element signature="e#9586#9946#0" expanded="false" />
-            <element signature="e#9994#10605#0" expanded="false" />
-            <element signature="e#10644#10969#0" expanded="false" />
-            <element signature="e#11169#11719#0" expanded="false" />
-            <element signature="e#11764#12313#0" expanded="false" />
-            <element signature="e#12358#12908#0" expanded="false" />
-            <element signature="e#12960#13067#0" expanded="false" />
-            <element signature="e#13119#13234#0" expanded="false" />
-            <element signature="e#13455#13654#0" expanded="false" />
-            <element signature="e#13707#13906#0" expanded="false" />
-            <element signature="e#13959#14158#0" expanded="false" />
+            <element signature="e#4229#4564#0" expanded="false" />
+            <element signature="e#4600#4944#0" expanded="false" />
+            <element signature="e#4987#6321#0" expanded="false" />
+            <element signature="e#6365#7777#0" expanded="false" />
+            <element signature="e#7662#7777#0" expanded="false" />
+            <element signature="e#7820#7978#0" expanded="false" />
+            <element signature="e#8022#8182#0" expanded="false" />
+            <element signature="e#8229#8376#0" expanded="false" />
+            <element signature="e#8419#9129#0" expanded="false" />
+            <element signature="e#9176#9451#0" expanded="false" />
+            <element signature="e#9496#9878#0" expanded="false" />
+            <element signature="e#9917#9949#0" expanded="false" />
+            <element signature="e#9992#10352#0" expanded="false" />
+            <element signature="e#10400#11011#0" expanded="false" />
+            <element signature="e#11050#11375#0" expanded="false" />
+            <element signature="e#11816#12366#0" expanded="false" />
+            <element signature="e#12411#12960#0" expanded="false" />
+            <element signature="e#13005#13555#0" expanded="false" />
+            <element signature="e#13607#13714#0" expanded="false" />
+            <element signature="e#13766#13881#0" expanded="false" />
+            <element signature="e#14102#14301#0" expanded="false" />
+            <element signature="e#14354#14553#0" expanded="false" />
+            <element signature="e#14606#14805#0" expanded="false" />
           </folding>
         </state>
       </provider>
