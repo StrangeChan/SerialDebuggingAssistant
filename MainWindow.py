@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from PyQt5 import QtCore, QtGui, QtWidgets,QtSerialPort
+from PyQt5 import QtCore, QtGui, QtSerialPort
 from PyQt5.QtWidgets import QMessageBox,QMainWindow,QToolTip,QFileDialog
 from PyQt5.QtCore import QThread,QTimer,QFile
 from PyQt5.QtGui import QCursor,QIcon
 from ui_mainwidow import Ui_MainWindow
 from Receive import Receive
 from CurveWidget import CurveData
-from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
+import struct
 
 OFF = False
 ON = True
@@ -19,13 +19,13 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowIcon(QIcon('1.ico'))
-        #添加图像工具栏
+        # 添加图像工具栏
         # self.__nToolBar = NavigationToolbar(self.ui.widget.curve, self.ui.groupBox_6)
         # self.ui.gridLayout_15.addWidget(self.__nToolBar,1,0,1,1)
 
-        self.__uartState = OFF # 常规串口
+        self.__uartState = OFF  # 常规串口
         self.__serialPort = QtSerialPort.QSerialPort()
-        self.__uart2Start = OFF # PID调参串口
+        self.__uart2State = OFF  # PID调参串口
         self.__serialPort2 = QtSerialPort.QSerialPort()
 
         self.__receiveThread = QThread(self)
@@ -48,8 +48,7 @@ class MainWindow(QMainWindow):
         self.__curveData = []
         for i in range(7):
             self.__curveData.append(CurveData(self.ui.widget_dynamic_curve))
-        self.__curveData2 = CurveData(self.ui.widget_dynamic_curve)
-        #print(self.ui.widget_dynamic_curve.get_xlim_max())
+
         # signal and slot
         self.ui.pushButton_uart_sw.clicked.connect(self.change_uart_state)
         self.ui.pushButton_uart_rfresh.clicked.connect(self.refresh_uart_info)
@@ -77,13 +76,10 @@ class MainWindow(QMainWindow):
         self.ui.doubleSpinBox_D.valueChanged.connect(self.change_d_slider_value)
         # 滑动条改变曲线图X大小
         self.ui.horizontalSlider.valueChanged.connect(self.ui.widget_dynamic_curve.change_the_radio)
-        # self.__curveData.plot_data.connect(self.ui.widget_dynamic_curve.plot)
-        self.__curveData2.plot_data.connect(self.ui.widget_dynamic_curve.plot)
+        self.ui.checkBox_curve_show_random.toggled.connect(self.plot_random_data)
         for i in range(len(self.__curveData)):
             self.__curveData[i].plot_data.connect(self.ui.widget_dynamic_curve.plot)
-            self.__curveData[i].Id = i
-        self.ui.checkBox_curve_show_random.toggled.connect(self.plot_random_data)
-
+            self.__curveData[i].Id = i      # 设置标号 对应显示通道数目
 
     def uart_init(self):
         self.__uartState = OFF
@@ -248,18 +244,21 @@ class MainWindow(QMainWindow):
         self.__serialPort.write(data)
 
     def closeEvent(self, e):
+        if self.__uartState:
+            self.__serialPort.close()
+        if self.__uart2State:
+            self.__serialPort2.close()
         for i in range(len(self.__curveData)):
             if self.__curveData[i].isRun == True:
                 self.__curveData[i].release_plot()
-        # if self.__curveData.isRun == True:
-        #     self.__curveData.release_plot()
-        if self.__curveData2.isRun == True:
-            self.__curveData2.release_plot()
         print('k88888')
 
     # 滑动条部分操作
     def set_p_max_value(self,max):
         self.__maxP = max
+        if self.__maxP < 0.1:
+            self.__maxP = 0.1
+            self.ui.doubleSpinBox_max_P.setValue(0.1)
         if self.__maxP >= 100:
             self.ui.doubleSpinBox_P.setDecimals(0)
             self.ui.doubleSpinBox_P.setSingleStep(1)
@@ -272,9 +271,13 @@ class MainWindow(QMainWindow):
         else:
             self.ui.doubleSpinBox_P.setDecimals(3)
             self.ui.doubleSpinBox_P.setSingleStep(0.001)
+        # self.ui.doubleSpinBox_P.setValue(self.ui.verticalSlider_P.value() * self.__maxP / 100)
 
     def set_i_max_value(self,max):
         self.__maxI = max
+        if self.__maxI < 0.1:
+            self.__maxI = 0.1
+            self.ui.doubleSpinBox_max_I.setValue(0.1)
         if self.__maxI >= 100:
             self.ui.doubleSpinBox_I.setDecimals(0)
             self.ui.doubleSpinBox_I.setSingleStep(1)
@@ -287,9 +290,15 @@ class MainWindow(QMainWindow):
         else:
             self.ui.doubleSpinBox_I.setDecimals(3)
             self.ui.doubleSpinBox_I.setSingleStep(0.001)
+        # print(self.ui.verticalSlider_I.value(),1,self.__maxI)
+        # self.ui.doubleSpinBox_I.setValue(self.ui.verticalSlider_I.value() * self.__maxI / 100)
+        # print(self.ui.verticalSlider_I.value(),self.__maxI)
 
     def set_d_max_value(self,max):
         self.__maxD = max
+        if self.__maxD < 0.1:
+            self.__maxD = 0.1
+            self.ui.doubleSpinBox_max_D.setValue(0.1)
         if self.__maxD >= 100:
             self.ui.doubleSpinBox_D.setDecimals(0)
             self.ui.doubleSpinBox_D.setSingleStep(1)
@@ -302,6 +311,7 @@ class MainWindow(QMainWindow):
         else:
             self.ui.doubleSpinBox_D.setDecimals(3)
             self.ui.doubleSpinBox_D.setSingleStep(0.001)
+        # self.ui.doubleSpinBox_D.setValue(self.ui.verticalSlider_D.value() * self.__maxD / 100)
 
     def change_p_para_display(self,para):
         self.ui.doubleSpinBox_P.setValue(para*self.__maxP/100)
@@ -315,7 +325,7 @@ class MainWindow(QMainWindow):
         self.ui.doubleSpinBox_D.setValue(para * self.__maxD / 100)
         self.send_pid_para('d', para * self.__maxD / 100)
 
-    def change_p_slider_value(self,value):
+    def change_p_slider_value(self, value):
         if value > self.__maxP:
             value = self.__maxP
             self.ui.doubleSpinBox_P.setValue(value)
@@ -323,15 +333,14 @@ class MainWindow(QMainWindow):
         value = value * 100 / self.__maxP
         self.ui.verticalSlider_P.setValue(value)
 
-    def change_i_slider_value(self,value):
+    def change_i_slider_value(self, value):
         if value > self.__maxI:
             value = self.__maxI
             self.ui.doubleSpinBox_I.setValue(value)
-
         value = value * 100 / self.__maxI
         self.ui.verticalSlider_I.setValue(value)
 
-    def change_d_slider_value(self,value):
+    def change_d_slider_value(self, value):
         if value > self.__maxD:
             value = self.__maxD
             self.ui.doubleSpinBox_D.setValue(value)
@@ -339,8 +348,44 @@ class MainWindow(QMainWindow):
         value = value * 100 / self.__maxD
         self.ui.verticalSlider_D.setValue(value)
 
-    def send_pid_para(self,cmd,para):
-        pass
+    # cmd = ‘p' 'i' 'd'
+    # sign = '-'/'+'
+    # para_float --> para_8*4
+    # sum = cmd + sign + para_8*4
+    def send_pid_para(self, cmd, para):
+        para_8 = struct.pack('f',para)      # float to byte
+        send = bytearray(3)
+        send[0] = ord('$')
+        send[1] = ord(cmd)
+        if cmd == 'p':
+            if self.ui.checkBox_P.isChecked():
+                send[2] = ord('-')
+            else:
+                send[2] = ord('+')
+        elif cmd == 'i':
+            if self.ui.checkBox_I.isChecked():
+                send[2] = ord('-')
+            else:
+                send[2] = ord('+')
+        elif cmd == 'd':
+            if self.ui.checkBox_D.isChecked():
+                send[2] = ord('-')
+            else:
+                send[2] = ord('+')
+        # for i in range(len(para_8)):
+        #     send[2+i] = para_8[i]
+        send.extend(para_8)
+        sum = 0
+        for i in range(len(send)):
+            sum += send[i]
+        # print(sum|0xff)
+        send.append(sum&0xff)
+        # print(send.hex())
+        # print(send)
+        if not self.__uart2State:
+            QToolTip.showText(QCursor.pos(), "请打开串口")
+        else:
+            self.__serialPort2.write(send)
 
     def which_channel_show(self):
         num = []
@@ -358,7 +403,7 @@ class MainWindow(QMainWindow):
             num.append(6)
         return num
 
-    def plot_random_data(self,checked):
+    def plot_random_data(self, checked):
         if checked:
             if len(self.which_channel_show()) > 0:
                 self.__curveData[self.which_channel_show()[0]].start_plot()

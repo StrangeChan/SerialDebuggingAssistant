@@ -62,17 +62,15 @@ class CurveWidget(FigureCanvas):
 
     # 通过鼠标移动图像
     def mouse_move_fig(self, e):
-        if self.__isMousePress and e.ydata != None and self.__data_y != None:
+        if self.__isMousePress and e.ydata is not None and self.__data_y is not None:
             ylim = self.ax.get_ylim()
-            #print(ylim[0],ylim[1],e.ydata,self.__data_y)
-            self.ax.set_ylim(ylim[0]-e.ydata+self.__data_y,ylim[1]-e.ydata+self.__data_y)
+            # print(ylim[0],ylim[1],e.ydata,self.__data_y)
+            self.ax.set_ylim(ylim[0]-e.ydata+self.__data_y, ylim[1]-e.ydata+self.__data_y)
             self.__isMousePress = False
         self.setCursor(Qt.ArrowCursor)
 
     # 滚轮改变Y轴坐标
     def scroll_change_ylim(self, e):
-        #print([e.step,e.xdata,e.ydata])
-       # self.__widget.setCursor(Qt.SizeVerCursor)
         if e.step > 0:
             self.__yMax = self.__yMax / self.__ylimAdjust
             self.__yMin = self.__yMin / self.__ylimAdjust
@@ -80,7 +78,7 @@ class CurveWidget(FigureCanvas):
             self.__yMax,self.__yMin = self.__yMax * self.__ylimAdjust,self.__yMin * self.__ylimAdjust
         if e.ydata != None:
             self.ax.set_ylim(e.ydata+self.__yMin, e.ydata+self.__yMax)
-        #self.__widget.setCursor(Qt.ArrowCursor)
+        # self.__widget.setCursor(Qt.ArrowCursor)
 
     # 获取当前窗口大小对应X坐标最大值
     def get_xlim_max(self):
@@ -136,22 +134,25 @@ class CurveData(QObject):
         self.curve = curve
         self.count_x = 0
         self.__is_x_max = False
+        self.generating = False
+        self.exit = False
         self.isRun = False
+        self.__timerID = 0
         self.dataX = []
-        self.dataY = [] # [[],[],[],[],[],[]]
+        self.dataY = []  # [[],[],[],[],[],[]]
         self.data = [[]]*7
         # print(len(self.data))
         # print(len(self.data))
 
     def init_data_generator(self):
-        self.generating = False
         self.exit = False
+        self.isRun = False
         self.tData = threading.Thread(name="dataGenerator", target=self.generate_data)
         self.tData.start()
         self.isRun = True
 
     def start_plot(self):
-        if self.isRun == False:
+        if not self.isRun:
             self.init_data_generator()
         self.generating = True
         self.__timerID = self.startTimer(10)
@@ -168,13 +169,13 @@ class CurveData(QObject):
 
     def release_plot(self):
         self.exit = True
-        if self.generating == True:
+        if self.generating:
             self.pause_plot()
         self.tData.join()
         self.isRun = False
         # print(self.tData.run())
 
-    def add_data(self, data, num = None):
+    def add_data(self, data, num=None):
         self.dataY.append(data)
         self.dataX.append(self.count_x)
         # self.data[num].append([self.count_x, data])
@@ -182,7 +183,7 @@ class CurveData(QObject):
         # for i in range(len(self.data[num])):
         #     dataX.append(self.data[num][i][0])
         #     dataY.append(self.data[num][i][1])
-        if num == None:
+        if num is None:
             self.plot_data.emit(self.dataX, self.dataY, self.Id)
         else:
             self.plot_data.emit(self.dataX, self.dataY, num)
@@ -216,8 +217,8 @@ class CurveData(QObject):
             if self.exit:
                 break
             if self.generating:
-                newData = random.randint(Y_MIN, Y_MAX)
-                self.add_data(newData)
+                new_data = random.randint(Y_MIN, Y_MAX)
+                self.add_data(new_data)
                 time.sleep(INTERVAL)
                 # if self.__is_x_max:
                 # self.dataY.append(newData)
