@@ -4,7 +4,7 @@ import struct
 
 
 class Receive(QObject):
-    receive_success = pyqtSignal(int,float)
+    receive_success = pyqtSignal(float,int)
     def __init__(self, uart):
         super().__init__()
         self.__serialPort = uart
@@ -50,7 +50,7 @@ class Receive(QObject):
         for i in range(self.__receiveDataNum):
             data_float = struct.unpack('<f', bytes(self.__data[i*4:4+i*4]))
             print(data_float)
-            self.receive_success.emit(i+1,data_float[0])
+            self.receive_success.emit(data_float[0],i+1)
         # data_float = struct.unpack('>f', bytes(self.__data))
         # print(data_float)
         self.__receiveStartFlag = False

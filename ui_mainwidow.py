@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(861, 646)
+        MainWindow.resize(859, 639)
         MainWindow.setBaseSize(QtCore.QSize(0, 0))
         MainWindow.setIconSize(QtCore.QSize(18, 18))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -311,7 +311,7 @@ class Ui_MainWindow(object):
         self.horizontalSlider.setLayoutDirection(QtCore.Qt.RightToLeft)
         self.horizontalSlider.setMinimum(-50)
         self.horizontalSlider.setMaximum(50)
-        self.horizontalSlider.setPageStep(5)
+        self.horizontalSlider.setPageStep(1)
         self.horizontalSlider.setProperty("value", 0)
         self.horizontalSlider.setOrientation(QtCore.Qt.Horizontal)
         self.horizontalSlider.setObjectName("horizontalSlider")
@@ -410,6 +410,7 @@ class Ui_MainWindow(object):
         self.verticalSlider_I = QtWidgets.QSlider(self.groupBox_5)
         self.verticalSlider_I.setMinimum(0)
         self.verticalSlider_I.setMaximum(100)
+        self.verticalSlider_I.setPageStep(1)
         self.verticalSlider_I.setProperty("value", 0)
         self.verticalSlider_I.setSliderPosition(0)
         self.verticalSlider_I.setOrientation(QtCore.Qt.Vertical)
@@ -426,6 +427,7 @@ class Ui_MainWindow(object):
         self.verticalSlider_D = QtWidgets.QSlider(self.groupBox_5)
         self.verticalSlider_D.setMinimum(0)
         self.verticalSlider_D.setMaximum(100)
+        self.verticalSlider_D.setPageStep(1)
         self.verticalSlider_D.setOrientation(QtCore.Qt.Vertical)
         self.verticalSlider_D.setObjectName("verticalSlider_D")
         self.gridLayout_6.addWidget(self.verticalSlider_D, 2, 4, 3, 1)

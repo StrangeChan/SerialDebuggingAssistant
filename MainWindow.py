@@ -6,7 +6,7 @@ from PyQt5.QtCore import QThread,QTimer,QFile
 from PyQt5.QtGui import QCursor,QIcon
 from ui_mainwidow import Ui_MainWindow
 from Receive import Receive
-from CurveWidget import CurveData
+from CurveWidget import CurveData,CurveDataS
 import struct
 
 OFF = False
@@ -45,9 +45,10 @@ class MainWindow(QMainWindow):
         self.ui.doubleSpinBox_I.setDecimals(3)
         self.ui.doubleSpinBox_D.setDecimals(2)
         # 七个通道，0 为模拟
-        self.__curveData = []
-        for i in range(7):
-            self.__curveData.append(CurveData(self.ui.widget_dynamic_curve))
+        # self.__curveData = []
+        # for i in range(7):
+        #     self.__curveData.append(CurveData(self.ui.widget_dynamic_curve))
+        self.__curveDataS = CurveDataS(self.ui.widget_dynamic_curve)
         # signal and slot
         self.ui.pushButton_uart_sw.clicked.connect(self.change_uart_state)
         self.ui.pushButton_uart_rfresh.clicked.connect(self.refresh_uart_info)
@@ -76,9 +77,10 @@ class MainWindow(QMainWindow):
         # 滑动条改变曲线图X大小
         self.ui.horizontalSlider.valueChanged.connect(self.ui.widget_dynamic_curve.change_the_radio)
         self.ui.checkBox_curve_show_random.toggled.connect(self.plot_random_data)
-        for i in range(len(self.__curveData)):
-            self.__curveData[i].plot_data.connect(self.ui.widget_dynamic_curve.plot)
-            self.__curveData[i].Id = i      # 设置标号 对应显示通道数目
+        # for i in range(len(self.__curveData)):
+        #     self.__curveData[i].plot_data.connect(self.ui.widget_dynamic_curve.plot)
+        #     self.__curveData[i].Id = i      # 设置标号 对应显示通道数目
+        self.__curveDataS.plot_data.connect(self.ui.widget_dynamic_curve.plot)
         self.__uartReceive.receive_success.connect(self.add_plot_data)
 
     def uart_init(self):
@@ -135,6 +137,9 @@ class MainWindow(QMainWindow):
             self.ui.pushButton_uart_sw_2.setText("打开串口")
             self.ui.comboBox_com_2.setEnabled(True)
             self.ui.comboBox_baud_2.setEnabled(True)
+            # 开启随机点
+            self.ui.checkBox_curve_show_random.setEnabled(True)
+            self.__curveDataS.stop_plot()
         else:
             self.__serialPort2.setPortName(self.ui.comboBox_com_2.currentText().split(':')[0])
             self.__serialPort2.setBaudRate(int(self.ui.comboBox_baud_2.currentText()))
@@ -153,6 +158,10 @@ class MainWindow(QMainWindow):
                 self.ui.pushButton_uart_sw_2.setText("关闭串口")
                 self.ui.comboBox_baud_2.setEnabled(False)
                 self.ui.comboBox_com_2.setEnabled(False)
+                # 关闭随机点
+                self.ui.checkBox_curve_show_random.setChecked(False)
+                self.ui.checkBox_curve_show_random.setEnabled(False)
+                self.__curveDataS.start_plot()
             else:
                 QMessageBox.critical(self,"Error","Fail to turn on this device!")
                 print(self.__serialPort2.error())
@@ -258,9 +267,11 @@ class MainWindow(QMainWindow):
             self.__receiveThread.quit()
             self.__receiveThread.exit()
         # 关闭随机模拟曲线数据生成线程
-        for i in range(len(self.__curveData)):
-            if self.__curveData[i].isRun == True:
-                self.__curveData[i].release_plot()
+        # for i in range(len(self.__curveData)):
+        #     if self.__curveData[i].isRun == True:
+        #         self.__curveData[i].release_plot()
+        if self.__curveDataS.isRandomRun:
+            self.__curveDataS.release_random_plot()
         print('k88888')
 
     # 滑动条部分操作
@@ -415,14 +426,16 @@ class MainWindow(QMainWindow):
 
     def plot_random_data(self, checked):
         if checked:
+            # if 1 in self.which_channel_show():
+            #     self.__curveDataS.start_random_plot(1)
             if len(self.which_channel_show()) > 0:
-                self.__curveData[self.which_channel_show()[0]].start_plot()
+                self.__curveDataS.start_random_plot(self.which_channel_show()[0])
             else:
-                self.__curveData[0].start_plot()
+                self.__curveDataS.start_random_plot(0)
         else:
-            for i in range(len(self.__curveData)):
-                if self.__curveData[i].isRun == True:
-                    self.__curveData[i].release_plot()
+            if self.__curveDataS.isRandomRun:
+                self.__curveDataS.release_random_plot()
 
-    def add_plot_data(self,num,data):
-        pass
+    def add_plot_data(self, data, num):
+        if num in self.which_channel_show():
+            self.__curveDataS.add_data(data,num)

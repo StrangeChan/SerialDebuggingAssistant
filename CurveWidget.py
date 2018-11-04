@@ -41,7 +41,7 @@ class CurveWidget(FigureCanvas):
         self.ax.set_ylim(self.__yMin, self.__yMax)
         self.change_xlim_max(self.get_xlim_max())
         self.fig.canvas.mpl_connect('resize_event', self.resize_fig)
-        self.ax.set_xticks([])
+        # self.ax.set_xticks([])
 
         self.curveObj = [None] * 7  # draw object
         # print(len(self.curveObj))
@@ -87,12 +87,13 @@ class CurveWidget(FigureCanvas):
         self.ax.set_xlim(0,max)
 
     # slot 与滑动条连接  滑动条（-50~50）
-    def change_the_radio(self,int):
-        if int > 0:
-            self.__xlimFigSizeRadio = 200 * int
-        elif int < 0:
-            int = -int
-            self.__xlimFigSizeRadio = 200/int
+    def change_the_radio(self,_int):
+        print(_int)
+        if _int > 0:
+            self.__xlimFigSizeRadio = 200 *1.2**_int
+        elif _int < 0:
+            _int = -_int
+            self.__xlimFigSizeRadio = 200/(1.2**_int)
         self.change_xlim_max(self.get_xlim_max())
         self.draw()
 
@@ -237,3 +238,110 @@ class CurveData(QObject):
                 # self.plot_data.emit(self.dataX, self.dataY, 'b--')
                 # self.curve.plot(self.dataX, self.dataY)
 
+class CurveDataS(QObject):
+    plot_data = pyqtSignal(list,list,int)
+    def __init__(self,curve, num_channel = 7):
+        super().__init__()
+        self.Id = 0
+        self.curve = curve
+        self.count_x = 0
+        self.__is_x_max = False
+        self.__timerID = 0
+        self.__numChannel = num_channel
+        self.dataX = [[],[],[],[],[],[],[]]
+        self.dataY = [[],[],[],[],[],[],[]]
+        self.isRun = False
+        # 虚拟波形生成标志
+        self.generating = False
+        self.exit = False
+        self.isRandomRun = False
+        self.__randomPlotChannel = 0
+
+    def init_random_data_generator(self):
+        self.exit = False
+        self.isRandomRun = False
+        self.tData = threading.Thread(name="dataGenerator", target=self.generate_data)
+        self.tData.start()
+        self.isRandomRun = True
+
+    def start_random_plot(self, num = 0):
+        if not self.isRandomRun:
+            self.init_random_data_generator()
+        if not self.isRun:
+            self.generating = True
+            self.__randomPlotChannel = num
+            self.__timerID = self.startTimer(10)
+        # self.tData.start()
+
+    def pause_random_plot(self):
+        self.generating = False
+        self.killTimer(self.__timerID)
+        self.dataX[0] = []
+        self.dataY[0] = []
+        self.plot_data.emit(self.dataX[0], self.dataY[0], self.__randomPlotChannel)
+
+    def release_random_plot(self):
+        self.exit = True
+        if self.generating:
+            self.pause_random_plot()
+        self.tData.join()
+        self.isRandomRun = False
+        # print(self.tData.run())
+
+    def add_random_data(self, data):
+        self.dataY[0].append(data)
+        self.dataX[0].append(self.count_x)
+        self.plot_data.emit(self.dataX[0], self.dataY[0], self.__randomPlotChannel)
+
+    def start_plot(self):
+       #  关闭随机数生成
+        if self.isRandomRun:
+            self.release_random_plot()
+        self.isRun = True
+        for i in range(7):
+            self.plot_data.emit([], [], i)
+        self.__timerID = self.startTimer(5)
+
+    def stop_plot(self):
+        if self.isRun:
+            self.killTimer(self.__timerID)
+            self.dataX = [[],[],[],[],[],[],[]]
+            self.dataY = [[],[],[],[],[],[],[]]
+            self.isRun = False
+
+
+    def add_data(self, data, num):
+        self.dataY[num].append(data)
+        self.dataX[num].append(self.count_x)
+        # if num is None:
+        #     self.plot_data.emit(self.dataX, self.dataY, self.Id)
+        # else:
+        self.plot_data.emit(self.dataX[num], self.dataY[num], num)
+
+    # 移动曲线图像实现动态
+    def timerEvent(self, e):
+        if self.__timerID == e.timerId():
+            if self.count_x >= self.curve.get_xlim_max():
+                # 图像超出边界
+                self.__is_x_max = True
+                for i in range(len(self.dataX)):
+                    if len(self.dataX[i]) > 0:
+                        # 从头部将超出边界的去掉，实现曲线滚动
+                        for j in range(len(self.dataX[i])):
+                            self.dataX[i][j] = \
+                                self.dataX[i][j] + self.curve.get_xlim_max() - self.count_x - 1
+                        while self.dataX[i][0] < 0:
+                            self.dataX[i].pop(0)
+                            self.dataY[i].pop(0)
+                self.count_x = int(self.curve.get_xlim_max())
+            else:
+                self.count_x += 1
+
+    def generate_data(self):
+        while True:
+            if self.exit:
+                break
+            if self.generating:
+                new_data = random.randint(Y_MIN, Y_MAX)
+                self.add_random_data(new_data)
+                time.sleep(INTERVAL)
