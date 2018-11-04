@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 
 from PyQt5.QtCore import *
-
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 import numpy as np
@@ -201,7 +200,7 @@ class CurveData(QObject):
                     while self.dataX[0] < 0:
                         self.dataX.pop(0)
                         self.dataY.pop(0)
-                        self.count_x = self.curve.get_xlim_max()
+                self.count_x = self.curve.get_xlim_max()
                 # for i in range(len(self.data)):
                     # print(i)
                     # for j in range(len(self.data[i])):

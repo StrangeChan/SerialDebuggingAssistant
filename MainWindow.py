@@ -48,7 +48,6 @@ class MainWindow(QMainWindow):
         self.__curveData = []
         for i in range(7):
             self.__curveData.append(CurveData(self.ui.widget_dynamic_curve))
-
         # signal and slot
         self.ui.pushButton_uart_sw.clicked.connect(self.change_uart_state)
         self.ui.pushButton_uart_rfresh.clicked.connect(self.refresh_uart_info)
@@ -80,6 +79,7 @@ class MainWindow(QMainWindow):
         for i in range(len(self.__curveData)):
             self.__curveData[i].plot_data.connect(self.ui.widget_dynamic_curve.plot)
             self.__curveData[i].Id = i      # 设置标号 对应显示通道数目
+        self.__uartReceive.receive_success.connect(self.add_plot_data)
 
     def uart_init(self):
         self.__uartState = OFF
@@ -129,6 +129,9 @@ class MainWindow(QMainWindow):
         if self.__uart2State:
             self.__serialPort2.close()
             self.__uart2State = OFF
+            if self.__receiveThread.isRunning():
+                self.__receiveThread.quit()
+                self.__receiveThread.exit()
             self.ui.pushButton_uart_sw_2.setText("打开串口")
             self.ui.comboBox_com_2.setEnabled(True)
             self.ui.comboBox_baud_2.setEnabled(True)
@@ -145,7 +148,7 @@ class MainWindow(QMainWindow):
                 self.__uart2State = ON
                 self.__receiveThread.start()
                 # PID调参模式
-                self.__serialPort2.readyRead.connect(self.receive_uart_data)
+                self.__serialPort2.readyRead.connect(self.__uartReceive.receive_uart_data)
 
                 self.ui.pushButton_uart_sw_2.setText("关闭串口")
                 self.ui.comboBox_baud_2.setEnabled(False)
@@ -243,11 +246,18 @@ class MainWindow(QMainWindow):
             data =  bytes(data, encoding='gbk')
         self.__serialPort.write(data)
 
+    # 关闭窗口关闭线程
     def closeEvent(self, e):
+        # 关闭串口
         if self.__uartState:
             self.__serialPort.close()
         if self.__uart2State:
             self.__serialPort2.close()
+        # 关闭数据接收线程
+        if self.__receiveThread.isRunning():
+            self.__receiveThread.quit()
+            self.__receiveThread.exit()
+        # 关闭随机模拟曲线数据生成线程
         for i in range(len(self.__curveData)):
             if self.__curveData[i].isRun == True:
                 self.__curveData[i].release_plot()
@@ -413,3 +423,6 @@ class MainWindow(QMainWindow):
             for i in range(len(self.__curveData)):
                 if self.__curveData[i].isRun == True:
                     self.__curveData[i].release_plot()
+
+    def add_plot_data(self,num,data):
+        pass
