@@ -52,6 +52,7 @@ class CurveWidget(FigureCanvas):
     def mouse_pressed(self, e):
         self.__isMousePress = True
         self.__data_y = e.ydata
+        # print(self.__data_y)
         self.setCursor(Qt.ClosedHandCursor)
 
     def mouse_released(self, e):
@@ -61,10 +62,11 @@ class CurveWidget(FigureCanvas):
 
     # 通过鼠标移动图像
     def mouse_move_fig(self, e):
-        if self.__isMousePress and e.ydata is not None and self.__data_y is not None:
+        if self.__isMousePress and (e.ydata is not None) and (self.__data_y is not None):
             ylim = self.ax.get_ylim()
             # print(ylim[0],ylim[1],e.ydata,self.__data_y)
             self.ax.set_ylim(ylim[0]-e.ydata+self.__data_y, ylim[1]-e.ydata+self.__data_y)
+            self.draw()
             self.__isMousePress = False
         self.setCursor(Qt.ArrowCursor)
 
@@ -77,6 +79,7 @@ class CurveWidget(FigureCanvas):
             self.__yMax,self.__yMin = self.__yMax * self.__ylimAdjust,self.__yMin * self.__ylimAdjust
         if e.ydata != None:
             self.ax.set_ylim(e.ydata+self.__yMin, e.ydata+self.__yMax)
+            self.draw()
         # self.__widget.setCursor(Qt.ArrowCursor)
 
     # 获取当前窗口大小对应X坐标最大值
@@ -300,7 +303,7 @@ class CurveDataS(QObject):
         self.isRun = True
         for i in range(7):
             self.plot_data.emit([], [], i)
-        self.__timerID = self.startTimer(5)
+        self.__timerID = self.startTimer(10)
 
     def stop_plot(self):
         if self.isRun:
@@ -308,6 +311,8 @@ class CurveDataS(QObject):
             self.dataX = [[],[],[],[],[],[],[]]
             self.dataY = [[],[],[],[],[],[],[]]
             self.isRun = False
+        if self.isRandomRun:
+            self.release_random_plot()
 
 
     def add_data(self, data, num):
@@ -343,5 +348,7 @@ class CurveDataS(QObject):
                 break
             if self.generating:
                 new_data = random.randint(Y_MIN, Y_MAX)
-                self.add_random_data(new_data)
+                # self.add_random_data(new_data)
+                self.add_data(new_data,self.__randomPlotChannel)
+                self.add_data(new_data+69, self.__randomPlotChannel+1)
                 time.sleep(INTERVAL)

@@ -49,8 +49,9 @@ class Receive(QObject):
         self.__data.pop(0)
         for i in range(self.__receiveDataNum):
             data_float = struct.unpack('<f', bytes(self.__data[i*4:4+i*4]))
-            print(data_float)
+            # print(data_float)
             self.receive_success.emit(data_float[0],i+1)
+            # print(data_float[0])
         # data_float = struct.unpack('>f', bytes(self.__data))
         # print(data_float)
         self.__receiveStartFlag = False

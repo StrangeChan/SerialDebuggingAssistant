@@ -270,8 +270,9 @@ class MainWindow(QMainWindow):
         # for i in range(len(self.__curveData)):
         #     if self.__curveData[i].isRun == True:
         #         self.__curveData[i].release_plot()
-        if self.__curveDataS.isRandomRun:
-            self.__curveDataS.release_random_plot()
+        # if self.__curveDataS.isRandomRun:
+        #     self.__curveDataS.release_random_plot()
+        self.__curveDataS.stop_plot()
         print('k88888')
 
     # 滑动条部分操作
@@ -412,15 +413,15 @@ class MainWindow(QMainWindow):
         num = []
         if self.ui.checkBox_1.isChecked():
             num.append(1)
-        elif self.ui.checkBox_2.isChecked():
+        if self.ui.checkBox_2.isChecked():
             num.append(2)
-        elif self.ui.checkBox_3.isChecked():
+        if self.ui.checkBox_3.isChecked():
             num.append(3)
-        elif self.ui.checkBox_4.isChecked():
+        if self.ui.checkBox_4.isChecked():
             num.append(4)
-        elif self.ui.checkBox_5.isChecked():
+        if self.ui.checkBox_5.isChecked():
             num.append(5)
-        elif self.ui.checkBox_6.isChecked():
+        if self.ui.checkBox_6.isChecked():
             num.append(6)
         return num
 
@@ -437,5 +438,8 @@ class MainWindow(QMainWindow):
                 self.__curveDataS.release_random_plot()
 
     def add_plot_data(self, data, num):
+        print(1, data, num)
         if num in self.which_channel_show():
+            # print(2, data, num)
             self.__curveDataS.add_data(data,num)
+
