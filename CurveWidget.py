@@ -303,7 +303,7 @@ class CurveDataS(QObject):
         self.isRun = True
         for i in range(7):
             self.plot_data.emit([], [], i)
-        self.__timerID = self.startTimer(10)
+        self.__timerID = self.startTimer(5)
 
     def stop_plot(self):
         if self.isRun:

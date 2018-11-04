@@ -438,7 +438,20 @@ class MainWindow(QMainWindow):
                 self.__curveDataS.release_random_plot()
 
     def add_plot_data(self, data, num):
-        print(1, data, num)
+        # print(1, data, num)
+        data = round(data,3)
+        if num == 1:
+            self.ui.lineEdit_7.setText(str(data))
+        elif num ==2:
+            self.ui.lineEdit_8.setText(str(data))
+        elif num ==3:
+            self.ui.lineEdit_9.setText(str(data))
+        elif num ==4:
+            self.ui.lineEdit_10.setText(str(data))
+        elif num ==5:
+            self.ui.lineEdit_11.setText(str(data))
+        elif num ==6:
+            self.ui.lineEdit_12.setText(str(data))
         if num in self.which_channel_show():
             # print(2, data, num)
             self.__curveDataS.add_data(data,num)

@@ -5,8 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CurveWidget.py" afterPath="$PROJECT_DIR$/CurveWidget.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MainWindow.py" afterPath="$PROJECT_DIR$/MainWindow.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Receive.py" afterPath="$PROJECT_DIR$/Receive.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui_mainwidow.ui" afterPath="$PROJECT_DIR$/ui_mainwidow.ui" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="MainWindow.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainWindow.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainWindow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="445" column="0" lean-forward="true" selection-start-line="445" selection-start-column="0" selection-end-line="445" selection-end-column="0" />
+            <state relative-caret-position="167">
+              <caret line="451" column="50" lean-forward="true" selection-start-line="451" selection-start-column="50" selection-end-line="451" selection-end-column="50" />
               <folding>
                 <element signature="e#25#70#0" expanded="true" />
                 <element signature="e#4122#4457#0" expanded="false" />
@@ -55,15 +53,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CurveWidget.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CurveWidget.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CurveWidget.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="67" column="17" lean-forward="false" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
+            <state relative-caret-position="426">
+              <caret line="305" column="42" lean-forward="false" selection-start-line="305" selection-start-column="42" selection-end-line="305" selection-end-column="42" />
               <folding>
                 <element signature="e#25#51#0" expanded="true" />
                 <element signature="e#4281#8228#0" expanded="false" />
-                <element signature="e#8261#12085#0" expanded="false" />
                 <element signature="e#8857#9053#0" expanded="false" />
                 <element signature="e#9401#9601#0" expanded="false" />
                 <element signature="e#9867#10020#0" expanded="false" />
@@ -136,8 +133,8 @@
         <option value="$PROJECT_DIR$/ui_mainwidow.py" />
         <option value="$PROJECT_DIR$/DynamicCurve.py" />
         <option value="$PROJECT_DIR$/Receive.py" />
-        <option value="$PROJECT_DIR$/CurveWidget.py" />
         <option value="$PROJECT_DIR$/MainWindow.py" />
+        <option value="$PROJECT_DIR$/CurveWidget.py" />
       </list>
     </option>
   </component>
@@ -447,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541348666743</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="maybe complete?">
+      <created>1541350935383</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1541350935383</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TodoView">
@@ -499,7 +503,8 @@
     <MESSAGE value="solution the bug of slider" />
     <MESSAGE value="add receive class" />
     <MESSAGE value="add CurveDataS class" />
-    <option name="LAST_COMMIT_MESSAGE" value="add CurveDataS class" />
+    <MESSAGE value="maybe complete?" />
+    <option name="LAST_COMMIT_MESSAGE" value="maybe complete?" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -895,16 +900,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Receive.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="54" column="17" lean-forward="false" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/axes/_base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12">
@@ -913,25 +908,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CurveWidget.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="67" column="17" lean-forward="false" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
-          <folding>
-            <element signature="e#25#51#0" expanded="true" />
-            <element signature="e#4281#8228#0" expanded="false" />
-            <element signature="e#8261#12085#0" expanded="false" />
-            <element signature="e#8857#9053#0" expanded="false" />
-            <element signature="e#9401#9601#0" expanded="false" />
-            <element signature="e#9867#10020#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MainWindow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="445" column="0" lean-forward="true" selection-start-line="445" selection-start-column="0" selection-end-line="445" selection-end-column="0" />
+        <state relative-caret-position="167">
+          <caret line="451" column="50" lean-forward="true" selection-start-line="451" selection-start-column="50" selection-end-line="451" selection-end-column="50" />
           <folding>
             <element signature="e#25#70#0" expanded="true" />
             <element signature="e#4122#4457#0" expanded="false" />
@@ -956,6 +936,30 @@
             <element signature="e#15538#15737#0" expanded="false" />
             <element signature="e#15791#15989#0" expanded="false" />
             <element signature="e#16043#16242#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Receive.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="54" column="17" lean-forward="false" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CurveWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="305" column="42" lean-forward="false" selection-start-line="305" selection-start-column="42" selection-end-line="305" selection-end-column="42" />
+          <folding>
+            <element signature="e#25#51#0" expanded="true" />
+            <element signature="e#4281#8228#0" expanded="false" />
+            <element signature="e#8857#9053#0" expanded="false" />
+            <element signature="e#9401#9601#0" expanded="false" />
+            <element signature="e#9867#10020#0" expanded="false" />
           </folding>
         </state>
       </provider>
