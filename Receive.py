@@ -1,6 +1,8 @@
 from PyQt5.QtSerialPort import QSerialPort
 from PyQt5.QtCore import *
 import struct
+import datetime
+import time
 
 
 class Receive(QObject):
@@ -18,6 +20,7 @@ class Receive(QObject):
     # num 通道数
     # float 4个字节*num
     def receive_uart_data(self):
+        start = time.time()
         if self.__serialPort.isReadable():
             data = bytearray()
             data.extend(self.__serialPort.readAll())
@@ -41,8 +44,11 @@ class Receive(QObject):
 
                         if len(self.__data) == self.__receiveDataNum*4+2:
                             self.data_processing()
+                            end = time.time()
                         if len(self.__data) > self.__receiveDataNum*4+2:
                             self.receive_fail()
+        # end = time.time()
+        # print('time:',(end - start))
 
     def data_processing(self):
         self.__data.pop(0)

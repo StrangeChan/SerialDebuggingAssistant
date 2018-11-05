@@ -42,6 +42,7 @@ class CurveWidget(FigureCanvas):
         self.change_xlim_max(self.get_xlim_max())
         self.fig.canvas.mpl_connect('resize_event', self.resize_fig)
         # self.ax.set_xticks([])
+        self.ax.grid(linestyle='--')
 
         self.curveObj = [None] * 7  # draw object
         # print(len(self.curveObj))
@@ -348,7 +349,7 @@ class CurveDataS(QObject):
                 break
             if self.generating:
                 new_data = random.randint(Y_MIN, Y_MAX)
-                # self.add_random_data(new_data)
-                self.add_data(new_data,self.__randomPlotChannel)
-                self.add_data(new_data+69, self.__randomPlotChannel+1)
+                self.add_random_data(new_data)
+                # self.add_data(new_data,self.__randomPlotChannel)
+                # self.add_data(new_data+69, self.__randomPlotChannel+1)
                 time.sleep(INTERVAL)

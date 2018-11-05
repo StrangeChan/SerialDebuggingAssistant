@@ -31,6 +31,9 @@ class MainWindow(QMainWindow):
         self.__receiveThread = QThread(self)
         self.__uartReceive = Receive(self.__serialPort2)
         self.__uartReceive.moveToThread(self.__receiveThread)
+        self.__plotThread = QThread(self)
+        self.ui.widget_dynamic_curve.moveToThread(self.__plotThread)
+        self.__plotThread.start()
 
         self.uart_init()
         self.uart2_init()
