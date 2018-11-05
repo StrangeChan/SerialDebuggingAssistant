@@ -21,10 +21,11 @@ class Receive(QObject):
     # float 4个字节*num
     def receive_uart_data(self):
         start = time.time()
+        print('receive_start:', start)
         if self.__serialPort.isReadable():
             data = bytearray()
             data.extend(self.__serialPort.readAll())
-            print(data.hex())
+            # print(data.hex())
             if len(data) > 0:
                 for i in range(len(data)):
                     # 第一次收到 $
@@ -44,11 +45,12 @@ class Receive(QObject):
 
                         if len(self.__data) == self.__receiveDataNum*4+2:
                             self.data_processing()
-                            end = time.time()
+                            # end = time.time()
                         if len(self.__data) > self.__receiveDataNum*4+2:
                             self.receive_fail()
-        # end = time.time()
-        # print('time:',(end - start))
+        end = time.time()
+
+        print('receive_time:',(end - start))
 
     def data_processing(self):
         self.__data.pop(0)

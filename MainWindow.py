@@ -8,6 +8,7 @@ from ui_mainwidow import Ui_MainWindow
 from Receive import Receive
 from CurveWidget import CurveData,CurveDataS
 import struct
+import time
 
 OFF = False
 ON = True
@@ -441,6 +442,8 @@ class MainWindow(QMainWindow):
                 self.__curveDataS.release_random_plot()
 
     def add_plot_data(self, data, num):
+        start = time.time()
+        print('add_plot_data_start', start)
         # print(1, data, num)
         data = round(data,3)
         if num == 1:
@@ -458,4 +461,6 @@ class MainWindow(QMainWindow):
         if num in self.which_channel_show():
             # print(2, data, num)
             self.__curveDataS.add_data(data,num)
+        end = time.time()
+        print('add_plot_data_time',end - start)
 

@@ -18,7 +18,6 @@ MAX_COUNTER = 100  # int(X_MINUTES * 60 / INTERVAL)
 class CurveWidget(FigureCanvas):
 
     def __init__(self, widget):
-
         self.fig = Figure()
         self.ax = self.fig.add_subplot(111)
         FigureCanvas.__init__(self, self.fig)
@@ -37,6 +36,7 @@ class CurveWidget(FigureCanvas):
         self.fig.canvas.mpl_connect('button_release_event', self.mouse_move_fig)
 
         self.__xlimFigSizeRadio = 200
+        self.__xlimMin = 0
         # self.ax.legend()
         self.ax.set_ylim(self.__yMin, self.__yMax)
         self.change_xlim_max(self.get_xlim_max())
@@ -87,11 +87,15 @@ class CurveWidget(FigureCanvas):
     def get_xlim_max(self):
         return self.fig.get_size_inches()[0] * self.__xlimFigSizeRadio
 
-    def change_xlim_max(self,max):
-        self.ax.set_xlim(0,max)
+    def set_xlim_min(self, x_min = 0):
+        self.__xlimMin = x_min
+        # print(self.__xlimMin)
+
+    def change_xlim_max(self, max):
+        self.ax.set_xlim(self.__xlimMin,self.__xlimMin + max)
 
     # slot 与滑动条连接  滑动条（-50~50）
-    def change_the_radio(self,_int):
+    def change_the_radio(self, _int):
         print(_int)
         if _int > 0:
             self.__xlimFigSizeRadio = 200 *1.2**_int
@@ -101,12 +105,14 @@ class CurveWidget(FigureCanvas):
         self.change_xlim_max(self.get_xlim_max())
         self.draw()
 
+
     # x坐标范围随窗口变化而变化，使间距相等
     def resize_fig(self,e):
         # print(e.width)
         self.change_xlim_max(self.get_xlim_max())
 
     def plot(self, dataX, dataY, index = 0):
+        print('draw_start', time.time())
         if index == 0:
             color = 'b--'
         elif index == 1:
@@ -127,8 +133,9 @@ class CurveWidget(FigureCanvas):
             self.curveObj[index], = self.ax.plot(np.array(dataX), np.array(dataY), color)
         else:
             self.curveObj[index].set_data(np.array(dataX), np.array(dataY))
-        #self.change_xlim_max(self.get_xlim_max())
+        self.change_xlim_max(self.get_xlim_max())
         self.draw()
+        print('draw_end', time.time())
 
 class CurveData(QObject):
     plot_data = pyqtSignal(list,list,int)
@@ -255,6 +262,7 @@ class CurveDataS(QObject):
         self.dataX = [[],[],[],[],[],[],[]]
         self.dataY = [[],[],[],[],[],[],[]]
         self.isRun = False
+        self.__startTime = 0
         # 虚拟波形生成标志
         self.generating = False
         self.exit = False
@@ -274,12 +282,16 @@ class CurveDataS(QObject):
         if not self.isRun:
             self.generating = True
             self.__randomPlotChannel = num
-            self.__timerID = self.startTimer(10)
+            # 数据生成开始时间  并设置图像坐标最小值
+            self.__startTime = time.time()*200
+            # print(self.__startTime)
+            self.curve.set_xlim_min(self.__startTime)
+            # self.__timerID = self.startTimer(10)
         # self.tData.start()
 
     def pause_random_plot(self):
         self.generating = False
-        self.killTimer(self.__timerID)
+        # self.killTimer(self.__timerID)
         self.dataX[0] = []
         self.dataY[0] = []
         self.plot_data.emit(self.dataX[0], self.dataY[0], self.__randomPlotChannel)
@@ -294,7 +306,15 @@ class CurveDataS(QObject):
 
     def add_random_data(self, data):
         self.dataY[0].append(data)
-        self.dataX[0].append(self.count_x)
+        now_time = time.time()*200
+        self.dataX[0].append(now_time)
+        # 时间超出显示范围
+        if now_time - self.curve.get_xlim_max() >= self.__startTime:
+            self.curve.set_xlim_min(now_time - self.curve.get_xlim_max())
+            self.__startTime = now_time - self.curve.get_xlim_max()
+            # self.curve.change_xlim_max(self.get_xlim_max())
+            self.dataY[0].pop(0)
+            self.dataX[0].pop(0)
         self.plot_data.emit(self.dataX[0], self.dataY[0], self.__randomPlotChannel)
 
     def start_plot(self):
@@ -304,11 +324,15 @@ class CurveDataS(QObject):
         self.isRun = True
         for i in range(7):
             self.plot_data.emit([], [], i)
-        self.__timerID = self.startTimer(5)
+        # 数据生成开始时间  并设置图像坐标最小值
+        self.__startTime = time.time() * 200
+        print(self.__startTime)
+        self.curve.set_xlim_min(self.__startTime)
+        # self.__timerID = self.startTimer(5)
 
     def stop_plot(self):
         if self.isRun:
-            self.killTimer(self.__timerID)
+            # self.killTimer(self.__timerID)
             self.dataX = [[],[],[],[],[],[],[]]
             self.dataY = [[],[],[],[],[],[],[]]
             self.isRun = False
@@ -317,12 +341,23 @@ class CurveDataS(QObject):
 
 
     def add_data(self, data, num):
+        start = time.time()
+        print('add_start', time.time())
         self.dataY[num].append(data)
-        self.dataX[num].append(self.count_x)
-        # if num is None:
-        #     self.plot_data.emit(self.dataX, self.dataY, self.Id)
-        # else:
+        now_time = time.time() * 200
+        self.dataX[num].append(now_time)
+        # 时间超出显示范围
+        if now_time - self.curve.get_xlim_max() >= self.__startTime:
+            self.curve.set_xlim_min(now_time - self.curve.get_xlim_max())
+            self.__startTime = now_time - self.curve.get_xlim_max()
+            # self.curve.change_xlim_max(self.get_xlim_max())
+            if self.dataX[num][0] < self.__startTime:
+                self.dataY[num].pop(0)
+                self.dataX[num].pop(0)
+        end = time.time()
         self.plot_data.emit(self.dataX[num], self.dataY[num], num)
+
+        print('add_data_time', end - start)
 
     # 移动曲线图像实现动态
     def timerEvent(self, e):
