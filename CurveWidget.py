@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from PyQt5.QtCore import *
+from PyQt5.QtGui import QPen,QPainter
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 import numpy as np
 import threading
 import time
 import random
+from PyQt5.QtChart import QChart, QChartView, QLineSeries,QValueAxis,QAbstractAxis
 
 X_MINUTES = 1
 Y_MAX = 100
@@ -16,7 +18,6 @@ MAX_COUNTER = 100  # int(X_MINUTES * 60 / INTERVAL)
 
 
 class CurveWidget(FigureCanvas):
-
     def __init__(self, widget):
         self.fig = Figure()
         self.ax = self.fig.add_subplot(111)
@@ -137,117 +138,6 @@ class CurveWidget(FigureCanvas):
         self.draw()
         print('draw_end', time.time())
 
-class CurveData(QObject):
-    plot_data = pyqtSignal(list,list,int)
-    def __init__(self,curve):
-        super().__init__()
-        self.Id = 0
-        self.curve = curve
-        self.count_x = 0
-        self.__is_x_max = False
-        self.generating = False
-        self.exit = False
-        self.isRun = False
-        self.__timerID = 0
-        self.dataX = []
-        self.dataY = []  # [[],[],[],[],[],[]]
-        self.data = [[]]*7
-        # print(len(self.data))
-        # print(len(self.data))
-
-    def init_data_generator(self):
-        self.exit = False
-        self.isRun = False
-        self.tData = threading.Thread(name="dataGenerator", target=self.generate_data)
-        self.tData.start()
-        self.isRun = True
-
-    def start_plot(self):
-        if not self.isRun:
-            self.init_data_generator()
-        self.generating = True
-        self.__timerID = self.startTimer(10)
-        # self.tData.start()
-
-    def pause_plot(self):
-        self.generating = False
-        self.killTimer(self.__timerID)
-        self.dataX = []
-        self.dataY = []
-        self.data[0] = []
-        self.count_x = 0
-        self.plot_data.emit(self.dataX, self.dataY, self.Id)
-
-    def release_plot(self):
-        self.exit = True
-        if self.generating:
-            self.pause_plot()
-        self.tData.join()
-        self.isRun = False
-        # print(self.tData.run())
-
-    def add_data(self, data, num=None):
-        self.dataY.append(data)
-        self.dataX.append(self.count_x)
-        # self.data[num].append([self.count_x, data])
-        # dataX,dataY = [], []
-        # for i in range(len(self.data[num])):
-        #     dataX.append(self.data[num][i][0])
-        #     dataY.append(self.data[num][i][1])
-        if num is None:
-            self.plot_data.emit(self.dataX, self.dataY, self.Id)
-        else:
-            self.plot_data.emit(self.dataX, self.dataY, num)
-
-    # 移动曲线图像实现动态
-    def timerEvent(self, e):
-        if self.__timerID == e.timerId():
-            if self.count_x >= self.curve.get_xlim_max():
-                # 图像超出边界
-                self.__is_x_max = True
-                if len(self.dataX) > 0:
-                    # 从头部将超出边界的去掉，实现曲线滚动
-                    for i in range(len(self.dataX)):
-                        self.dataX[i] = self.dataX[i] + self.curve.get_xlim_max() - self.count_x - 1
-                    while self.dataX[0] < 0:
-                        self.dataX.pop(0)
-                        self.dataY.pop(0)
-                self.count_x = self.curve.get_xlim_max()
-                # for i in range(len(self.data)):
-                    # print(i)
-                    # for j in range(len(self.data[i])):
-                    #     self.data[i][j][0] = self.data[i][j][0] + self.curve.get_xlim_max() - self.count_x - 1
-
-                    # while self.data[i][0][0]<0:
-                    #     self.data[i].pop(0)
-            else:
-                self.count_x += 1
-
-    def generate_data(self):
-        while True:
-            if self.exit:
-                break
-            if self.generating:
-                new_data = random.randint(Y_MIN, Y_MAX)
-                self.add_data(new_data)
-                time.sleep(INTERVAL)
-                # if self.__is_x_max:
-                # self.dataY.append(newData)
-                # self.dataX.append(self.count_x)
-                # else:
-                #     self.dataX.append(self.count_x)
-                #     self.dataY.append(newData)
-                # self.data.append([self.count_x,newData])
-                # self.dataX, self.dataY = [],[]
-                # for i in range(len(self.data)) :
-                #     self.dataX.append(self.data[i][0])
-                #     self.dataY.append( self.data[i][1])
-                #
-                # self.plot_data.emit(self.dataX, self.dataY,1)
-
-                # self.add_data(newData+4,4)
-                # self.plot_data.emit(self.dataX, self.dataY, 'b--')
-                # self.curve.plot(self.dataX, self.dataY)
 
 class CurveDataS(QObject):
     plot_data = pyqtSignal(list,list,int)
@@ -388,3 +278,38 @@ class CurveDataS(QObject):
                 # self.add_data(new_data,self.__randomPlotChannel)
                 # self.add_data(new_data+69, self.__randomPlotChannel+1)
                 time.sleep(INTERVAL)
+
+
+class CurveChart(QChart):
+    def __init__(self, parent = None):
+        super().__init__(parent)
+        # 7个显示通道
+        self.__series = []
+        for i in range(7):
+            self.__series.append(QLineSeries())
+            self.addSeries(self.__series[i])
+        # 轴
+        self.__axis = QValueAxis()
+        self.createDefaultAxes()
+        # 轴和series关联
+        for i in range(7):
+            self.setAxisX(self.__axis, self.__series[i])
+        # 刻度数量
+        self.__axis.setTickCount(5)
+        # 坐标刻度设置
+        self.__yMax = 100
+        self.__yMin = -100
+        self.__yAxisAdjust = 1.1  # 滚轮调整Y轴限制变化率
+        self.__isMousePress = False  # 鼠标是否按下
+        self.__data_y = 0  # 按下鼠标时Y坐标
+        self.axisY().setRange(self.__yMin,self.__yMax)
+        self.__xAxisFigSizeRadio = 2      # x轴最大值和图像宽度比值
+        self.__xAxisMin = 0
+        self.axisX().setRange(self.__xAxisMin,100)#self.get_plot_area_width())
+        # print(self.get_plot_area_width())
+
+    def get_plot_area_width(self):
+        return self.plotArea().width()*self.__xAxisFigSizeRadio
+
+    # def resizeEvent(self, e):
+    #     self.axisX().setRange(self.__xAxisMin, self.get_plot_area_width())

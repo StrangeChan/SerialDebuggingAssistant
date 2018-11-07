@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from PyQt5 import QtCore, QtGui, QtSerialPort
+from PyQt5 import QtCore, QtGui, QtSerialPort,QtWidgets
 from PyQt5.QtWidgets import QMessageBox,QMainWindow,QToolTip,QFileDialog
 from PyQt5.QtCore import QThread,QTimer,QFile
-from PyQt5.QtGui import QCursor,QIcon
+from PyQt5.QtGui import QCursor,QIcon,QPen,QPainter
+from PyQt5.QtChart import QChart, QChartView
 from ui_mainwidow import Ui_MainWindow
 from Receive import Receive
-from CurveWidget import CurveData,CurveDataS
+from CurveWidget import CurveDataS,CurveChart
 import struct
 import time
 
@@ -20,9 +21,14 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.setWindowIcon(QIcon('1.ico'))
-        # 添加图像工具栏
-        # self.__nToolBar = NavigationToolbar(self.ui.widget.curve, self.ui.groupBox_6)
-        # self.ui.gridLayout_15.addWidget(self.__nToolBar,1,0,1,1)
+
+        self.__curveChart = CurveChart()
+        self.__curveChart.legend().hide()
+        self.__chartView = QChartView(self.__curveChart)
+        self.__chartView.setRenderHint(QPainter.Antialiasing)   #反走样
+        self.__layOut = QtWidgets.QVBoxLayout(self.ui.widget_dynamic_curve)
+        self.__layOut.addWidget(self.__chartView)
+        # self.__layOut.setContentsMargins(0,0,0,0)
 
         self.__uartState = OFF  # 常规串口
         self.__serialPort = QtSerialPort.QSerialPort()
@@ -48,10 +54,7 @@ class MainWindow(QMainWindow):
         self.ui.doubleSpinBox_P.setDecimals(1)
         self.ui.doubleSpinBox_I.setDecimals(3)
         self.ui.doubleSpinBox_D.setDecimals(2)
-        # 七个通道，0 为模拟
-        # self.__curveData = []
-        # for i in range(7):
-        #     self.__curveData.append(CurveData(self.ui.widget_dynamic_curve))
+
         self.__curveDataS = CurveDataS(self.ui.widget_dynamic_curve)
         # signal and slot
         self.ui.pushButton_uart_sw.clicked.connect(self.change_uart_state)
@@ -79,12 +82,12 @@ class MainWindow(QMainWindow):
         self.ui.doubleSpinBox_I.valueChanged.connect(self.change_i_slider_value)
         self.ui.doubleSpinBox_D.valueChanged.connect(self.change_d_slider_value)
         # 滑动条改变曲线图X大小
-        self.ui.horizontalSlider.valueChanged.connect(self.ui.widget_dynamic_curve.change_the_radio)
+        # self.ui.horizontalSlider.valueChanged.connect(self.ui.widget_dynamic_curve.change_the_radio)
         self.ui.checkBox_curve_show_random.toggled.connect(self.plot_random_data)
         # for i in range(len(self.__curveData)):
         #     self.__curveData[i].plot_data.connect(self.ui.widget_dynamic_curve.plot)
         #     self.__curveData[i].Id = i      # 设置标号 对应显示通道数目
-        self.__curveDataS.plot_data.connect(self.ui.widget_dynamic_curve.plot)
+        # self.__curveDataS.plot_data.connect(self.ui.widget_dynamic_curve.plot)
         self.__uartReceive.receive_success.connect(self.add_plot_data)
 
     def uart_init(self):
