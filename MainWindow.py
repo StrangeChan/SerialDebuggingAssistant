@@ -26,6 +26,7 @@ class MainWindow(QMainWindow):
         self.__curveChart.legend().hide()
         self.__chartView = QChartView(self.__curveChart)
         self.__chartView.setRenderHint(QPainter.Antialiasing)   #反走样
+        # self.__chartView.setMargins(100,0,0,0)
         self.__layOut = QtWidgets.QVBoxLayout(self.ui.widget_dynamic_curve)
         self.__layOut.addWidget(self.__chartView)
         # self.__layOut.setContentsMargins(0,0,0,0)
@@ -83,6 +84,7 @@ class MainWindow(QMainWindow):
         self.ui.doubleSpinBox_D.valueChanged.connect(self.change_d_slider_value)
         # 滑动条改变曲线图X大小
         # self.ui.horizontalSlider.valueChanged.connect(self.ui.widget_dynamic_curve.change_the_radio)
+        self.ui.horizontalSlider.valueChanged.connect(self.__curveChart.change_the_radio)
         self.ui.checkBox_curve_show_random.toggled.connect(self.plot_random_data)
         # for i in range(len(self.__curveData)):
         #     self.__curveData[i].plot_data.connect(self.ui.widget_dynamic_curve.plot)

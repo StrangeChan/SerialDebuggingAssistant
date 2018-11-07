@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from PyQt5.QtCore import *
+from PyQt5.QtCore import QMargins
 from PyQt5.QtGui import QPen,QPainter
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
@@ -295,7 +296,13 @@ class CurveChart(QChart):
         for i in range(7):
             self.setAxisX(self.__axis, self.__series[i])
         # 刻度数量
-        self.__axis.setTickCount(5)
+        self.__axis.setTickCount(2)
+        self.axisY().setTickCount(5)
+        self.axisY().setMinorTickCount(2)
+        self.axisY().setLabelFormat("%d")
+        # self.setAnimationOptions(QChart.GridAxisAnimations)
+        # 设置边缘空白
+        self.setContentsMargins(-10,-20,-20,-30)
         # 坐标刻度设置
         self.__yMax = 100
         self.__yMin = -100
@@ -303,13 +310,54 @@ class CurveChart(QChart):
         self.__isMousePress = False  # 鼠标是否按下
         self.__data_y = 0  # 按下鼠标时Y坐标
         self.axisY().setRange(self.__yMin,self.__yMax)
-        self.__xAxisFigSizeRadio = 2      # x轴最大值和图像宽度比值
+        self.__xAxisFigSizeRadio = 2      # x轴坐标范围和图像宽度比值
         self.__xAxisMin = 0
         self.axisX().setRange(self.__xAxisMin,100)#self.get_plot_area_width())
+
         # print(self.get_plot_area_width())
 
     def get_plot_area_width(self):
         return self.plotArea().width()*self.__xAxisFigSizeRadio
 
-    # def resizeEvent(self, e):
-    #     self.axisX().setRange(self.__xAxisMin, self.get_plot_area_width())
+    def change_the_radio(self, _int):
+        print(_int)
+        if _int > 0:
+            self.__xAxisFigSizeRadio = 2 *1.1**_int
+        elif _int < 0:
+            _int = -_int
+            self.__xAxisFigSizeRadio = 2/(1.1**_int)
+        self.axisX().setRange(self.__xAxisMin, self.get_plot_area_width())
+
+    def resizeEvent(self, e):
+        self.axisX().setRange(self.__xAxisMin, self.get_plot_area_width())
+
+    def wheelEvent(self, e):
+        # print(e.delta(),e.pos().y(),self.plotArea().height(),self.rect().height())
+        # 计算当前鼠标坐标
+        _y = self.axisY().max() - \
+             (e.pos().y()-self.plotArea().y())/self.plotArea().height()*(self.__yMax-self.__yMin)
+        if e.delta() > 0:
+            self.__yMax = self.__yMax / self.__yAxisAdjust
+            self.__yMin = self.__yMin / self.__yAxisAdjust
+        else:
+            self.__yMax,self.__yMin = \
+                self.__yMax * self.__yAxisAdjust,self.__yMin * self.__yAxisAdjust
+        print(self.__yMax,self.__yMin)
+        self.axisY().setRange(self.__yMin+_y, self.__yMax+_y)
+
+    def mousePressEvent(self, e):
+        if e.button() == Qt.LeftButton:
+            print(e.button())
+            if e.pos().y()>self.plotArea().y() and e.pos().y()<self.plotArea().bottom():
+                self.__isMousePress = True
+                self.__data_y = e.pos().y()
+                print(2)
+
+    def mouseReleaseEvent(self, e):
+        if e.button() == Qt.LeftButton:
+            if e.pos().y()>self.plotArea().y() and e.pos().y()<self.plotArea().bottom():
+                self.__isMousePress = True
+                # self.__data_y = e.pos().y()
+                self.scroll(0,e.pos().y()-self.__data_y)
+                print(1,e.pos().y())
+

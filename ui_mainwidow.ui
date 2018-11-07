@@ -1298,7 +1298,7 @@
          </widget>
         </item>
         <item row="1" column="1">
-         <widget class="CurveWidget" name="widget_dynamic_curve" native="true">
+         <widget class="QWidget" name="widget_dynamic_curve" native="true">
           <property name="minimumSize">
            <size>
             <width>300</width>
@@ -1314,14 +1314,6 @@
    </layout>
   </widget>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>CurveWidget</class>
-   <extends>QWidget</extends>
-   <header>CurveWidget</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

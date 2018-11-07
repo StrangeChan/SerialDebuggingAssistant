@@ -21,36 +21,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="MainWindow.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainWindow.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MainWindow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="-2280">
+              <caret line="30" column="29" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
               <folding>
                 <element signature="e#25#80#0" expanded="true" />
-                <element signature="e#4408#4743#0" expanded="false" />
-                <element signature="e#4779#5123#0" expanded="false" />
-                <element signature="e#5166#6500#0" expanded="false" />
-                <element signature="e#8485#8643#0" expanded="false" />
-                <element signature="e#8687#8847#0" expanded="false" />
-                <element signature="e#8894#9041#0" expanded="false" />
-                <element signature="e#9084#9794#0" expanded="false" />
-                <element signature="e#9841#10116#0" expanded="false" />
-                <element signature="e#10161#10543#0" expanded="false" />
-                <element signature="e#10582#10614#0" expanded="false" />
-                <element signature="e#10657#11017#0" expanded="false" />
-                <element signature="e#11065#11676#0" expanded="false" />
-                <element signature="e#11715#12040#0" expanded="false" />
-                <element signature="e#12778#13539#0" expanded="false" />
-                <element signature="e#13584#14470#0" expanded="false" />
-                <element signature="e#14515#15276#0" expanded="false" />
-                <element signature="e#15328#15435#0" expanded="false" />
-                <element signature="e#15487#15602#0" expanded="false" />
-                <element signature="e#15654#15770#0" expanded="false" />
-                <element signature="e#15824#16023#0" expanded="false" />
-                <element signature="e#16077#16275#0" expanded="false" />
-                <element signature="e#16329#16528#0" expanded="false" />
-                <element signature="e#16687#17730#0" expanded="false" />
+                <element signature="e#4547#4882#0" expanded="false" />
+                <element signature="e#4918#5262#0" expanded="false" />
+                <element signature="e#5305#6639#0" expanded="false" />
+                <element signature="e#8624#8782#0" expanded="false" />
+                <element signature="e#8826#8986#0" expanded="false" />
+                <element signature="e#9033#9180#0" expanded="false" />
+                <element signature="e#9223#9933#0" expanded="false" />
+                <element signature="e#9980#10255#0" expanded="false" />
+                <element signature="e#10300#10682#0" expanded="false" />
+                <element signature="e#10721#10753#0" expanded="false" />
+                <element signature="e#10796#11156#0" expanded="false" />
+                <element signature="e#11204#11815#0" expanded="false" />
+                <element signature="e#11854#12179#0" expanded="false" />
+                <element signature="e#12917#13678#0" expanded="false" />
+                <element signature="e#13723#14609#0" expanded="false" />
+                <element signature="e#14654#15415#0" expanded="false" />
+                <element signature="e#15467#15574#0" expanded="false" />
+                <element signature="e#15626#15741#0" expanded="false" />
+                <element signature="e#15793#15909#0" expanded="false" />
+                <element signature="e#15963#16162#0" expanded="false" />
+                <element signature="e#16216#16414#0" expanded="false" />
+                <element signature="e#16468#16667#0" expanded="false" />
+                <element signature="e#16826#17869#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -61,28 +61,35 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="580">
               <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CurveWidget.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CurveWidget.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="383">
+              <caret line="363" column="0" lean-forward="true" selection-start-line="363" selection-start-column="0" selection-end-line="363" selection-end-column="0" />
               <folding>
-                <marker date="1541598602077" expanded="true" signature="273:382" ph="..." />
-                <marker date="1541598602077" expanded="true" signature="308:382" ph="..." />
+                <element signature="e#25#51#0" expanded="true" />
+                <element signature="e#2098#2179#0" expanded="false" />
+                <element signature="e#3937#4681#0" expanded="false" />
+                <element signature="e#4715#9785#0" expanded="false" />
+                <element signature="e#5340#5536#0" expanded="false" />
+                <element signature="e#8610#9375#0" expanded="false" />
+                <element signature="e#11149#11409#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CurveWidget.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CurveWidget.py">
+      <file leaf-file-name="QGraphicsSceneWheelEvent.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtWidgets/QGraphicsSceneWheelEvent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="307" column="49" lean-forward="false" selection-start-line="307" selection-start-column="49" selection-end-line="307" selection-end-column="49" />
-              <folding>
-                <element signature="e#25#51#0" expanded="true" />
-                <element signature="e#2203#2575#0" expanded="false" />
-                <element signature="e#2637#3056#0" expanded="false" />
-                <element signature="e#3903#4647#0" expanded="false" />
-                <element signature="e#4681#9751#0" expanded="false" />
-                <element signature="e#5306#5502#0" expanded="false" />
-                <element signature="e#8576#9341#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="250">
+              <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -151,8 +158,8 @@
         <option value="$PROJECT_DIR$/ui_mainwidow.py" />
         <option value="$PROJECT_DIR$/DynamicCurve.py" />
         <option value="$PROJECT_DIR$/Receive.py" />
-        <option value="$PROJECT_DIR$/CurveWidget.py" />
         <option value="$PROJECT_DIR$/MainWindow.py" />
+        <option value="$PROJECT_DIR$/CurveWidget.py" />
       </list>
     </option>
   </component>
@@ -490,7 +497,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541437729000</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="add curveChart class">
+      <created>1541598930425</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1541598930425</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView">
@@ -545,10 +559,18 @@
     <MESSAGE value="maybe complete?" />
     <MESSAGE value="FUCK!" />
     <MESSAGE value="plot time is too long" />
-    <option name="LAST_COMMIT_MESSAGE" value="plot time is too long" />
+    <MESSAGE value="add curveChart class" />
+    <option name="LAST_COMMIT_MESSAGE" value="add curveChart class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CurveWidget.py</url>
+          <line>60</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -559,89 +581,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="70" />
+      <option name="time" value="71" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MainWindow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="25" column="47" lean-forward="false" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
-          <folding>
-            <element signature="e#25#80#0" expanded="true" />
-            <element signature="e#4408#4743#0" expanded="false" />
-            <element signature="e#4779#5123#0" expanded="false" />
-            <element signature="e#5166#6500#0" expanded="false" />
-            <element signature="e#8485#8643#0" expanded="false" />
-            <element signature="e#8687#8847#0" expanded="false" />
-            <element signature="e#8894#9041#0" expanded="false" />
-            <element signature="e#9084#9794#0" expanded="false" />
-            <element signature="e#9841#10116#0" expanded="false" />
-            <element signature="e#10161#10543#0" expanded="false" />
-            <element signature="e#10582#10614#0" expanded="false" />
-            <element signature="e#10657#11017#0" expanded="false" />
-            <element signature="e#11065#11676#0" expanded="false" />
-            <element signature="e#11715#12040#0" expanded="false" />
-            <element signature="e#12778#13539#0" expanded="false" />
-            <element signature="e#13584#14470#0" expanded="false" />
-            <element signature="e#14515#15276#0" expanded="false" />
-            <element signature="e#15328#15435#0" expanded="false" />
-            <element signature="e#15487#15602#0" expanded="false" />
-            <element signature="e#15654#15770#0" expanded="false" />
-            <element signature="e#15824#16023#0" expanded="false" />
-            <element signature="e#16077#16275#0" expanded="false" />
-            <element signature="e#16329#16528#0" expanded="false" />
-            <element signature="e#16687#17730#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtWidgets/QAbstractButton.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="54" column="8" lean-forward="false" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtWidgets/QMessageBox.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="83" column="25" lean-forward="false" selection-start-line="83" selection-start-column="25" selection-end-line="83" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtCore/QThread.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="161" column="26" lean-forward="false" selection-start-line="161" selection-start-column="26" selection-end-line="161" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtCore/QTimer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1523">
-          <caret line="73" column="8" lean-forward="false" selection-start-line="73" selection-start-column="8" selection-end-line="73" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/_multibytecodec.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -928,46 +872,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtChart/QChart.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="417" column="0" lean-forward="true" selection-start-line="417" selection-start-column="0" selection-end-line="417" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtWidgets/QMainWindow.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8296">
           <caret line="249" column="8" lean-forward="false" selection-start-line="249" selection-start-column="8" selection-end-line="249" selection-end-column="8" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ui_mainwidow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
-          <folding>
-            <marker date="1541598602077" expanded="true" signature="273:382" ph="..." />
-            <marker date="1541598602077" expanded="true" signature="308:382" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CurveWidget.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="307" column="49" lean-forward="false" selection-start-line="307" selection-start-column="49" selection-end-line="307" selection-end-column="49" />
-          <folding>
-            <element signature="e#25#51#0" expanded="true" />
-            <element signature="e#2203#2575#0" expanded="false" />
-            <element signature="e#2637#3056#0" expanded="false" />
-            <element signature="e#3903#4647#0" expanded="false" />
-            <element signature="e#4681#9751#0" expanded="false" />
-            <element signature="e#5306#5502#0" expanded="false" />
-            <element signature="e#8576#9341#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -979,35 +888,123 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/cbook/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="1867" column="0" lean-forward="true" selection-start-line="1867" selection-start-column="0" selection-end-line="1867" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtWidgets/QGraphicsWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="273" column="8" lean-forward="false" selection-start-line="273" selection-start-column="8" selection-end-line="273" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ui_mainwidow.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="36" column="21" lean-forward="false" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtWidgets/QGraphicsSceneWheelEvent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="36" column="13" lean-forward="false" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtChart/QChart.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="205" column="26" lean-forward="true" selection-start-line="205" selection-start-column="26" selection-end-line="205" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtChart/QLogValueAxis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="46" column="8" lean-forward="false" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/MainWindow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state relative-caret-position="-2280">
+          <caret line="30" column="29" lean-forward="false" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
           <folding>
             <element signature="e#25#80#0" expanded="true" />
-            <element signature="e#4408#4743#0" expanded="false" />
-            <element signature="e#4779#5123#0" expanded="false" />
-            <element signature="e#5166#6500#0" expanded="false" />
-            <element signature="e#8485#8643#0" expanded="false" />
-            <element signature="e#8687#8847#0" expanded="false" />
-            <element signature="e#8894#9041#0" expanded="false" />
-            <element signature="e#9084#9794#0" expanded="false" />
-            <element signature="e#9841#10116#0" expanded="false" />
-            <element signature="e#10161#10543#0" expanded="false" />
-            <element signature="e#10582#10614#0" expanded="false" />
-            <element signature="e#10657#11017#0" expanded="false" />
-            <element signature="e#11065#11676#0" expanded="false" />
-            <element signature="e#11715#12040#0" expanded="false" />
-            <element signature="e#12778#13539#0" expanded="false" />
-            <element signature="e#13584#14470#0" expanded="false" />
-            <element signature="e#14515#15276#0" expanded="false" />
-            <element signature="e#15328#15435#0" expanded="false" />
-            <element signature="e#15487#15602#0" expanded="false" />
-            <element signature="e#15654#15770#0" expanded="false" />
-            <element signature="e#15824#16023#0" expanded="false" />
-            <element signature="e#16077#16275#0" expanded="false" />
-            <element signature="e#16329#16528#0" expanded="false" />
-            <element signature="e#16687#17730#0" expanded="false" />
+            <element signature="e#4547#4882#0" expanded="false" />
+            <element signature="e#4918#5262#0" expanded="false" />
+            <element signature="e#5305#6639#0" expanded="false" />
+            <element signature="e#8624#8782#0" expanded="false" />
+            <element signature="e#8826#8986#0" expanded="false" />
+            <element signature="e#9033#9180#0" expanded="false" />
+            <element signature="e#9223#9933#0" expanded="false" />
+            <element signature="e#9980#10255#0" expanded="false" />
+            <element signature="e#10300#10682#0" expanded="false" />
+            <element signature="e#10721#10753#0" expanded="false" />
+            <element signature="e#10796#11156#0" expanded="false" />
+            <element signature="e#11204#11815#0" expanded="false" />
+            <element signature="e#11854#12179#0" expanded="false" />
+            <element signature="e#12917#13678#0" expanded="false" />
+            <element signature="e#13723#14609#0" expanded="false" />
+            <element signature="e#14654#15415#0" expanded="false" />
+            <element signature="e#15467#15574#0" expanded="false" />
+            <element signature="e#15626#15741#0" expanded="false" />
+            <element signature="e#15793#15909#0" expanded="false" />
+            <element signature="e#15963#16162#0" expanded="false" />
+            <element signature="e#16216#16414#0" expanded="false" />
+            <element signature="e#16468#16667#0" expanded="false" />
+            <element signature="e#16826#17869#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtGui/QMouseEvent.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="21" column="8" lean-forward="false" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtCore/Qt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="787" column="4" lean-forward="false" selection-start-line="787" selection-start-column="4" selection-end-line="787" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtChart/QAbstractAxis.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="213" column="8" lean-forward="false" selection-start-line="213" selection-start-column="8" selection-end-line="213" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CurveWidget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="363" column="0" lean-forward="true" selection-start-line="363" selection-start-column="0" selection-end-line="363" selection-end-column="0" />
+          <folding>
+            <element signature="e#25#51#0" expanded="true" />
+            <element signature="e#2098#2179#0" expanded="false" />
+            <element signature="e#3937#4681#0" expanded="false" />
+            <element signature="e#4715#9785#0" expanded="false" />
+            <element signature="e#5340#5536#0" expanded="false" />
+            <element signature="e#8610#9375#0" expanded="false" />
+            <element signature="e#11149#11409#0" expanded="false" />
           </folding>
         </state>
       </provider>
