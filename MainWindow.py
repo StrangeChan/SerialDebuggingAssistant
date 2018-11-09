@@ -148,7 +148,7 @@ class MainWindow(QMainWindow):
             self.ui.comboBox_baud_2.setEnabled(True)
             # 开启随机点
             self.ui.checkBox_curve_show_random.setEnabled(True)
-            self.__curveDataS.stop_plot()
+            # self.__curveDataS.stop_plot()
         else:
             self.__serialPort2.setPortName(self.ui.comboBox_com_2.currentText().split(':')[0])
             self.__serialPort2.setBaudRate(int(self.ui.comboBox_baud_2.currentText()))
@@ -170,7 +170,7 @@ class MainWindow(QMainWindow):
                 # 关闭随机点
                 self.ui.checkBox_curve_show_random.setChecked(False)
                 self.ui.checkBox_curve_show_random.setEnabled(False)
-                self.__curveDataS.start_plot()
+                self.__curveChart.start_plot()
             else:
                 QMessageBox.critical(self,"Error","Fail to turn on this device!")
                 print(self.__serialPort2.error())
@@ -281,7 +281,8 @@ class MainWindow(QMainWindow):
         #         self.__curveData[i].release_plot()
         # if self.__curveDataS.isRandomRun:
         #     self.__curveDataS.release_random_plot()
-        self.__curveDataS.stop_plot()
+        # self.__curveDataS.stop_plot()
+        self.__curveChart.stop_random_plot()
         print('k88888')
 
     # 滑动条部分操作
@@ -439,33 +440,34 @@ class MainWindow(QMainWindow):
             # if 1 in self.which_channel_show():
             #     self.__curveDataS.start_random_plot(1)
             if len(self.which_channel_show()) > 0:
-                self.__curveDataS.start_random_plot(self.which_channel_show()[0])
+                self.__curveChart.start_random_plot(self.which_channel_show()[0])
             else:
-                self.__curveDataS.start_random_plot(0)
+                self.__curveChart.start_random_plot(0)
         else:
-            if self.__curveDataS.isRandomRun:
-                self.__curveDataS.release_random_plot()
+            self.__curveChart.stop_random_plot()
 
     def add_plot_data(self, data, num):
-        start = time.time()
-        print('add_plot_data_start', start)
+        # start = time.time()
+        # print('add_plot_data_start', start)
         # print(1, data, num)
         data = round(data,3)
-        if num == 1:
+        if num == 0:
             self.ui.lineEdit_7.setText(str(data))
-        elif num ==2:
+        elif num ==1:
             self.ui.lineEdit_8.setText(str(data))
-        elif num ==3:
+        elif num ==2:
             self.ui.lineEdit_9.setText(str(data))
-        elif num ==4:
+        elif num ==3:
             self.ui.lineEdit_10.setText(str(data))
-        elif num ==5:
+        elif num ==4:
             self.ui.lineEdit_11.setText(str(data))
-        elif num ==6:
+        elif num ==5:
             self.ui.lineEdit_12.setText(str(data))
-        if num in self.which_channel_show():
+        if num+1 in self.which_channel_show():
             # print(2, data, num)
-            self.__curveDataS.add_data(data,num)
-        end = time.time()
-        print('add_plot_data_time',end - start)
+            self.__curveChart.add_data(data,num)
+        else:
+            self.__curveChart.clear_data(num)
+        # end = time.time()
+        # print('add_plot_data_time',end - start)
 

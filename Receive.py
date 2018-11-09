@@ -20,8 +20,8 @@ class Receive(QObject):
     # num 通道数
     # float 4个字节*num
     def receive_uart_data(self):
-        start = time.time()
-        print('receive_start:', start)
+        # start = time.time()
+        # print('receive_start:', start)
         if self.__serialPort.isReadable():
             data = bytearray()
             data.extend(self.__serialPort.readAll())
@@ -48,9 +48,8 @@ class Receive(QObject):
                             # end = time.time()
                         if len(self.__data) > self.__receiveDataNum*4+2:
                             self.receive_fail()
-        end = time.time()
-
-        print('receive_time:',(end - start))
+        # end = time.time()
+        # print('receive_time:',(end - start))
 
     def data_processing(self):
         self.__data.pop(0)
@@ -58,18 +57,18 @@ class Receive(QObject):
         for i in range(self.__receiveDataNum):
             data_float = struct.unpack('<f', bytes(self.__data[i*4:4+i*4]))
             # print(data_float)
-            self.receive_success.emit(data_float[0],i+1)
+            self.receive_success.emit(data_float[0],i)
             # print(data_float[0])
         # data_float = struct.unpack('>f', bytes(self.__data))
         # print(data_float)
         self.__receiveStartFlag = False
         self.__data.clear()
         self.__receiveDataNum = 0
-        print('success')
+        # print('success')
 
     def receive_fail(self):
         self.__receiveStartFlag = False
         self.__data.clear()
         self.__receiveDataNum = 0
-        print('fail')
+        # print('fail')
 

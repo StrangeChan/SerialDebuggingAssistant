@@ -289,6 +289,17 @@ class CurveChart(QChart):
         for i in range(7):
             self.__series.append(QLineSeries())
             self.addSeries(self.__series[i])
+        # 设置通道颜色
+        self.__pen = QPen()
+        # self.__pen.setStyle(Qt.DashLine)
+        self.__pen.setColor(Qt.blue)
+        self.__series[6].setPen(self.__pen)
+        self.__series[0].setColor(Qt.red)
+        self.__series[1].setColor(Qt.green)
+        self.__series[2].setColor(Qt.blue)
+        self.__series[3].setColor(Qt.yellow)
+        self.__series[4].setColor(Qt.magenta)
+        self.__series[5].setColor(Qt.cyan)
         # 轴
         self.__axis = QValueAxis()
         self.createDefaultAxes()
@@ -297,6 +308,8 @@ class CurveChart(QChart):
             self.setAxisX(self.__axis, self.__series[i])
         # 刻度数量
         self.__axis.setTickCount(2)
+        # self.__axis.setLabelsVisible(False)
+        self.__axis.setLabelFormat(" ")     # 不显示x轴标签
         self.axisY().setTickCount(5)
         self.axisY().setMinorTickCount(2)
         self.axisY().setLabelFormat("%d")
@@ -314,22 +327,34 @@ class CurveChart(QChart):
         self.__xAxisMin = 0
         self.axisX().setRange(self.__xAxisMin,100)#self.get_plot_area_width())
 
+        # 虚拟波形生成标志
+        self.generating = False
+        self.exit = False
+        self.isRandomRun = False
+        self.__randomPlotChannel = 0
+        self.isRun = False
         # print(self.get_plot_area_width())
+
+    def set_x_min(self, num):
+        self.__xAxisMin = num
 
     def get_plot_area_width(self):
         return self.plotArea().width()*self.__xAxisFigSizeRadio
 
+    def set_x_axis_range(self):
+        self.axisX().setRange(self.__xAxisMin, self.__xAxisMin+self.get_plot_area_width())
+
     def change_the_radio(self, _int):
-        print(_int)
+        # print(_int)
         if _int > 0:
             self.__xAxisFigSizeRadio = 2 *1.1**_int
         elif _int < 0:
             _int = -_int
             self.__xAxisFigSizeRadio = 2/(1.1**_int)
-        self.axisX().setRange(self.__xAxisMin, self.get_plot_area_width())
+        self.set_x_axis_range()
 
     def resizeEvent(self, e):
-        self.axisX().setRange(self.__xAxisMin, self.get_plot_area_width())
+        self.set_x_axis_range()
 
     def wheelEvent(self, e):
         # print(e.delta(),e.pos().y(),self.plotArea().height(),self.rect().height())
@@ -361,3 +386,90 @@ class CurveChart(QChart):
                 self.scroll(0,e.pos().y()-self.__data_y)
                 print(1,e.pos().y())
 
+    def init_random_data_generator(self):
+        self.exit = False
+        self.tData = threading.Thread(name="dataGenerator", target=self.generate_data)
+        self.tData.start()
+        self.isRandomRun = True
+
+    def set_random_pen_color(self, num = 0):
+        if num != 0:
+            if num == 1:
+                self.__pen.setColor(Qt.red)
+            elif num == 2:
+                self.__pen.setColor(Qt.green)
+            elif num == 3:
+                self.__pen.setColor(Qt.blue)
+            elif num == 4:
+                self.__pen.setColor(Qt.yellow)
+            elif num == 5:
+                self.__pen.setColor(Qt.magenta)
+            elif num == 6:
+                self.__pen.setColor(Qt.cyan)
+            self.__series[6].setPen(self.__pen)
+
+    def start_random_plot(self, num = 0):
+        if not self.isRandomRun:
+            self.init_random_data_generator()
+        if not self.isRun:
+            self.generating = True
+            # 设置随机曲线颜色
+            self.set_random_pen_color(num)
+            # 数据生成开始时间  并设置图像坐标最小值
+            self.__xAxisMin = time.time()*200
+            self.set_x_axis_range()
+
+    def stop_random_plot(self):
+        if self.isRandomRun:
+            self.exit = True
+            self.generating = False
+            self.__series[6].clear()
+            self.tData.join()
+            self.isRandomRun = False
+        # print(self.tData.run())
+
+    def start_plot(self):
+       #  关闭随机数生成
+        if self.isRandomRun:
+            self.stop_random_plot()
+        self.isRun = True
+        for i in range(7):
+            self.__series[i].clear()
+        # 数据生成开始时间  并设置图像坐标最小值
+        self.__xAxisMin = time.time() * 200
+        self.set_x_axis_range()
+
+    def add_random_data(self, data):
+        now_time = time.time()*200
+        self.__series[6].append(now_time,data)
+        # 时间超出显示范围
+        if now_time - self.get_plot_area_width() >= self.__xAxisMin:
+            self.__xAxisMin = now_time - self.get_plot_area_width()
+            self.set_x_axis_range()
+            self.__series[6].remove(0)
+
+    def add_data(self, data ,num):
+        # print( data, num)
+        now_time = time.time() * 200
+        self.__series[num].append(now_time, data)
+        # 时间超出显示范围
+        if now_time - self.get_plot_area_width() >= self.__xAxisMin:
+            self.__xAxisMin = now_time - self.get_plot_area_width()
+            self.set_x_axis_range()
+            if self.__series[num].at(0).x() < self.__xAxisMin:
+                self.__series[num].remove(0)
+
+    def clear_data(self, num):
+        self.__series[num].clear()
+
+    def generate_data(self):
+        while True:
+            if self.exit:
+                break
+            if self.generating:
+                new_data = random.randint(Y_MIN, Y_MAX)
+                self.add_random_data(new_data)
+                # self.add_data(new_data+45,0)
+                # self.add_data(new_data,self.__randomPlotChannel)
+                # self.add_data(new_data+69, self.__randomPlotChannel+1)
+                time.sleep(INTERVAL)
