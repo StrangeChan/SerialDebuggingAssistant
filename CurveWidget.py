@@ -11,6 +11,7 @@ import time
 import random
 from PyQt5.QtChart import QChart, QChartView, QLineSeries,QValueAxis,QAbstractAxis
 
+
 X_MINUTES = 1
 Y_MAX = 100
 Y_MIN = -100
@@ -312,20 +313,20 @@ class CurveChart(QChart):
         self.__axis.setLabelFormat(" ")     # 不显示x轴标签
         self.axisY().setTickCount(5)
         self.axisY().setMinorTickCount(2)
-        self.axisY().setLabelFormat("%d")
+        self.axisY().setLabelFormat("%.1f")
         # self.setAnimationOptions(QChart.GridAxisAnimations)
         # 设置边缘空白
-        self.setContentsMargins(-10,-20,-20,-30)
+        self.setContentsMargins(-10, -20, -20, -30)
         # 坐标刻度设置
         self.__yMax = 100
         self.__yMin = -100
         self.__yAxisAdjust = 1.1  # 滚轮调整Y轴限制变化率
         self.__isMousePress = False  # 鼠标是否按下
         self.__data_y = 0  # 按下鼠标时Y坐标
-        self.axisY().setRange(self.__yMin,self.__yMax)
+        self.axisY().setRange(self.__yMin, self.__yMax)
         self.__xAxisFigSizeRadio = 2      # x轴坐标范围和图像宽度比值
         self.__xAxisMin = 0
-        self.axisX().setRange(self.__xAxisMin,100)#self.get_plot_area_width())
+        self.axisX().setRange(self.__xAxisMin, 100)     # self.get_plot_area_width())
 
         # 虚拟波形生成标志
         self.generating = False
@@ -347,7 +348,7 @@ class CurveChart(QChart):
     def change_the_radio(self, _int):
         # print(_int)
         if _int > 0:
-            self.__xAxisFigSizeRadio = 2 *1.1**_int
+            self.__xAxisFigSizeRadio = 2 * 1.1**_int
         elif _int < 0:
             _int = -_int
             self.__xAxisFigSizeRadio = 2/(1.1**_int)
@@ -359,24 +360,25 @@ class CurveChart(QChart):
     def wheelEvent(self, e):
         # print(e.delta(),e.pos().y(),self.plotArea().height(),self.rect().height())
         # 计算当前鼠标坐标
-        _y = self.axisY().max() - \
-             (e.pos().y()-self.plotArea().y())/self.plotArea().height()*(self.__yMax-self.__yMin)
+        # _y = self.axisY().max() - \
+        #      (e.pos().y()-self.plotArea().y())/self.plotArea().height()*(self.__yMax-self.__yMin)
+        # 计算当前图像中心
+        _y = (self.axisY().max() + self.axisY().min())*0.5
         if e.delta() > 0:
             self.__yMax = self.__yMax / self.__yAxisAdjust
             self.__yMin = self.__yMin / self.__yAxisAdjust
         else:
-            self.__yMax,self.__yMin = \
+            self.__yMax, self.__yMin = \
                 self.__yMax * self.__yAxisAdjust,self.__yMin * self.__yAxisAdjust
-        print(self.__yMax,self.__yMin)
+        # print(self.__yMax, self.__yMin)
         self.axisY().setRange(self.__yMin+_y, self.__yMax+_y)
 
     def mousePressEvent(self, e):
         if e.button() == Qt.LeftButton:
-            print(e.button())
             if e.pos().y()>self.plotArea().y() and e.pos().y()<self.plotArea().bottom():
                 self.__isMousePress = True
                 self.__data_y = e.pos().y()
-                print(2)
+                self.setCursor(Qt.ClosedHandCursor)
 
     def mouseReleaseEvent(self, e):
         if e.button() == Qt.LeftButton:
@@ -384,7 +386,7 @@ class CurveChart(QChart):
                 self.__isMousePress = True
                 # self.__data_y = e.pos().y()
                 self.scroll(0,e.pos().y()-self.__data_y)
-                print(1,e.pos().y())
+                self.setCursor(Qt.ArrowCursor)
 
     def init_random_data_generator(self):
         self.exit = False
@@ -392,32 +394,33 @@ class CurveChart(QChart):
         self.tData.start()
         self.isRandomRun = True
 
-    def set_random_pen_color(self, num = 0):
-        if num != 0:
-            if num == 1:
-                self.__pen.setColor(Qt.red)
-            elif num == 2:
-                self.__pen.setColor(Qt.green)
-            elif num == 3:
-                self.__pen.setColor(Qt.blue)
-            elif num == 4:
-                self.__pen.setColor(Qt.yellow)
-            elif num == 5:
-                self.__pen.setColor(Qt.magenta)
-            elif num == 6:
-                self.__pen.setColor(Qt.cyan)
-            self.__series[6].setPen(self.__pen)
+    def set_random_pen_color(self, num=0):
+        if num == 0:
+            self.__pen.setColor(Qt.blue)
+        elif num == 1:
+            self.__pen.setColor(Qt.red)
+        elif num == 2:
+            self.__pen.setColor(Qt.green)
+        elif num == 3:
+            self.__pen.setColor(Qt.blue)
+        elif num == 4:
+            self.__pen.setColor(Qt.yellow)
+        elif num == 5:
+            self.__pen.setColor(Qt.magenta)
+        elif num == 6:
+            self.__pen.setColor(Qt.cyan)
+        self.__series[6].setPen(self.__pen)
 
     def start_random_plot(self, num = 0):
         if not self.isRandomRun:
             self.init_random_data_generator()
-        if not self.isRun:
-            self.generating = True
-            # 设置随机曲线颜色
-            self.set_random_pen_color(num)
-            # 数据生成开始时间  并设置图像坐标最小值
-            self.__xAxisMin = time.time()*200
-            self.set_x_axis_range()
+        # if not self.isRun:
+        self.generating = True
+        # 设置随机曲线颜色
+        self.set_random_pen_color(num)
+        # 数据生成开始时间  并设置图像坐标最小值
+        self.__xAxisMin = time.time()*200
+        self.set_x_axis_range()
 
     def stop_random_plot(self):
         if self.isRandomRun:
@@ -432,7 +435,7 @@ class CurveChart(QChart):
        #  关闭随机数生成
         if self.isRandomRun:
             self.stop_random_plot()
-        self.isRun = True
+        # self.isRun = True
         for i in range(7):
             self.__series[i].clear()
         # 数据生成开始时间  并设置图像坐标最小值

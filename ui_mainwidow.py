@@ -11,8 +11,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(933, 640)
+        MainWindow.resize(1291, 717)
         MainWindow.setBaseSize(QtCore.QSize(0, 0))
+        MainWindow.setWindowOpacity(1.0)
         MainWindow.setIconSize(QtCore.QSize(18, 18))
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -43,7 +44,11 @@ class Ui_MainWindow(object):
         self.comboBox_baud.addItem("")
         self.gridLayout_2.addWidget(self.comboBox_baud, 1, 1, 1, 2)
         self.label_28 = QtWidgets.QLabel(self.groupBox)
-        self.label_28.setStyleSheet("background:rgb(85, 170, 255)")
+        self.label_28.setStyleSheet("background:rgb(85, 170, 255);\n"
+"border:1px solid gray;\n"
+"        width:300px;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.label_28.setObjectName("label_28")
         self.gridLayout_2.addWidget(self.label_28, 2, 0, 1, 1)
         self.comboBox_com = QtWidgets.QComboBox(self.groupBox)
@@ -52,6 +57,9 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addWidget(self.comboBox_com, 0, 1, 1, 2)
         self.pushButton_uart_sw = QtWidgets.QPushButton(self.groupBox)
         self.pushButton_uart_sw.setMinimumSize(QtCore.QSize(0, 35))
+        self.pushButton_uart_sw.setStyleSheet("border:1px solid gray;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.pushButton_uart_sw.setObjectName("pushButton_uart_sw")
         self.gridLayout_2.addWidget(self.pushButton_uart_sw, 2, 2, 1, 1)
         self.pushButton_uart_rfresh = QtWidgets.QPushButton(self.groupBox)
@@ -63,6 +71,9 @@ class Ui_MainWindow(object):
         self.pushButton_uart_rfresh.setMinimumSize(QtCore.QSize(0, 33))
         self.pushButton_uart_rfresh.setBaseSize(QtCore.QSize(0, 0))
         self.pushButton_uart_rfresh.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.pushButton_uart_rfresh.setStyleSheet("border:1px solid gray;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.pushButton_uart_rfresh.setIconSize(QtCore.QSize(12, 12))
         self.pushButton_uart_rfresh.setObjectName("pushButton_uart_rfresh")
         self.gridLayout_2.addWidget(self.pushButton_uart_rfresh, 2, 1, 1, 1)
@@ -139,6 +150,7 @@ class Ui_MainWindow(object):
         self.gridLayout_8 = QtWidgets.QGridLayout(self.tab_2)
         self.gridLayout_8.setObjectName("gridLayout_8")
         self.groupBox_4 = QtWidgets.QGroupBox(self.tab_2)
+        self.groupBox_4.setStyleSheet("")
         self.groupBox_4.setObjectName("groupBox_4")
         self.gridLayout_5 = QtWidgets.QGridLayout(self.groupBox_4)
         self.gridLayout_5.setObjectName("gridLayout_5")
@@ -157,7 +169,11 @@ class Ui_MainWindow(object):
         self.comboBox_baud_2.addItem("")
         self.gridLayout_5.addWidget(self.comboBox_baud_2, 1, 1, 1, 2)
         self.label_31 = QtWidgets.QLabel(self.groupBox_4)
-        self.label_31.setStyleSheet("background:rgb(85, 170, 255)")
+        self.label_31.setStyleSheet("background:rgb(85, 170, 255);\n"
+"border:1px solid gray;\n"
+"        width:300px;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.label_31.setObjectName("label_31")
         self.gridLayout_5.addWidget(self.label_31, 2, 0, 1, 1)
         self.comboBox_com_2 = QtWidgets.QComboBox(self.groupBox_4)
@@ -166,6 +182,9 @@ class Ui_MainWindow(object):
         self.gridLayout_5.addWidget(self.comboBox_com_2, 0, 1, 1, 2)
         self.pushButton_uart_sw_2 = QtWidgets.QPushButton(self.groupBox_4)
         self.pushButton_uart_sw_2.setMinimumSize(QtCore.QSize(0, 33))
+        self.pushButton_uart_sw_2.setStyleSheet("border:1px solid gray;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.pushButton_uart_sw_2.setObjectName("pushButton_uart_sw_2")
         self.gridLayout_5.addWidget(self.pushButton_uart_sw_2, 2, 2, 1, 1)
         self.pushButton_uart_rfresh_2 = QtWidgets.QPushButton(self.groupBox_4)
@@ -177,6 +196,9 @@ class Ui_MainWindow(object):
         self.pushButton_uart_rfresh_2.setMinimumSize(QtCore.QSize(0, 33))
         self.pushButton_uart_rfresh_2.setBaseSize(QtCore.QSize(0, 0))
         self.pushButton_uart_rfresh_2.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.pushButton_uart_rfresh_2.setStyleSheet("border:1px solid gray;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.pushButton_uart_rfresh_2.setIconSize(QtCore.QSize(12, 12))
         self.pushButton_uart_rfresh_2.setObjectName("pushButton_uart_rfresh_2")
         self.gridLayout_5.addWidget(self.pushButton_uart_rfresh_2, 2, 1, 1, 1)
@@ -201,11 +223,17 @@ class Ui_MainWindow(object):
         self.gridLayout_9.addItem(spacerItem, 1, 0, 1, 1)
         self.lineEdit = QtWidgets.QLineEdit(self.groupBox_6)
         self.lineEdit.setMinimumSize(QtCore.QSize(0, 25))
+        self.lineEdit.setStyleSheet("border:1px solid gray;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.lineEdit.setObjectName("lineEdit")
         self.gridLayout_9.addWidget(self.lineEdit, 0, 1, 1, 1)
         self.lineEdit_7 = QtWidgets.QLineEdit(self.groupBox_6)
         self.lineEdit_7.setMinimumSize(QtCore.QSize(0, 25))
-        self.lineEdit_7.setStyleSheet("background:rgb(255, 0, 0);color:rgb(255, 255, 255)")
+        self.lineEdit_7.setStyleSheet("background:rgb(255, 0, 0);color:rgb(255, 255, 255)\n"
+";border:1px solid gray;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.lineEdit_7.setObjectName("lineEdit_7")
         self.gridLayout_9.addWidget(self.lineEdit_7, 1, 1, 1, 1)
         self.horizontalLayout.addLayout(self.gridLayout_9)
@@ -218,13 +246,18 @@ class Ui_MainWindow(object):
         self.gridLayout_10.addWidget(self.checkBox_2, 0, 0, 1, 1)
         self.lineEdit_2 = QtWidgets.QLineEdit(self.groupBox_6)
         self.lineEdit_2.setMinimumSize(QtCore.QSize(0, 25))
+        self.lineEdit_2.setStyleSheet("border:1px solid gray;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.lineEdit_2.setObjectName("lineEdit_2")
         self.gridLayout_10.addWidget(self.lineEdit_2, 0, 1, 1, 1)
         spacerItem1 = QtWidgets.QSpacerItem(17, 17, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_10.addItem(spacerItem1, 1, 0, 1, 1)
         self.lineEdit_8 = QtWidgets.QLineEdit(self.groupBox_6)
         self.lineEdit_8.setMinimumSize(QtCore.QSize(0, 25))
-        self.lineEdit_8.setStyleSheet("background:rgb(0,255, 0);color:rgb(0,0,0)")
+        self.lineEdit_8.setStyleSheet("background:rgb(0,255, 0);color:rgb(0,0,0);border:1px solid gray;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.lineEdit_8.setObjectName("lineEdit_8")
         self.gridLayout_10.addWidget(self.lineEdit_8, 1, 1, 1, 1)
         self.horizontalLayout.addLayout(self.gridLayout_10)
@@ -237,13 +270,18 @@ class Ui_MainWindow(object):
         self.gridLayout_11.addWidget(self.checkBox_3, 0, 0, 1, 1)
         self.lineEdit_3 = QtWidgets.QLineEdit(self.groupBox_6)
         self.lineEdit_3.setMinimumSize(QtCore.QSize(0, 25))
+        self.lineEdit_3.setStyleSheet("border:1px solid gray;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.gridLayout_11.addWidget(self.lineEdit_3, 0, 1, 1, 1)
         spacerItem2 = QtWidgets.QSpacerItem(17, 17, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_11.addItem(spacerItem2, 1, 0, 1, 1)
         self.lineEdit_9 = QtWidgets.QLineEdit(self.groupBox_6)
         self.lineEdit_9.setMinimumSize(QtCore.QSize(0, 25))
-        self.lineEdit_9.setStyleSheet("background:rgb(0, 0, 255);color:rgb(255, 255, 255)")
+        self.lineEdit_9.setStyleSheet("background:rgb(0, 0, 255);color:rgb(255, 255, 255);border:1px solid gray;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.lineEdit_9.setObjectName("lineEdit_9")
         self.gridLayout_11.addWidget(self.lineEdit_9, 1, 1, 1, 1)
         self.horizontalLayout.addLayout(self.gridLayout_11)
@@ -256,13 +294,18 @@ class Ui_MainWindow(object):
         self.gridLayout_12.addWidget(self.checkBox_4, 0, 0, 1, 1)
         self.lineEdit_4 = QtWidgets.QLineEdit(self.groupBox_6)
         self.lineEdit_4.setMinimumSize(QtCore.QSize(0, 25))
+        self.lineEdit_4.setStyleSheet("border:1px solid gray;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.lineEdit_4.setObjectName("lineEdit_4")
         self.gridLayout_12.addWidget(self.lineEdit_4, 0, 1, 1, 1)
         spacerItem3 = QtWidgets.QSpacerItem(17, 17, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_12.addItem(spacerItem3, 1, 0, 1, 1)
         self.lineEdit_10 = QtWidgets.QLineEdit(self.groupBox_6)
         self.lineEdit_10.setMinimumSize(QtCore.QSize(0, 25))
-        self.lineEdit_10.setStyleSheet("background:rgb(255, 255, 0);color:rgb(0,0,0)")
+        self.lineEdit_10.setStyleSheet("background:rgb(255, 255, 0);color:rgb(0,0,0);border:1px solid gray;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.lineEdit_10.setObjectName("lineEdit_10")
         self.gridLayout_12.addWidget(self.lineEdit_10, 1, 1, 1, 1)
         self.horizontalLayout.addLayout(self.gridLayout_12)
@@ -275,13 +318,18 @@ class Ui_MainWindow(object):
         self.gridLayout_13.addWidget(self.checkBox_5, 0, 0, 1, 1)
         self.lineEdit_5 = QtWidgets.QLineEdit(self.groupBox_6)
         self.lineEdit_5.setMinimumSize(QtCore.QSize(0, 25))
+        self.lineEdit_5.setStyleSheet("border:1px solid gray;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.lineEdit_5.setObjectName("lineEdit_5")
         self.gridLayout_13.addWidget(self.lineEdit_5, 0, 1, 1, 1)
         spacerItem4 = QtWidgets.QSpacerItem(17, 17, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_13.addItem(spacerItem4, 1, 0, 1, 1)
         self.lineEdit_11 = QtWidgets.QLineEdit(self.groupBox_6)
         self.lineEdit_11.setMinimumSize(QtCore.QSize(0, 25))
-        self.lineEdit_11.setStyleSheet("background:rgb(255, 0, 255);color:rgb(0,0,0)")
+        self.lineEdit_11.setStyleSheet("background:rgb(255, 0, 255);color:rgb(0,0,0);border:1px solid gray;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.lineEdit_11.setObjectName("lineEdit_11")
         self.gridLayout_13.addWidget(self.lineEdit_11, 1, 1, 1, 1)
         self.horizontalLayout.addLayout(self.gridLayout_13)
@@ -296,11 +344,17 @@ class Ui_MainWindow(object):
         self.gridLayout_14.addWidget(self.checkBox_6, 0, 0, 1, 1)
         self.lineEdit_12 = QtWidgets.QLineEdit(self.groupBox_6)
         self.lineEdit_12.setMinimumSize(QtCore.QSize(0, 25))
-        self.lineEdit_12.setStyleSheet("background:rgb(0, 255, 255);color:rgb(0,0,0)")
+        self.lineEdit_12.setStyleSheet("background:rgb(0, 255, 255);color:rgb(0,0,0);border:1px solid gray;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.lineEdit_12.setObjectName("lineEdit_12")
         self.gridLayout_14.addWidget(self.lineEdit_12, 1, 1, 1, 1)
         self.lineEdit_6 = QtWidgets.QLineEdit(self.groupBox_6)
         self.lineEdit_6.setMinimumSize(QtCore.QSize(0, 25))
+        self.lineEdit_6.setStyleSheet("border:1px solid gray;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;\n"
+"")
         self.lineEdit_6.setObjectName("lineEdit_6")
         self.gridLayout_14.addWidget(self.lineEdit_6, 0, 1, 1, 1)
         self.horizontalLayout.addLayout(self.gridLayout_14)
@@ -324,9 +378,13 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addWidget(self.groupBox_6)
         spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem7)
-        self.horizontalLayout_2.setStretch(0, 3)
+        self.horizontalLayout_2.setStretch(0, 4)
         self.horizontalLayout_2.setStretch(1, 1)
         self.gridLayout_8.addLayout(self.horizontalLayout_2, 0, 1, 1, 1)
+        self.widget_dynamic_curve = QtWidgets.QWidget(self.tab_2)
+        self.widget_dynamic_curve.setMinimumSize(QtCore.QSize(300, 0))
+        self.widget_dynamic_curve.setObjectName("widget_dynamic_curve")
+        self.gridLayout_8.addWidget(self.widget_dynamic_curve, 1, 1, 1, 1)
         self.groupBox_5 = QtWidgets.QGroupBox(self.tab_2)
         self.groupBox_5.setObjectName("groupBox_5")
         self.gridLayout_6 = QtWidgets.QGridLayout(self.groupBox_5)
@@ -337,7 +395,11 @@ class Ui_MainWindow(object):
         font.setFamily("Adobe Devanagari")
         font.setPointSize(10)
         self.label.setFont(font)
-        self.label.setStyleSheet("background:rgb(255, 0, 0)")
+        self.label.setStyleSheet("background:rgb(255, 0, 0);\n"
+"border:1px solid gray;\n"
+"        width:300px;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.gridLayout_6.addWidget(self.label, 0, 0, 1, 2)
@@ -347,7 +409,11 @@ class Ui_MainWindow(object):
         font.setFamily("Adobe Devanagari")
         font.setPointSize(10)
         self.label_2.setFont(font)
-        self.label_2.setStyleSheet("background:rgb(0, 255, 0)")
+        self.label_2.setStyleSheet("background:rgb(0, 255, 0);\n"
+"border:1px solid gray;\n"
+"        width:300px;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2.setObjectName("label_2")
         self.gridLayout_6.addWidget(self.label_2, 0, 2, 1, 2)
@@ -357,7 +423,11 @@ class Ui_MainWindow(object):
         font.setFamily("Adobe Devanagari")
         font.setPointSize(10)
         self.label_5.setFont(font)
-        self.label_5.setStyleSheet("background:rgb(255, 255, 127)")
+        self.label_5.setStyleSheet("background:rgb(255, 255, 127);\n"
+"border:1px solid gray;\n"
+"        width:300px;\n"
+"        border-radius:10px;\n"
+"        padding:2px 4px;")
         self.label_5.setAlignment(QtCore.Qt.AlignCenter)
         self.label_5.setObjectName("label_5")
         self.gridLayout_6.addWidget(self.label_5, 0, 4, 1, 2)
@@ -498,10 +568,6 @@ class Ui_MainWindow(object):
         self.label_11.setObjectName("label_11")
         self.gridLayout_6.addWidget(self.label_11, 5, 4, 1, 1)
         self.gridLayout_8.addWidget(self.groupBox_5, 1, 0, 1, 1)
-        self.widget_dynamic_curve = QtWidgets.QWidget(self.tab_2)
-        self.widget_dynamic_curve.setMinimumSize(QtCore.QSize(300, 0))
-        self.widget_dynamic_curve.setObjectName("widget_dynamic_curve")
-        self.gridLayout_8.addWidget(self.widget_dynamic_curve, 1, 1, 1, 1)
         self.gridLayout_8.setColumnStretch(0, 1)
         self.gridLayout_8.setRowStretch(0, 1)
         self.gridLayout_8.setRowStretch(1, 3)

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>933</width>
-    <height>640</height>
+    <width>1291</width>
+    <height>717</height>
    </rect>
   </property>
   <property name="baseSize">
@@ -18,6 +18,9 @@
   </property>
   <property name="windowTitle">
    <string>串口调试助手</string>
+  </property>
+  <property name="windowOpacity">
+   <double>1.000000000000000</double>
   </property>
   <property name="iconSize">
    <size>
@@ -88,7 +91,11 @@
            <item row="2" column="0">
             <widget class="QLabel" name="label_28">
              <property name="styleSheet">
-              <string notr="true">background:rgb(85, 170, 255)</string>
+              <string notr="true">background:rgb(85, 170, 255);
+border:1px solid gray;
+        width:300px;
+        border-radius:10px;
+        padding:2px 4px;</string>
              </property>
              <property name="text">
               <string>操作</string>
@@ -109,6 +116,11 @@
                <width>0</width>
                <height>35</height>
               </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border:1px solid gray;
+        border-radius:10px;
+        padding:2px 4px;</string>
              </property>
              <property name="text">
               <string>打开串口</string>
@@ -137,6 +149,11 @@
              </property>
              <property name="layoutDirection">
               <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border:1px solid gray;
+        border-radius:10px;
+        padding:2px 4px;</string>
              </property>
              <property name="text">
               <string>刷新</string>
@@ -330,6 +347,9 @@
        <layout class="QGridLayout" name="gridLayout_8" rowstretch="1,3" columnstretch="1,0">
         <item row="0" column="0">
          <widget class="QGroupBox" name="groupBox_4">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
           <property name="title">
            <string>串口选择</string>
           </property>
@@ -379,7 +399,11 @@
            <item row="2" column="0">
             <widget class="QLabel" name="label_31">
              <property name="styleSheet">
-              <string notr="true">background:rgb(85, 170, 255)</string>
+              <string notr="true">background:rgb(85, 170, 255);
+border:1px solid gray;
+        width:300px;
+        border-radius:10px;
+        padding:2px 4px;</string>
              </property>
              <property name="text">
               <string>操作</string>
@@ -400,6 +424,11 @@
                <width>0</width>
                <height>33</height>
               </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">border:1px solid gray;
+        border-radius:10px;
+        padding:2px 4px;</string>
              </property>
              <property name="text">
               <string>打开串口</string>
@@ -429,6 +458,11 @@
              <property name="layoutDirection">
               <enum>Qt::LeftToRight</enum>
              </property>
+             <property name="styleSheet">
+              <string notr="true">border:1px solid gray;
+        border-radius:10px;
+        padding:2px 4px;</string>
+             </property>
              <property name="text">
               <string>刷新</string>
              </property>
@@ -444,7 +478,7 @@
          </widget>
         </item>
         <item row="0" column="1">
-         <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="3,1">
+         <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="4,1">
           <item>
            <widget class="QGroupBox" name="groupBox_6">
             <property name="title">
@@ -492,6 +526,11 @@
                      <height>25</height>
                     </size>
                    </property>
+                   <property name="styleSheet">
+                    <string notr="true">border:1px solid gray;
+        border-radius:10px;
+        padding:2px 4px;</string>
+                   </property>
                   </widget>
                  </item>
                  <item row="1" column="1">
@@ -503,7 +542,10 @@
                     </size>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background:rgb(255, 0, 0);color:rgb(255, 255, 255)</string>
+                    <string notr="true">background:rgb(255, 0, 0);color:rgb(255, 255, 255)
+;border:1px solid gray;
+        border-radius:10px;
+        padding:2px 4px;</string>
                    </property>
                    <property name="text">
                     <string>red</string>
@@ -535,6 +577,11 @@
                      <height>25</height>
                     </size>
                    </property>
+                   <property name="styleSheet">
+                    <string notr="true">border:1px solid gray;
+        border-radius:10px;
+        padding:2px 4px;</string>
+                   </property>
                   </widget>
                  </item>
                  <item row="1" column="0">
@@ -559,7 +606,9 @@
                     </size>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background:rgb(0,255, 0);color:rgb(0,0,0)</string>
+                    <string notr="true">background:rgb(0,255, 0);color:rgb(0,0,0);border:1px solid gray;
+        border-radius:10px;
+        padding:2px 4px;</string>
                    </property>
                    <property name="text">
                     <string>green</string>
@@ -591,6 +640,11 @@
                      <height>25</height>
                     </size>
                    </property>
+                   <property name="styleSheet">
+                    <string notr="true">border:1px solid gray;
+        border-radius:10px;
+        padding:2px 4px;</string>
+                   </property>
                   </widget>
                  </item>
                  <item row="1" column="0">
@@ -615,7 +669,9 @@
                     </size>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background:rgb(0, 0, 255);color:rgb(255, 255, 255)</string>
+                    <string notr="true">background:rgb(0, 0, 255);color:rgb(255, 255, 255);border:1px solid gray;
+        border-radius:10px;
+        padding:2px 4px;</string>
                    </property>
                    <property name="text">
                     <string>blue</string>
@@ -647,6 +703,11 @@
                      <height>25</height>
                     </size>
                    </property>
+                   <property name="styleSheet">
+                    <string notr="true">border:1px solid gray;
+        border-radius:10px;
+        padding:2px 4px;</string>
+                   </property>
                   </widget>
                  </item>
                  <item row="1" column="0">
@@ -671,7 +732,9 @@
                     </size>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background:rgb(255, 255, 0);color:rgb(0,0,0)</string>
+                    <string notr="true">background:rgb(255, 255, 0);color:rgb(0,0,0);border:1px solid gray;
+        border-radius:10px;
+        padding:2px 4px;</string>
                    </property>
                    <property name="text">
                     <string>yellow</string>
@@ -703,6 +766,11 @@
                      <height>25</height>
                     </size>
                    </property>
+                   <property name="styleSheet">
+                    <string notr="true">border:1px solid gray;
+        border-radius:10px;
+        padding:2px 4px;</string>
+                   </property>
                   </widget>
                  </item>
                  <item row="1" column="0">
@@ -727,7 +795,9 @@
                     </size>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background:rgb(255, 0, 255);color:rgb(0,0,0)</string>
+                    <string notr="true">background:rgb(255, 0, 255);color:rgb(0,0,0);border:1px solid gray;
+        border-radius:10px;
+        padding:2px 4px;</string>
                    </property>
                    <property name="text">
                     <string>magenta</string>
@@ -773,7 +843,9 @@
                     </size>
                    </property>
                    <property name="styleSheet">
-                    <string notr="true">background:rgb(0, 255, 255);color:rgb(0,0,0)</string>
+                    <string notr="true">background:rgb(0, 255, 255);color:rgb(0,0,0);border:1px solid gray;
+        border-radius:10px;
+        padding:2px 4px;</string>
                    </property>
                    <property name="text">
                     <string>cyan</string>
@@ -787,6 +859,12 @@
                      <width>0</width>
                      <height>25</height>
                     </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">border:1px solid gray;
+        border-radius:10px;
+        padding:2px 4px;
+</string>
                    </property>
                   </widget>
                  </item>
@@ -854,6 +932,16 @@
           </item>
          </layout>
         </item>
+        <item row="1" column="1">
+         <widget class="QWidget" name="widget_dynamic_curve" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>300</width>
+            <height>0</height>
+           </size>
+          </property>
+         </widget>
+        </item>
         <item row="1" column="0">
          <widget class="QGroupBox" name="groupBox_5">
           <property name="title">
@@ -875,7 +963,11 @@
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">background:rgb(255, 0, 0)</string>
+              <string notr="true">background:rgb(255, 0, 0);
+border:1px solid gray;
+        width:300px;
+        border-radius:10px;
+        padding:2px 4px;</string>
              </property>
              <property name="text">
               <string>P</string>
@@ -900,7 +992,11 @@
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">background:rgb(0, 255, 0)</string>
+              <string notr="true">background:rgb(0, 255, 0);
+border:1px solid gray;
+        width:300px;
+        border-radius:10px;
+        padding:2px 4px;</string>
              </property>
              <property name="text">
               <string>I</string>
@@ -925,7 +1021,11 @@
               </font>
              </property>
              <property name="styleSheet">
-              <string notr="true">background:rgb(255, 255, 127)</string>
+              <string notr="true">background:rgb(255, 255, 127);
+border:1px solid gray;
+        width:300px;
+        border-radius:10px;
+        padding:2px 4px;</string>
              </property>
              <property name="text">
               <string>D</string>
@@ -1295,16 +1395,6 @@
             </widget>
            </item>
           </layout>
-         </widget>
-        </item>
-        <item row="1" column="1">
-         <widget class="QWidget" name="widget_dynamic_curve" native="true">
-          <property name="minimumSize">
-           <size>
-            <width>300</width>
-            <height>0</height>
-           </size>
-          </property>
          </widget>
         </item>
        </layout>

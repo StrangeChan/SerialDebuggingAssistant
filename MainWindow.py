@@ -9,17 +9,20 @@ from ui_mainwidow import Ui_MainWindow
 from Receive import Receive
 from CurveWidget import CurveDataS,CurveChart
 import struct
+from QCandyUi import CandyWindow
+from QCandyUi.CandyWindow import colorful
 import time
 
 OFF = False
 ON = True
 
-
+# @colorful('blue Green')
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        # self.ui = CandyWindow.createWindow(self.ui, 'blueGreen',"串口调试助手",'1.ico')
         self.setWindowIcon(QIcon('1.ico'))
 
         self.__curveChart = CurveChart()
@@ -173,7 +176,7 @@ class MainWindow(QMainWindow):
                 self.__curveChart.start_plot()
             else:
                 QMessageBox.critical(self,"Error","Fail to turn on this device!")
-                print(self.__serialPort2.error())
+                # print(self.__serialPort2.error())
 
     def refresh_uart_info(self):
         if self.__uartState == ON:
@@ -266,6 +269,12 @@ class MainWindow(QMainWindow):
 
     # 关闭窗口关闭线程
     def closeEvent(self, e):
+        # print(1)
+        b=QMessageBox.question(self, "滑稽", "陈奇是不是你爸爸",
+                                   QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
+        while b == QMessageBox.No:
+            b = QMessageBox.question(self, "滑稽", "陈奇是不是你爸爸",
+                                     QMessageBox.Yes | QMessageBox.No, QMessageBox.Yes)
         # 关闭串口
         if self.__uartState:
             self.__serialPort.close()
@@ -283,7 +292,9 @@ class MainWindow(QMainWindow):
         #     self.__curveDataS.release_random_plot()
         # self.__curveDataS.stop_plot()
         self.__curveChart.stop_random_plot()
-        print('k88888')
+        # print('k88888')
+        # else:
+        #     e.ignore()
 
     # 滑动条部分操作
     def set_p_max_value(self,max):
