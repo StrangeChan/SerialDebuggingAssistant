@@ -10,14 +10,13 @@ import threading
 import time
 import random
 from PyQt5.QtChart import QChart, QChartView, QLineSeries,QValueAxis,QAbstractAxis
-
+import math
 
 X_MINUTES = 1
 Y_MAX = 100
 Y_MIN = -100
-INTERVAL = 0.1
+INTERVAL = 0.01
 MAX_COUNTER = 100  # int(X_MINUTES * 60 / INTERVAL)
-
 
 class CurveWidget(FigureCanvas):
     def __init__(self, widget):
@@ -466,11 +465,16 @@ class CurveChart(QChart):
         self.__series[num].clear()
 
     def generate_data(self):
+        a = 0.1
         while True:
             if self.exit:
                 break
             if self.generating:
-                new_data = random.randint(Y_MIN, Y_MAX)
+                # new_data = random.randint(Y_MIN, Y_MAX)
+                a = a + 0.1
+                if a > 3.14:
+                    a = -3.14
+                new_data =100* math.sin(a)
                 self.add_random_data(new_data)
                 # self.add_data(new_data+45,0)
                 # self.add_data(new_data,self.__randomPlotChannel)

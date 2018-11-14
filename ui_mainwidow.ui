@@ -891,10 +891,10 @@ border:1px solid gray;
                 <enum>Qt::RightToLeft</enum>
                </property>
                <property name="minimum">
-                <number>-50</number>
+                <number>-25</number>
                </property>
                <property name="maximum">
-                <number>50</number>
+                <number>25</number>
                </property>
                <property name="pageStep">
                 <number>1</number>
@@ -904,6 +904,12 @@ border:1px solid gray;
                </property>
                <property name="orientation">
                 <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="tickPosition">
+                <enum>QSlider::TicksBelow</enum>
+               </property>
+               <property name="tickInterval">
+                <number>1</number>
                </property>
               </widget>
              </item>
