@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1291</width>
-    <height>717</height>
+    <width>1289</width>
+    <height>710</height>
    </rect>
   </property>
   <property name="baseSize">
@@ -33,7 +33,7 @@
     <item row="0" column="1">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -273,7 +273,7 @@ border:1px solid gray;
               </size>
              </property>
              <property name="text">
-              <string>文本显示</string>
+              <string>文本发送</string>
              </property>
              <property name="checkable">
               <bool>true</bool>
@@ -295,7 +295,7 @@ border:1px solid gray;
               </size>
              </property>
              <property name="text">
-              <string>十六进制显示</string>
+              <string>十六进制发送</string>
              </property>
              <property name="checked">
               <bool>false</bool>
@@ -1127,6 +1127,10 @@ border:1px solid gray;
            </item>
            <item row="2" column="0" rowspan="3">
             <widget class="QSlider" name="verticalSlider_P">
+             <property name="styleSheet">
+              <string notr="true">handle:vertical{width:13;margin-top:-3;margin-bottom:-3;border-radius:6;background:qradialgradient(spread:pad,cx:0.5,cy:0.5,radius:0.5,fx:0.5,fy:0.5,stop:0.6 #FFFFFF,stop:0.8 #4c73a8);}
+        </string>
+             </property>
              <property name="minimum">
               <number>0</number>
              </property>

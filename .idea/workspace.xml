@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fa8ae4c3-9bf7-4839-8635-cc2a8adae1ef" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CurveWidget.py" afterPath="$PROJECT_DIR$/CurveWidget.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MainWindow.py" afterPath="$PROJECT_DIR$/MainWindow.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui_mainwidow.py" afterPath="$PROJECT_DIR$/ui_mainwidow.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ui_mainwidow.ui" afterPath="$PROJECT_DIR$/ui_mainwidow.ui" />
     </list>
@@ -20,36 +20,48 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="MainWindow.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainWindow.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MainWindow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1742">
-              <caret line="269" column="14" lean-forward="false" selection-start-line="269" selection-start-column="14" selection-end-line="269" selection-end-column="14" />
+            <state relative-caret-position="370">
+              <caret line="225" column="0" lean-forward="false" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
               <folding>
                 <element signature="e#25#80#0" expanded="true" />
-                <element signature="e#4731#5066#0" expanded="false" />
-                <element signature="e#5102#5446#0" expanded="false" />
-                <element signature="e#5489#6823#0" expanded="false" />
-                <element signature="e#8812#8970#0" expanded="false" />
-                <element signature="e#9014#9174#0" expanded="false" />
-                <element signature="e#9221#9368#0" expanded="false" />
-                <element signature="e#9411#10121#0" expanded="false" />
-                <element signature="e#10168#10443#0" expanded="false" />
-                <element signature="e#10488#10870#0" expanded="false" />
-                <element signature="e#10909#10941#0" expanded="false" />
-                <element signature="e#10984#11344#0" expanded="false" />
-                <element signature="e#11392#12003#0" expanded="false" />
-                <element signature="e#12042#12367#0" expanded="false" />
-                <element signature="e#13539#14300#0" expanded="false" />
-                <element signature="e#14345#15231#0" expanded="false" />
-                <element signature="e#15276#16037#0" expanded="false" />
-                <element signature="e#16089#16196#0" expanded="false" />
-                <element signature="e#16248#16363#0" expanded="false" />
-                <element signature="e#16415#16531#0" expanded="false" />
-                <element signature="e#16585#16784#0" expanded="false" />
-                <element signature="e#16838#17036#0" expanded="false" />
-                <element signature="e#17090#17289#0" expanded="false" />
+                <element signature="e#4746#5081#0" expanded="false" />
+                <element signature="e#5117#5461#0" expanded="false" />
+                <element signature="e#5504#6838#0" expanded="false" />
+                <element signature="e#6882#8784#0" expanded="false" />
+                <element signature="e#8827#8985#0" expanded="false" />
+                <element signature="e#9029#9189#0" expanded="false" />
+                <element signature="e#9236#9383#0" expanded="false" />
+                <element signature="e#10618#11000#0" expanded="false" />
+                <element signature="e#11039#11071#0" expanded="false" />
+                <element signature="e#11114#11474#0" expanded="false" />
+                <element signature="e#11522#12133#0" expanded="false" />
+                <element signature="e#12172#12497#0" expanded="false" />
+                <element signature="e#12551#13610#0" expanded="false" />
+                <element signature="e#13669#14430#0" expanded="false" />
+                <element signature="e#14475#15361#0" expanded="false" />
+                <element signature="e#15406#16167#0" expanded="false" />
+                <element signature="e#16219#16273#0" expanded="false" />
+                <element signature="e#16325#16383#0" expanded="false" />
+                <element signature="e#16435#16551#0" expanded="false" />
+                <element signature="e#16605#16842#0" expanded="false" />
+                <element signature="e#16896#17133#0" expanded="false" />
+                <element signature="e#16932#17003#0" expanded="false" />
+                <element signature="e#17187#17424#0" expanded="false" />
+                <element signature="e#17583#18626#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/chardet/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="28" column="50" lean-forward="false" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="50" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -57,7 +69,7 @@
       <file leaf-file-name="CurveWidget.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CurveWidget.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
+            <state relative-caret-position="366">
               <caret line="476" column="30" lean-forward="false" selection-start-line="476" selection-start-column="30" selection-end-line="476" selection-end-column="30" />
               <folding>
                 <element signature="e#25#51#0" expanded="true" />
@@ -91,8 +103,8 @@
       <file leaf-file-name="CandyWindow.py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/QCandyUi/CandyWindow.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="82" column="21" lean-forward="false" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
+            <state relative-caret-position="350">
+              <caret line="83" column="63" lean-forward="false" selection-start-line="83" selection-start-column="63" selection-end-line="83" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -101,8 +113,8 @@
       <file leaf-file-name="simple_qss.py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/QCandyUi/simple_qss.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="65" column="41" lean-forward="false" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+            <state relative-caret-position="-609">
+              <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -110,11 +122,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="qss_getter.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="qss_getter.py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/QCandyUi/qss_getter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="84" column="16" lean-forward="true" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="16" />
+            <state relative-caret-position="173">
+              <caret line="81" column="45" lean-forward="false" selection-start-line="81" selection-start-column="45" selection-end-line="81" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -123,7 +135,7 @@
       <file leaf-file-name="WindowWithTitleBar.py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/QCandyUi/WindowWithTitleBar.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1354">
+            <state relative-caret-position="2210">
               <caret line="94" column="31" lean-forward="false" selection-start-line="94" selection-start-column="31" selection-end-line="94" selection-end-column="31" />
               <folding>
                 <element signature="e#48#82#0" expanded="true" />
@@ -171,9 +183,10 @@
         <option value="$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/QCandyUi/Titlebar.py" />
         <option value="$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/QCandyUi/WindowWithTitleBar.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/MainWindow.py" />
         <option value="$PROJECT_DIR$/CurveWidget.py" />
+        <option value="$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/QCandyUi/simple_qss.py" />
         <option value="$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/QCandyUi/qss_getter.py" />
+        <option value="$PROJECT_DIR$/MainWindow.py" />
       </list>
     </option>
   </component>
@@ -218,7 +231,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -233,7 +246,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -539,7 +552,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541865423128</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="beautify">
+      <created>1542207835245</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1542207835245</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView">
@@ -555,7 +575,7 @@
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22516198" sideWeight="0.48984468" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23272139" sideWeight="0.48984468" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32855436" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1660693" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -597,7 +617,8 @@
     <MESSAGE value="add curveChart class" />
     <MESSAGE value="is ok?" />
     <MESSAGE value="maybe really complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="maybe really complete" />
+    <MESSAGE value="beautify" />
+    <option name="LAST_COMMIT_MESSAGE" value="beautify" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -618,25 +639,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="73" />
+      <option name="time" value="79" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/dates.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="392" column="4" lean-forward="false" selection-start-line="392" selection-start-column="4" selection-end-line="392" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/axis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-821">
-          <caret line="1251" column="8" lean-forward="false" selection-start-line="1251" selection-start-column="8" selection-end-line="1251" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/matplotlib/backend_bases.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -746,13 +753,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
           <caret line="178" column="8" lean-forward="false" selection-start-line="178" selection-start-column="8" selection-end-line="178" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtCore/QIODevice.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4522">
-          <caret line="136" column="8" lean-forward="false" selection-start-line="136" selection-start-column="8" selection-end-line="136" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -917,19 +917,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="1486" column="50" lean-forward="false" selection-start-line="1486" selection-start-column="50" selection-end-line="1486" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Receive.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2346">
           <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding>
             <element signature="e#0#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/QCandyUi/WindowWithTitleBar.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2210">
+          <caret line="94" column="31" lean-forward="false" selection-start-line="94" selection-start-column="31" selection-end-line="94" selection-end-column="31" />
+          <folding>
+            <element signature="e#48#82#0" expanded="true" />
+            <element signature="e#1579#1901#0" expanded="false" />
+            <element signature="e#2013#2258#0" expanded="false" />
+            <element signature="e#2305#2582#0" expanded="false" />
+            <element signature="e#2655#2756#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -944,41 +951,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MainWindow.py">
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/QCandyUi/simple_qss.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1742">
-          <caret line="269" column="14" lean-forward="false" selection-start-line="269" selection-start-column="14" selection-end-line="269" selection-end-column="14" />
+        <state relative-caret-position="-609">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
           <folding>
-            <element signature="e#25#80#0" expanded="true" />
-            <element signature="e#4731#5066#0" expanded="false" />
-            <element signature="e#5102#5446#0" expanded="false" />
-            <element signature="e#5489#6823#0" expanded="false" />
-            <element signature="e#8812#8970#0" expanded="false" />
-            <element signature="e#9014#9174#0" expanded="false" />
-            <element signature="e#9221#9368#0" expanded="false" />
-            <element signature="e#9411#10121#0" expanded="false" />
-            <element signature="e#10168#10443#0" expanded="false" />
-            <element signature="e#10488#10870#0" expanded="false" />
-            <element signature="e#10909#10941#0" expanded="false" />
-            <element signature="e#10984#11344#0" expanded="false" />
-            <element signature="e#11392#12003#0" expanded="false" />
-            <element signature="e#12042#12367#0" expanded="false" />
-            <element signature="e#13539#14300#0" expanded="false" />
-            <element signature="e#14345#15231#0" expanded="false" />
-            <element signature="e#15276#16037#0" expanded="false" />
-            <element signature="e#16089#16196#0" expanded="false" />
-            <element signature="e#16248#16363#0" expanded="false" />
-            <element signature="e#16415#16531#0" expanded="false" />
-            <element signature="e#16585#16784#0" expanded="false" />
-            <element signature="e#16838#17036#0" expanded="false" />
-            <element signature="e#17090#17289#0" expanded="false" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/QCandyUi/qss_getter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="81" column="45" lean-forward="false" selection-start-line="81" selection-start-column="45" selection-end-line="81" selection-end-column="45" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CurveWidget.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
+        <state relative-caret-position="366">
           <caret line="476" column="30" lean-forward="false" selection-start-line="476" selection-start-column="30" selection-end-line="476" selection-end-column="30" />
           <folding>
             <element signature="e#25#51#0" expanded="true" />
@@ -996,43 +989,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/QCandyUi/WindowWithTitleBar.py">
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/3/builtins.pyi">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1354">
-          <caret line="94" column="31" lean-forward="false" selection-start-line="94" selection-start-column="31" selection-end-line="94" selection-end-column="31" />
-          <folding>
-            <element signature="e#48#82#0" expanded="true" />
-            <element signature="e#1579#1901#0" expanded="false" />
-            <element signature="e#2013#2258#0" expanded="false" />
-            <element signature="e#2305#2582#0" expanded="false" />
-            <element signature="e#2655#2756#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="220">
+          <caret line="233" column="33" lean-forward="false" selection-start-line="233" selection-start-column="33" selection-end-line="233" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/PyQt5/QtCore/QIODevice.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="136" column="8" lean-forward="false" selection-start-line="136" selection-start-column="8" selection-end-line="136" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/1029340306/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="560">
+          <caret line="5113" column="62" lean-forward="false" selection-start-line="5111" selection-start-column="8" selection-end-line="5113" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/chardet/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="28" column="50" lean-forward="false" selection-start-line="28" selection-start-column="40" selection-end-line="28" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/QCandyUi/CandyWindow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="82" column="21" lean-forward="false" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
+        <state relative-caret-position="350">
+          <caret line="83" column="63" lean-forward="false" selection-start-line="83" selection-start-column="63" selection-end-line="83" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/QCandyUi/simple_qss.py">
+    <entry file="file://$PROJECT_DIR$/MainWindow.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="65" column="41" lean-forward="false" selection-start-line="65" selection-start-column="41" selection-end-line="65" selection-end-column="41" />
+        <state relative-caret-position="370">
+          <caret line="225" column="0" lean-forward="false" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#25#80#0" expanded="true" />
+            <element signature="e#4746#5081#0" expanded="false" />
+            <element signature="e#5117#5461#0" expanded="false" />
+            <element signature="e#5504#6838#0" expanded="false" />
+            <element signature="e#6882#8784#0" expanded="false" />
+            <element signature="e#8827#8985#0" expanded="false" />
+            <element signature="e#9029#9189#0" expanded="false" />
+            <element signature="e#9236#9383#0" expanded="false" />
+            <element signature="e#10618#11000#0" expanded="false" />
+            <element signature="e#11039#11071#0" expanded="false" />
+            <element signature="e#11114#11474#0" expanded="false" />
+            <element signature="e#11522#12133#0" expanded="false" />
+            <element signature="e#12172#12497#0" expanded="false" />
+            <element signature="e#12551#13610#0" expanded="false" />
+            <element signature="e#13669#14430#0" expanded="false" />
+            <element signature="e#14475#15361#0" expanded="false" />
+            <element signature="e#15406#16167#0" expanded="false" />
+            <element signature="e#16219#16273#0" expanded="false" />
+            <element signature="e#16325#16383#0" expanded="false" />
+            <element signature="e#16435#16551#0" expanded="false" />
+            <element signature="e#16605#16842#0" expanded="false" />
+            <element signature="e#16896#17133#0" expanded="false" />
+            <element signature="e#16932#17003#0" expanded="false" />
+            <element signature="e#17187#17424#0" expanded="false" />
+            <element signature="e#17583#18626#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/QCandyUi/qss_getter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="84" column="16" lean-forward="true" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>

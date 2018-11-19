@@ -9,6 +9,7 @@ from ui_mainwidow import Ui_MainWindow
 from Receive import Receive
 from CurveWidget import CurveDataS,CurveChart
 import struct
+import chardet
 from QCandyUi import CandyWindow
 from QCandyUi.CandyWindow import colorful
 import time
@@ -197,6 +198,7 @@ class MainWindow(QMainWindow):
     def receive_uart_data(self):
         if self.__serialPort.isReadable():
             data = self.__serialPort.readAll()
+            _bytes = bytearray(data)
             # print(data)
             # print(data.length())
             if data.isEmpty():
@@ -204,7 +206,8 @@ class MainWindow(QMainWindow):
             self.ui.plainTextEdit_rx.moveCursor(QtGui.QTextCursor.End)
 
             if self.ui.radioButton_show_ascii.isChecked():
-                self.ui.plainTextEdit_rx.insertPlainText(str(data, encoding='gbk'))
+                print(chardet.detect(_bytes))
+                self.ui.plainTextEdit_rx.insertPlainText(str(data, encoding= (chardet.detect(_bytes))['encoding']))
             else:
                 hexText = data.toHex().toUpper()
                 # print(hexText)
@@ -358,11 +361,9 @@ class MainWindow(QMainWindow):
 
     def change_p_para_display(self,para):
         self.ui.doubleSpinBox_P.setValue(para*self.__maxP/100)
-        self.send_pid_para('p',para*self.__maxP/100)
 
     def change_i_para_display(self,para):
         self.ui.doubleSpinBox_I.setValue(para * self.__maxI / 100)
-        self.send_pid_para('i', para * self.__maxI/ 100)
 
     def change_d_para_display(self,para):
         self.ui.doubleSpinBox_D.setValue(para * self.__maxD / 100)
@@ -372,7 +373,7 @@ class MainWindow(QMainWindow):
         if value > self.__maxP:
             value = self.__maxP
             self.ui.doubleSpinBox_P.setValue(value)
-
+        self.send_pid_para('p', value)
         value = value * 100 / self.__maxP
         self.ui.verticalSlider_P.setValue(value)
 
@@ -380,6 +381,7 @@ class MainWindow(QMainWindow):
         if value > self.__maxI:
             value = self.__maxI
             self.ui.doubleSpinBox_I.setValue(value)
+        self.send_pid_para('i', value)
         value = value * 100 / self.__maxI
         self.ui.verticalSlider_I.setValue(value)
 
@@ -387,7 +389,7 @@ class MainWindow(QMainWindow):
         if value > self.__maxD:
             value = self.__maxD
             self.ui.doubleSpinBox_D.setValue(value)
-
+        self.send_pid_para('d', value)
         value = value * 100 / self.__maxD
         self.ui.verticalSlider_D.setValue(value)
 

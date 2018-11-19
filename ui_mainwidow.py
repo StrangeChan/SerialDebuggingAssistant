@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1291, 717)
+        MainWindow.resize(1289, 710)
         MainWindow.setBaseSize(QtCore.QSize(0, 0))
         MainWindow.setWindowOpacity(1.0)
         MainWindow.setIconSize(QtCore.QSize(18, 18))
@@ -469,6 +469,8 @@ class Ui_MainWindow(object):
         self.doubleSpinBox_max_D.setObjectName("doubleSpinBox_max_D")
         self.gridLayout_6.addWidget(self.doubleSpinBox_max_D, 1, 5, 1, 1)
         self.verticalSlider_P = QtWidgets.QSlider(self.groupBox_5)
+        self.verticalSlider_P.setStyleSheet("handle:vertical{width:13;margin-top:-3;margin-bottom:-3;border-radius:6;background:qradialgradient(spread:pad,cx:0.5,cy:0.5,radius:0.5,fx:0.5,fy:0.5,stop:0.6 #FFFFFF,stop:0.8 #4c73a8);}\n"
+"        ")
         self.verticalSlider_P.setMinimum(0)
         self.verticalSlider_P.setMaximum(100)
         self.verticalSlider_P.setPageStep(1)
