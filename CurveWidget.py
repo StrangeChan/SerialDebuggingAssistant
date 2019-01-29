@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
 from PyQt5.QtCore import *
-from PyQt5.QtCore import QMargins
+# from PyQt5.QtCore import QMargins
 from PyQt5.QtGui import QPen,QPainter
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.figure import Figure
-import numpy as np
+# from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
+# from matplotlib.figure import Figure
+# import numpy as np
 import threading
 import time
-import random
+# import random
 from PyQt5.QtChart import QChart, QChartView, QLineSeries,QValueAxis,QAbstractAxis
 import math
 
@@ -17,7 +17,7 @@ Y_MAX = 100
 Y_MIN = -100
 INTERVAL = 0.01
 MAX_COUNTER = 100  # int(X_MINUTES * 60 / INTERVAL)
-
+'''
 class CurveWidget(FigureCanvas):
     def __init__(self, widget):
         self.fig = Figure()
@@ -279,7 +279,7 @@ class CurveDataS(QObject):
                 # self.add_data(new_data,self.__randomPlotChannel)
                 # self.add_data(new_data+69, self.__randomPlotChannel+1)
                 time.sleep(INTERVAL)
-
+'''
 
 class CurveChart(QChart):
     def __init__(self, parent = None):
@@ -291,7 +291,7 @@ class CurveChart(QChart):
             self.addSeries(self.__series[i])
         # 设置通道颜色
         self.__pen = QPen()
-        # self.__pen.setStyle(Qt.DashLine)
+        self.__pen.setStyle(Qt.DashLine)
         self.__pen.setColor(Qt.blue)
         self.__series[6].setPen(self.__pen)
         self.__series[0].setColor(Qt.red)

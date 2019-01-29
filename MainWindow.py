@@ -2,17 +2,17 @@
 
 from PyQt5 import QtCore, QtGui, QtSerialPort,QtWidgets
 from PyQt5.QtWidgets import QMessageBox,QMainWindow,QToolTip,QFileDialog
-from PyQt5.QtCore import QThread,QTimer,QFile
-from PyQt5.QtGui import QCursor,QIcon,QPen,QPainter
-from PyQt5.QtChart import QChart, QChartView
+from PyQt5.QtCore import QThread,QFile
+from PyQt5.QtGui import QCursor,QIcon,QPainter
+from PyQt5.QtChart import QChartView
 from ui_mainwidow import Ui_MainWindow
 from Receive import Receive
-from CurveWidget import CurveDataS,CurveChart
+from CurveWidget import CurveChart
 import struct
-import chardet
-from QCandyUi import CandyWindow
-from QCandyUi.CandyWindow import colorful
-import time
+# import chardet
+# from QCandyUi import CandyWindow
+# from QCandyUi.CandyWindow import colorful
+# import time
 
 OFF = False
 ON = True
@@ -60,7 +60,7 @@ class MainWindow(QMainWindow):
         self.ui.doubleSpinBox_I.setDecimals(3)
         self.ui.doubleSpinBox_D.setDecimals(2)
 
-        self.__curveDataS = CurveDataS(self.ui.widget_dynamic_curve)
+        # self.__curveDataS = CurveDataS(self.ui.widget_dynamic_curve)
         # signal and slot
         self.ui.pushButton_uart_sw.clicked.connect(self.change_uart_state)
         self.ui.pushButton_uart_rfresh.clicked.connect(self.refresh_uart_info)
@@ -198,7 +198,7 @@ class MainWindow(QMainWindow):
     def receive_uart_data(self):
         if self.__serialPort.isReadable():
             data = self.__serialPort.readAll()
-            _bytes = bytearray(data)
+            # _bytes = bytearray(data)
             # print(data)
             # print(data.length())
             if data.isEmpty():
@@ -206,8 +206,13 @@ class MainWindow(QMainWindow):
             self.ui.plainTextEdit_rx.moveCursor(QtGui.QTextCursor.End)
 
             if self.ui.radioButton_show_ascii.isChecked():
-                print(chardet.detect(_bytes))
-                self.ui.plainTextEdit_rx.insertPlainText(str(data, encoding= (chardet.detect(_bytes))['encoding']))
+                # _bytes.decode('utf8')
+                # print(chardet.detect(_bytes))
+                try:
+                    self.ui.plainTextEdit_rx.insertPlainText(str(data, encoding='gbk'))
+                except :
+                    self.ui.plainTextEdit_rx.insertPlainText(str(data))
+
             else:
                 hexText = data.toHex().toUpper()
                 # print(hexText)
@@ -221,7 +226,10 @@ class MainWindow(QMainWindow):
             # print(hexText)
             text =bytes.fromhex(hexText)
             # print(text)
-            self.ui.plainTextEdit_rx.setPlainText(str(text, encoding='gbk'))
+            try:
+                self.ui.plainTextEdit_rx.setPlainText(str(text, encoding='gbk'))
+            except:
+                self.ui.plainTextEdit_rx.setPlainText(str(text))
 
     def display_hex(self,checked):
         if checked:
@@ -258,7 +266,10 @@ class MainWindow(QMainWindow):
             if len(data) > 0:
                 hexText = self.ui.plainTextEdit_tx.toPlainText().replace(" ", "")
                 text = bytes.fromhex(hexText)
-                self.ui.plainTextEdit_tx.setPlainText(str(text, encoding='gbk'))
+                try:
+                    self.ui.plainTextEdit_tx.setPlainText(str(text, encoding='gbk'))
+                except:
+                    self.ui.plainTextEdit_tx.setPlainText(str(text))
 
     def transmit_data(self):
         data = self.ui.plainTextEdit_tx.toPlainText()
